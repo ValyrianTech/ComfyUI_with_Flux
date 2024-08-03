@@ -13,4 +13,6 @@ then
     service ssh start
 fi
 
+python main.py
+
 sleep infinity
