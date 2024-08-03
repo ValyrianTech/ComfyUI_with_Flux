@@ -14,7 +14,7 @@ wget https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.s
 wget https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp8_e4m3fn.safetensors -P $clip_path
 
 # Download and move flux_dev_example.png
-wget https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png -P /ComfyUI
+wget https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png -P /workspace/ComfyUI
 
 # Download and move ae.sft
 wget https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft -P $vae_path
