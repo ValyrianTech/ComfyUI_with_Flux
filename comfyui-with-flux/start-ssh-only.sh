@@ -13,6 +13,10 @@ then
     service ssh start
 fi
 
-python3 /ComfyUI/main.py --listen
+# Move text-generation-webui's folder to $VOLUME so models and all config will persist
+/comfyui-on-workspace.sh
+
+# Launch the UI
+python3 /workspace/ComfyUI/main.py --listen
 
 sleep infinity
