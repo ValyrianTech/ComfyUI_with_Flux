@@ -17,9 +17,9 @@ wget https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp
 wget https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png -P /workspace/ComfyUI
 
 # Download and move ae.sft
-wget https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft -P $vae_path
+# wget https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft -P $vae_path
 
 # Download and move flux1-dev-fp8.safetensors
-wget https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/flux1-dev.sft -P $unet_path
+# wget https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/flux1-dev.sft -P $unet_path
 
 echo "All files have been downloaded and moved to the correct directories."

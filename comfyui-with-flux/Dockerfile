@@ -33,4 +33,11 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
 WORKDIR /workspace
 
 EXPOSE 8188
+
+# Due to the fact that the models are in a gated repository, we need to download them separately BEFORE building this image and store them locally in /flux
+# https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft
+COPY /flux/ae.sft /ComfyUI/models/vae/
+# https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/flux1-dev.sft
+COPY /flux/flux1-dev.sft /ComfyUI/models/unet/
+
 CMD [ "/start.sh" ]
