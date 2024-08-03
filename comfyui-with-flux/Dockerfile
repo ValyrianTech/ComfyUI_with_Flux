@@ -30,5 +30,5 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
 
 WORKDIR /workspace
 
-ENV NVIDIA_DISABLE_REQUIRE=true
+EXPOSE 8188
 CMD [ "/start.sh" ]
