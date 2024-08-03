@@ -26,7 +26,7 @@ WORKDIR /workspace
 
 # Clone the git repo and install requirements in the same RUN command to ensure they are in the same layer
 RUN cd \ && \
-    git clone https://github.com/comfyanonymous/ComfyUI.git . && \
+    git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd ComfyUI && \
     pip install -r requirements.txt
 
