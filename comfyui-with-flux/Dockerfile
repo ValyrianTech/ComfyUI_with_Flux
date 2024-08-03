@@ -24,7 +24,8 @@ COPY --chmod=755 start-ssh-only.sh /start.sh
 
 WORKDIR /workspace
 
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git
-RUN cd ComfyUI && pip install -r requirements.txt
+RUN cd /workspace && git clone https://github.com/comfyanonymous/ComfyUI.git
+RUN cd /workspace/ComfyUI && pip install -r requirements.txt
 
+ENV NVIDIA_DISABLE_REQUIRE=true
 CMD [ "/start.sh" ]
