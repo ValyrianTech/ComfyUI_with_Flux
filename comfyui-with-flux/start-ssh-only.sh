@@ -13,6 +13,6 @@ then
     service ssh start
 fi
 
-python main.py
+python3 /ComfyUI/main.py
 
 sleep infinity
