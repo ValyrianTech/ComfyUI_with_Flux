@@ -8,10 +8,10 @@ clip_path="/workspace/ComfyUI/models/clip/"
 echo "Downloading Flux files..."
 
 # Download and move clip_l.safetensors
-wget https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors -P $clip_path
+wget -O clip_l.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true -P $clip_path
 
 # Download and move t5xxl_fp8_e4m3fn.safetensors
-wget https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp8_e4m3fn.safetensors -P $clip_path
+wget -O t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true -P $clip_path
 
 # Download and move flux_dev_example.png
 wget https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png -P /workspace/ComfyUI
