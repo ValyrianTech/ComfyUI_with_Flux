@@ -40,4 +40,13 @@ COPY flux/ae.sft /ComfyUI/models/vae/
 # https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/flux1-dev.sft
 COPY flux/flux1-dev.sft /ComfyUI/models/unet/
 
+# Download and move clip_l.safetensors
+RUN wget -O /ComfyUI/models/clip/clip_l.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true"
+
+# Download and move t5xxl_fp8_e4m3fn.safetensors
+RUN wget -O /ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true"
+
+# Download and move flux_dev_example.png
+RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
+
 CMD [ "/start.sh" ]
