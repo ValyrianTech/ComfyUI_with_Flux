@@ -23,7 +23,6 @@ RUN pip3 install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extr
 
 COPY --chmod=755 start-ssh-only.sh /start.sh
 COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
-COPY --chmod=755 download-flux.sh /download-flux.sh
 
 # Clone the git repo and install requirements in the same RUN command to ensure they are in the same layer
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
