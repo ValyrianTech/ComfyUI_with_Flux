@@ -456,8 +456,8 @@ export const defaultGraph = {
       "id": 11,
       "type": "DualCLIPLoader",
       "pos": [
-        48,
-        288
+        49,
+        275
       ],
       "size": {
         "0": 315,
@@ -490,8 +490,8 @@ export const defaultGraph = {
       "id": 6,
       "type": "CLIPTextEncode",
       "pos": [
-        384,
-        240
+        395,
+        253
       ],
       "size": {
         "0": 422.84503173828125,
@@ -638,10 +638,10 @@ export const defaultGraph = {
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7513148009015778,
+      "scale": 0.6209213230591555,
       "offset": [
-        -249.7850073990822,
-        -170.66338054072966
+        630.2062790609183,
+        -156.81578238072996
       ]
     }
   },
