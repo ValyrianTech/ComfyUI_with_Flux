@@ -34,8 +34,8 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd /ComfyUI && \
     mkdir pysssss-workflows
 
-COPY --chmod=755 workflow.json /ComfyUI/pysssss-workflows/txt2img.json
-COPY --chmod=755 workflow.json /ComfyUI/pysssss-workflows/img2img.json
+COPY --chmod=755 txt2img.json /ComfyUI/pysssss-workflows/txt2img.json
+COPY --chmod=755 img2img.json /ComfyUI/pysssss-workflows/img2img.json
 COPY --chmod=755 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 COPY --chmod=755 defaultGraph.js /ComfyUI/web/scripts/defaultGraph.js
 
