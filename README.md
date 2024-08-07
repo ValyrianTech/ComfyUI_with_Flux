@@ -1,7 +1,7 @@
 # ComfyUI with Flux.1-dev
 
 ## Video
-[![demo video](video_screenshot.png)](https://youtu.be/WojIAFte-5E)
+[![demo video](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/video_screenshot.png?raw=true)](https://youtu.be/WojIAFte-5E)
 
 ## Overview
 Welcome to the one-click deployment template of ComfyUI with Flux.1-dev. This template is designed to help you kickstart your journey with text-to-image conversions and more, without the hassle of extensive setup. 
