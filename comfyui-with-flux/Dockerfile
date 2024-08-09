@@ -9,10 +9,18 @@ FROM $DOCKER_FROM AS base
 # Install Python plus openssh, which is our minimum set of required packages.
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv && \
-    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget && \
+    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Install nginx
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    systemctl enable nginx
+
+# Copy the 'default' configuration file to the appropriate location
+COPY default /etc/nginx/sites-available/default
 
 ENV PATH="/usr/local/cuda/bin:${PATH}"
 
