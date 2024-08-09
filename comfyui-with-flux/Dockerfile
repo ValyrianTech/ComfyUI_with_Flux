@@ -16,8 +16,7 @@ RUN apt-get update -y && \
 
 # Install nginx
 RUN apt-get update && \
-    apt-get install -y nginx && \
-    systemctl enable nginx
+    apt-get install -y nginx
 
 # Copy the 'default' configuration file to the appropriate location
 COPY default /etc/nginx/sites-available/default
