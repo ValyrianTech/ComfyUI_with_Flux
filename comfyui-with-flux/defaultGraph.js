@@ -285,7 +285,7 @@ export const defaultGraph = {
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        384926607931898,
+        152065916457095,
         "randomize"
       ],
       "color": "#2a363b",
