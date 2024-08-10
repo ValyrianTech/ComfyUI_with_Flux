@@ -15,6 +15,15 @@ Welcome to the one-click deployment template of ComfyUI with Flux.1-dev. This te
 ## Getting Started
 Ready to dive in? Simply click on the 'Deploy' button. This will automatically set up ComfyUI with Flux.1-dev on your Runpod.io account, along with the default workflows, ComfyUI Manager, and Custom-Scripts.
 
+## API
+There is an example python script in the 'examples' folder that demonstrates how to interact with the ComfyUI API.
+It will add a new workflow to the queue, then periodically check the status of the workflow until it is completed.
+When the workflow is completed, a download link will be printed to the console.
+
+[api_example.py](examples/api_example.py)
+
+![TCP Port Mappings](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/tcp_port_mappings.png?raw=true)
+
 ## Note
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 10 minutes to complete. 
 
