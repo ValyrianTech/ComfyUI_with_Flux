@@ -22,12 +22,12 @@ When the workflow is completed, a download link will be printed to the console.
 
 To run the example script you need to run a command like this, replacing the IP address, port, and filepath with the appropriate values:
 ```
-python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api.json
+python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api_format.json
 ```
 
 Optionally, you can also specify a new prompt for the workflow:
 ```
-python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api.json --prompt "platinum blonde woman with magenta eyes"
+python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api_format.json --prompt "platinum blonde woman with magenta eyes"
 ```
 
 [api_example.py](examples/api_example.py)
