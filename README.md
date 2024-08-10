@@ -20,9 +20,23 @@ There is an example python script in the 'examples' folder that demonstrates how
 It will add a new workflow to the queue, then periodically check the status of the workflow until it is completed.
 When the workflow is completed, a download link will be printed to the console.
 
+To run the example script you need to run a command like this, replacing the IP address, port, and filepath with the appropriate values:
+```
+python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api.json
+```
+
+Optionally, you can also specify a new prompt for the workflow:
+```
+python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api.json --prompt "platinum blonde woman with magenta eyes"
+```
+
 [api_example.py](examples/api_example.py)
 
+You can find your IP address and port in the 'TCP Port Mappings' section when you click the 'Connect' button on the Runpod.io.
+You will need the Public IP and the External Port.
 ![TCP Port Mappings](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/tcp_port_mappings.png?raw=true)
+
+If you want to use a different workflow, keep in mind you must use the API format of the workflow, you can get this by clicking the 'Save (API Format)' button in the ComfyUI.
 
 ## Note
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 10 minutes to complete. 
