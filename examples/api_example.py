@@ -39,13 +39,15 @@ def get_history(url, prompt_id):
         return None
 
 
-def main(ip, port, filepath):
+def main(ip, port, filepath, prompt=None):
     url = f"http://{ip}:{port}"
 
     with open(filepath, 'r') as file:
         prompt_text = json.load(file)
 
     # Print the prompt text, either change the text here or in the JSON file
+    if prompt is not None:
+        prompt_text["6"]["inputs"]["text"] = prompt
     print(f'Prompt: {prompt_text["6"]["inputs"]["text"]}')
 
     # Set the seed for our KSampler node, always generate a new seed
@@ -98,9 +100,10 @@ def main(ip, port, filepath):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Add a prompt to the queue and wait for the output.')
-    parser.add_argument('--ip', type=str, required=True, help='The IP address of the API server')
-    parser.add_argument('--port', type=int, required=True, help='The port of the API server')
+    parser.add_argument('--ip', type=str, required=True, help='The public IP address of the pod (you can see this in the "TCP Port Mappings" tab when you click the "connect" button on Runpod.io)')
+    parser.add_argument('--port', type=int, required=True, help='The external port of the pod (you can see this in the "TCP Port Mappings" tab when you click the "connect" button on Runpod.io)')
     parser.add_argument('--filepath', type=str, required=True, help='The path to the JSON file containing the workflow in api format')
+    parser.add_argument('--prompt', type=str, required=False, help='The prompt to use for the workflow', default=None, nargs='*')
 
     args = parser.parse_args()
-    main(args.ip, args.port, args.filepath)
+    main(args.ip, args.port, args.filepath, ' '.join(args.prompt) if args.prompt is not None else None)
