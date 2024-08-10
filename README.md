@@ -30,7 +30,7 @@ Optionally, you can also specify a new prompt for the workflow:
 python api_example.py --ip 194.68.245.38 --port 22018 --filepath workflow_api_format.json --prompt "platinum blonde woman with magenta eyes"
 ```
 
-[api_example.py](examples/api_example.py)
+[api_example.py](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/examples/api_example.py)
 
 You can find your IP address and port in the 'TCP Port Mappings' section when you click the 'Connect' button on the Runpod.io.
 You will need the Public IP and the External Port.
