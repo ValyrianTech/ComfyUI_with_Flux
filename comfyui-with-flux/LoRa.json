@@ -30,7 +30,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        687066617804462,
+        1054367826540205,
         "randomize"
       ]
     },
@@ -66,90 +66,6 @@
       ]
     },
     {
-      "id": 12,
-      "type": "FluxGuidance",
-      "pos": [
-        -356,
-        -169
-      ],
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 14,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "Positive Guidance",
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
-      "id": 13,
-      "type": "FluxGuidance",
-      "pos": [
-        -357,
-        -46
-      ],
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 15,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            12
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "Negative Guidance",
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
-    {
       "id": 6,
       "type": "BasicScheduler",
       "pos": [
@@ -161,7 +77,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -201,7 +117,7 @@
         "1": 142
       },
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -248,11 +164,325 @@
       ]
     },
     {
+      "id": 11,
+      "type": "UNETLoader",
+      "pos": [
+        -1025,
+        365
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -656,
+        365
+      ],
+      "size": {
+        "0": 391.2833557128906,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "tooltip": "The modified diffusion model."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "lora.safetensors",
+        0.8
+      ]
+    },
+    {
+      "id": 14,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -832,
+        156
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "EmptyLatentImage",
+      "pos": [
+        242,
+        693
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            6
+          ],
+          "shape": 3,
+          "tooltip": "The empty latent image batch."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "type": "ModelSamplingFlux",
+      "pos": [
+        -219,
+        365
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7,
+            8
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.15,
+        0.5,
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 16,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -572,
+        157
+      ],
+      "size": {
+        "0": 397.11383056640625,
+        "1": 138.2366485595703
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cgi, doll, deformed, disfigured, poorly drawn, bad anatomy, blurry, piercing, tattoo "
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -572,
+        -33
+      ],
+      "size": {
+        "0": 387.6975402832031,
+        "1": 145.22076416015625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "GracePenelopeTargaryen"
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 17,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -1195,
+        195
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16,
+            17,
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
       "id": 2,
       "type": "SamplerCustomAdvanced",
       "pos": [
-        697.0017700195312,
-        300.5079345703125
+        648,
+        -17
       ],
       "size": {
         "0": 355.20001220703125,
@@ -315,131 +545,42 @@
       }
     },
     {
-      "id": 16,
-      "type": "CLIPTextEncode",
+      "id": 19,
+      "type": "VAELoader",
       "pos": [
-        -839,
-        -46
-      ],
-      "size": {
-        "0": 397.11383056640625,
-        "1": 138.2366485595703
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 17,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            15
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Negative Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "cgi, doll, deformed, disfigured, poorly drawn, bad anatomy, blurry, "
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
-    {
-      "id": 17,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -1310,
-        -116
+        649,
+        160
       ],
       "size": {
         "0": 315,
-        "1": 106
+        "1": 58
       },
       "flags": {},
-      "order": 2,
+      "order": 5,
       "mode": 0,
       "outputs": [
         {
-          "name": "CLIP",
-          "type": "CLIP",
+          "name": "VAE",
+          "type": "VAE",
           "links": [
-            16,
-            17,
-            18
+            20
           ],
-          "slot_index": 0,
           "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "DualCLIPLoader"
+        "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
-    },
-    {
-      "id": 14,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -832,
-        156
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 18
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
+        "ae.sft"
       ]
     },
     {
       "id": 18,
       "type": "VAEDecode",
       "pos": [
-        1120,
-        299
+        1082,
+        82
       ],
       "size": {
         "0": 210,
@@ -478,42 +619,11 @@
       }
     },
     {
-      "id": 19,
-      "type": "VAELoader",
-      "pos": [
-        735,
-        465
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
       "id": 20,
       "type": "PreviewImage",
       "pos": [
-        1373,
-        300
+        1345,
+        -20
       ],
       "size": {
         "0": 377.0920104980469,
@@ -534,175 +644,24 @@
       }
     },
     {
-      "id": 11,
-      "type": "UNETLoader",
+      "id": 12,
+      "type": "FluxGuidance",
       "pos": [
-        -1025,
-        365
+        -140,
+        16
       ],
       "size": {
-        "0": 315,
-        "1": 82
+        "0": 317.4000244140625,
+        "1": 58
       },
       "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            10
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1-dev.sft",
-        "fp8_e4m3fn"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -656,
-        365
-      ],
-      "size": {
-        "0": 391.2833557128906,
-        "1": 82
-      },
-      "flags": {},
-      "order": 9,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 10,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "tooltip": "The modified diffusion model."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "lora.safetensors",
-        0.8
-      ]
-    },
-    {
-      "id": 9,
-      "type": "ModelSamplingFlux",
-      "pos": [
-        -219,
-        365
-      ],
-      "size": {
-        "0": 315,
-        "1": 130
-      },
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 9,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            7,
-            8
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ModelSamplingFlux"
-      },
-      "widgets_values": [
-        1.15,
-        0.5,
-        512,
-        512
-      ]
-    },
-    {
-      "id": 8,
-      "type": "EmptyLatentImage",
-      "pos": [
-        242,
-        693
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            6
-          ],
-          "shape": 3,
-          "tooltip": "The empty latent image batch."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        512,
-        512,
-        1
-      ]
-    },
-    {
-      "id": 15,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -833,
-        -259
-      ],
-      "size": {
-        "0": 387.6975402832031,
-        "1": 145.22076416015625
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 16,
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14,
           "slot_index": 0
         }
       ],
@@ -711,21 +670,62 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            14
+            11
           ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+          "shape": 3
         }
       ],
-      "title": "Positive Prompt",
+      "title": "Positive Guidance",
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "Node name for S&R": "FluxGuidance"
       },
       "widgets_values": [
-        "GracePenelopeTargaryen with long braided platinum blonde hair"
+        3.5
       ],
       "color": "#1a571a",
       "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 13,
+      "type": "FluxGuidance",
+      "pos": [
+        -146,
+        197
+      ],
+      "size": {
+        "0": 317.4000244140625,
+        "1": 58
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 15,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Negative Guidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
     }
   ],
   "links": [
@@ -894,10 +894,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.4864362802414472,
+      "scale": 1.4864362802414528,
       "offset": [
-        843.1780957143717,
-        260.5010146780624
+        610.2199013008745,
+        46.50740949616882
       ]
     }
   },
