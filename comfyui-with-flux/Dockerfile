@@ -32,10 +32,8 @@ COPY --chmod=755 start-ssh-only.sh /start.sh
 COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
 
 # Clone the git repo and install requirements in the same RUN command to ensure they are in the same layer
-# Freeze the version of ComfyUI to a specific commit because the default workflow breaks with the latest version
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd ComfyUI && \
-    git checkout 5cfe38f && \
     pip3 install -r requirements.txt && \
     cd custom_nodes && \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
