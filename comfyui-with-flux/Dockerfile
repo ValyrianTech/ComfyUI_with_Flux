@@ -34,6 +34,7 @@ COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
 # Clone the git repo and install requirements in the same RUN command to ensure they are in the same layer
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd ComfyUI && \
+    git checkout 5cfe38f && \  # Freeze the version because later version break the default workflow at startup
     pip3 install -r requirements.txt && \
     cd custom_nodes && \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
@@ -69,6 +70,7 @@ RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/fl
 # Download LoRas
 RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV1.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryen/resolve/main/lora.safetensors?download=true"
 RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV2.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV2/resolve/main/lora.safetensors?download=true"
-RUN wget -O /ComfyUI/models/loras/flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true"
+RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true"
+RUN wget -O /ComfyUI/models/loras/Xlabs-AI_flux-RealismLora.safetensors "https://huggingface.co/XLabs-AI/flux-RealismLora/resolve/main/lora.safetensors?download=true"
 
 CMD [ "/start.sh" ]
