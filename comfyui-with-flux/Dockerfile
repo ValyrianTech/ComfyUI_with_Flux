@@ -43,6 +43,7 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
 
 COPY --chmod=755 txt2img.json /ComfyUI/pysssss-workflows/txt2img.json
 COPY --chmod=755 img2img.json /ComfyUI/pysssss-workflows/img2img.json
+COPY --chmod=755 LoRa.json /ComfyUI/pysssss-workflows/LoRa.json
 COPY --chmod=755 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 COPY --chmod=755 defaultGraph.js /ComfyUI/web/scripts/defaultGraph.js
 
@@ -64,5 +65,10 @@ RUN wget -O /ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors "https://huggingfa
 
 # Download and move flux_dev_example.png
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
+
+# Download LoRas
+RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV1.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryen/resolve/main/lora.safetensors?download=true"
+RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV2.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV2/resolve/main/lora.safetensors?download=true"
+RUN wget -O /ComfyUI/models/loras/flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true"
 
 CMD [ "/start.sh" ]
