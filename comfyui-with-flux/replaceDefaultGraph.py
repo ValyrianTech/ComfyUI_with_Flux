@@ -1,6 +1,5 @@
 import json
 import re
-import subprocess
 
 # Load the contents of defaultGraph.json
 with open('/defaultGraph.json', 'r', encoding='utf-8') as json_file:
@@ -28,7 +27,3 @@ if matches:
     print("Replacement applied successfully.")
 else:
     print("No matches found for the pattern")
-
-# Verify the replacement using grep
-grep_result = subprocess.run(['grep', '-A', '20', 'const defaultGraph =', 'index-CI3N807S.js'], capture_output=True, text=True)
-print("Grep result:\n", grep_result.stdout)
