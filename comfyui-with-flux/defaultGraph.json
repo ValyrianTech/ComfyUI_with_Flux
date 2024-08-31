@@ -411,7 +411,7 @@
         "text": ""
       },
       "widgets_values": [
-        "If you get an error in any of the nodes above make sure the files are in the correct directories.\n\nSee the top of the examples page for the links : https://comfyanonymous.github.io/ComfyUI_examples/flux/\n\nflux1-dev.sft goes in: ComfyUI/models/unet/\n\nt5xxl_fp16.safetensors and clip_l.safetensors go in: ComfyUI/models/clip/\n\nae.sft goes in: ComfyUI/models/vae/\n\n\nTip: You can set the weight_dtype above to one of the fp8 types if you have memory issues."
+        "Click on the arrow next to the Load button to load any of the included workflows like txt2img, img2img and LoRa."
       ],
       "color": "#432",
       "bgcolor": "#653"
