@@ -45,7 +45,6 @@ COPY --chmod=755 txt2img.json /ComfyUI/pysssss-workflows/txt2img.json
 COPY --chmod=755 img2img.json /ComfyUI/pysssss-workflows/img2img.json
 COPY --chmod=755 LoRa.json /ComfyUI/pysssss-workflows/LoRa.json
 COPY --chmod=755 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
-COPY --chmod=755 defaultGraph.js /ComfyUI/web/scripts/defaultGraph.js
 
 WORKDIR /workspace
 
@@ -71,5 +70,11 @@ RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV1.safetensors "https://
 RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV2.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV2/resolve/main/lora.safetensors?download=true"
 RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true"
 RUN wget -O /ComfyUI/models/loras/Xlabs-AI_flux-RealismLora.safetensors "https://huggingface.co/XLabs-AI/flux-RealismLora/resolve/main/lora.safetensors?download=true"
+
+# This is a hacky way to change the default workflow on startup, but it works
+COPY --chmod=755 defaultGraph.json /defaultGraph.json
+COPY --chmod=755 replaceDefaultGraph.py /replaceDefaultGraph.py
+# Run the Python script
+RUN python3 /replaceDefaultGraph.py
 
 CMD [ "/start.sh" ]

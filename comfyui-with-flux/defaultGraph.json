@@ -1,4 +1,4 @@
-export const defaultGraph = {
+{
   "last_node_id": 29,
   "last_link_id": 43,
   "nodes": [
@@ -646,4 +646,4 @@ export const defaultGraph = {
     }
   },
   "version": 0.4
-};
+}
