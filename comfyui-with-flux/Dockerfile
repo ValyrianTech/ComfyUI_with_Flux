@@ -54,7 +54,7 @@ EXPOSE 8188
 # https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft
 COPY flux/ae.sft /ComfyUI/models/vae/
 # https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/flux1-dev.sft
-COPY flux/flux1-dev.sft /ComfyUI/models/unet/
+COPY flux/flux1-dev.sft /ComfyUI/models/diffusion_models/
 
 # Download and move clip_l.safetensors
 RUN wget -O /ComfyUI/models/clip/clip_l.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true"
