@@ -346,55 +346,6 @@
       ]
     },
     {
-      "id": 10,
-      "type": "LoraLoaderModelOnly",
-      "pos": {
-        "0": -606,
-        "1": 447,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 391.2833557128906,
-        "1": 82
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 10,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "tooltip": "The modified diffusion model."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "VideoAditor_flux_realism_lora.safetensors",
-        0
-      ]
-    },
-    {
       "id": 14,
       "type": "CLIPTextEncode",
       "pos": {
@@ -645,47 +596,6 @@
       ]
     },
     {
-      "id": 3,
-      "type": "RandomNoise",
-      "pos": {
-        "0": 250,
-        "1": -22,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "NOISE",
-          "type": "NOISE",
-          "links": [
-            1
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RandomNoise"
-      },
-      "widgets_values": [
-        1039331819298524,
-        "randomize"
-      ]
-    },
-    {
       "id": 11,
       "type": "UNETLoader",
       "pos": {
@@ -705,7 +615,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -797,7 +707,7 @@
         "1": 115.59778594970703
       },
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -807,6 +717,56 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": -138,
+        "1": -32,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 58
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Positive Guidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
     },
     {
       "id": 15,
@@ -854,17 +814,17 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "A young woman with bright magenta eyes and platinum blonde hair confidently speaking onstage at a TED conference. Her engaging smile and professional demeanor are highlighted, capturing the essence of her role."
+        "A young woman with platinum blonde hair confidently speaking onstage at a TED conference. Her engaging smile and professional demeanor are highlighted, capturing the essence of her role."
       ],
       "color": "#1a571a",
       "bgcolor": "#2e6b2e"
     },
     {
-      "id": 12,
-      "type": "FluxGuidance",
+      "id": 10,
+      "type": "LoraLoaderModelOnly",
       "pos": {
-        "0": -141,
-        "1": -30,
+        "0": -606,
+        "1": 447,
         "2": 0,
         "3": 0,
         "4": 0,
@@ -875,39 +835,79 @@
         "9": 0
       },
       "size": {
-        "0": 317.4000244140625,
-        "1": 58
+        "0": 391.2833557128906,
+        "1": 82
       },
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 14,
+          "name": "model",
+          "type": "MODEL",
+          "link": 10,
           "slot_index": 0
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            11
+            9
+          ],
+          "shape": 3,
+          "tooltip": "The modified diffusion model."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "VideoAditor_flux_realism_lora.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "RandomNoise",
+      "pos": {
+        "0": 250,
+        "1": -22,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            1
           ],
           "shape": 3
         }
       ],
-      "title": "Positive Guidance",
       "properties": {
-        "Node name for S&R": "FluxGuidance"
+        "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        3.5
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
+        243980779094661,
+        "randomize"
+      ]
     }
   ],
   "links": [
@@ -1076,10 +1076,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9229599817706522,
+      "scale": 1.0152559799477174,
       "offset": [
-        1272.408699599863,
-        124.98793873921483
+        1188.7696945832436,
+        106.36307922253044
       ]
     }
   },
