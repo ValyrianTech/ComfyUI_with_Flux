@@ -294,108 +294,6 @@
       }
     },
     {
-      "id": 16,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -572,
-        "1": 157,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 397.11383056640625,
-        "1": 138.2366485595703
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 17,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            15
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Negative Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "cgi, doll, deformed, disfigured, poorly drawn, bad anatomy, blurry, piercing, tattoo "
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
-    {
-      "id": 15,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -572,
-        "1": -33,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 387.6975402832031,
-        "1": 145.22076416015625
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 16,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Positive Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Close-up of a beautiful woman, age 25, with bright magenta eyes and long braided platinum blonde hair."
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
       "id": 9,
       "type": "ModelSamplingFlux",
       "pos": {
@@ -641,56 +539,6 @@
       "bgcolor": "#6b2e2e"
     },
     {
-      "id": 12,
-      "type": "FluxGuidance",
-      "pos": {
-        "0": -149,
-        "1": -26,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 14,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "Positive Guidance",
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
       "id": 4,
       "type": "PerpNegGuider",
       "pos": {
@@ -833,7 +681,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        875382132703032,
+        1039331819298524,
         "randomize"
       ]
     },
@@ -879,11 +727,11 @@
       ]
     },
     {
-      "id": 21,
-      "type": "Note",
+      "id": 16,
+      "type": "CLIPTextEncode",
       "pos": {
-        "0": -606,
-        "1": 583,
+        "0": -572,
+        "1": 157,
         "2": 0,
         "3": 0,
         "4": 0,
@@ -893,10 +741,61 @@
         "8": 0,
         "9": 0
       },
-      "size": [
-        383.202757788187,
-        115.59778229681376
+      "size": {
+        "0": 397.11383056640625,
+        "1": 138.2366485595703
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17,
+          "slot_index": 0
+        }
       ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, low quality, deformed, grainy, bad anatomy"
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
+    },
+    {
+      "id": 21,
+      "type": "Note",
+      "pos": {
+        "0": -600,
+        "1": 574,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 383.2027587890625,
+        "1": 115.59778594970703
+      },
       "flags": {},
       "order": 6,
       "mode": 0,
@@ -904,10 +803,111 @@
       "outputs": [],
       "properties": {},
       "widgets_values": [
-        "To try your own LoRa, download it into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0."
+        "To make your own Lora, you can use this: https://replicate.com/ostris/flux-dev-lora-trainer/train\nTo try your own LoRa, download the lora.safetensors file into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0 while keeping the noise_seed fixed."
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -572,
+        "1": -33,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 387.6975402832031,
+        "1": 145.22076416015625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A young woman with bright magenta eyes and platinum blonde hair confidently speaking onstage at a TED conference. Her engaging smile and professional demeanor are highlighted, capturing the essence of her role."
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 12,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": -141,
+        "1": -30,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 58
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Positive Guidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
     }
   ],
   "links": [
@@ -1076,10 +1076,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0152559799477174,
+      "scale": 0.9229599817706522,
       "offset": [
-        1167.3950789276807,
-        119.71004478983737
+        1272.408699599863,
+        124.98793873921483
       ]
     }
   },
