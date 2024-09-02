@@ -66,7 +66,7 @@ RUN wget -O /ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors "https://huggingfa
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
 
 # Install Xlabs-AI/flux-RealismLora
-RUN apt-get install libgl1-mesa-glx libglib2.0-0
+RUN apt-get install -y libgl1-mesa-glx libglib2.0-0
 RUN cd /ComfyUI/custom_nodes && \
     git https://github.com/XLabs-AI/x-flux-comfyui.git && \
     cd x-flux-comfyui && \
