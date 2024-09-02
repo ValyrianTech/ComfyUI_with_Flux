@@ -67,10 +67,10 @@ RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/fl
 
 # Install Xlabs-AI/flux-RealismLora
 RUN apt-get install libgl1-mesa-glx libglib2.0-0
-RUN git clone https://github.com/XLabs-AI/x-flux.git && \
-    cd x-flux && \
-    pip3 install -r requirements.txt && \
-    python3 setup.py install
+RUN cd /ComfyUI/custom_nodes && \
+    git https://github.com/XLabs-AI/x-flux-comfyui.git && \
+    cd x-flux-comfyui && \
+    python3 setup.py
 
 # Download LoRas
 RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV1.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryen/resolve/main/lora.safetensors?download=true"
