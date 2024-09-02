@@ -3,50 +3,6 @@
   "last_link_id": 45,
   "nodes": [
     {
-      "id": 4,
-      "type": "DualCLIPLoader",
-      "pos": {
-        "0": -729,
-        "1": -154,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            44,
-            45
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "flux"
-      ]
-    },
-    {
       "id": 25,
       "type": "CLIPTextEncode",
       "pos": {
@@ -66,7 +22,7 @@
         "1": 138.2366485595703
       },
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -83,9 +39,9 @@
           "links": [
             41
           ],
+          "slot_index": 0,
           "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model.",
-          "slot_index": 0
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
         }
       ],
       "title": "Negative Prompt",
@@ -135,8 +91,8 @@
           "links": [
             42
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
       "title": "Positive Guidance",
@@ -186,8 +142,8 @@
           "links": [
             43
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
       "title": "Negative Guidance",
@@ -220,7 +176,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -262,7 +218,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -305,7 +261,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -377,41 +333,6 @@
       }
     },
     {
-      "id": 21,
-      "type": "PreviewImage",
-      "pos": {
-        "0": 1351,
-        "1": -275,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": [
-        585.2111895063199,
-        598.1676795929556
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 31,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
       "id": 24,
       "type": "CLIPTextEncode",
       "pos": {
@@ -431,7 +352,7 @@
         "1": 145.22076416015625
       },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -448,9 +369,9 @@
           "links": [
             40
           ],
+          "slot_index": 0,
           "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model.",
-          "slot_index": 0
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
         }
       ],
       "title": "Positive Prompt",
@@ -462,6 +383,54 @@
       ],
       "color": "#1a571a",
       "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 23,
+      "type": "FluxLoraLoader",
+      "pos": {
+        "0": 117,
+        "1": -295,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxLoraLoader"
+      },
+      "widgets_values": [
+        "Xlabs-AI_flux-RealismLora.safetensors",
+        1
+      ]
     },
     {
       "id": 3,
@@ -537,11 +506,11 @@
       ]
     },
     {
-      "id": 23,
-      "type": "FluxLoraLoader",
+      "id": 4,
+      "type": "DualCLIPLoader",
       "pos": {
-        "0": 117,
-        "1": -295,
+        "0": -729,
+        "1": -154,
         "2": 0,
         "3": 0,
         "4": 0,
@@ -553,36 +522,67 @@
       },
       "size": {
         "0": 315,
-        "1": 82
+        "1": 106
       },
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 36
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "MODEL",
-          "type": "MODEL",
+          "name": "CLIP",
+          "type": "CLIP",
           "links": [
-            37
+            44,
+            45
           ],
           "slot_index": 0,
           "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "FluxLoraLoader"
+        "Node name for S&R": "DualCLIPLoader"
       },
       "widgets_values": [
-        "Xlabs-AI_flux-RealismLora.safetensors",
-        1
+        "clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "flux"
       ]
+    },
+    {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1382,
+        "1": -276,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 585.211181640625,
+        "1": 598.1676635742188
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 31,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
     }
   ],
   "links": [
@@ -687,10 +687,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6934334949441415,
+      "scale": 0.8264462809917361,
       "offset": [
-        1096.8460764014187,
-        561.8999373000755
+        761.6412501257796,
+        713.1587559929745
       ]
     }
   },
