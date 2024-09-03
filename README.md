@@ -4,7 +4,7 @@
 - Updated ComfyUI to latest version
 - Added Realism LoRa from XLabs-AI and VideoAditor
 - Custom LoRa for Valyrian Tech's virtual spokesperson (Trigger word: "GracePenelopeTargaryen")
-- Added JupiterLab for easy uploading of files
+- Added JupyterLab for easy uploading of files
 
 ## Video
 [![demo video](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/video_screenshot.png?raw=true)](https://youtu.be/WojIAFte-5E)
