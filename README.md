@@ -53,7 +53,7 @@ Patience is a virtue! This template includes all the files needed to run ComfyUI
 
 Happy creating!
 
-## JupiterLab
+## JupyterLab
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
 Click on the connect to 8888 to open JupyterLab.
 You will be asked for a token, this will be different each time you deploy a new pod.
