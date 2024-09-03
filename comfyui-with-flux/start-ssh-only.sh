@@ -19,11 +19,11 @@ fi
 # Start nginx as reverse proxy to enable api access
 service nginx start
 
-# Launch the UI
-python3 /workspace/ComfyUI/main.py --listen
-
 # Start JupyterLab
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root &
 echo "JupyterLab started"
+
+# Launch the UI
+python3 /workspace/ComfyUI/main.py --listen
 
 sleep infinity
