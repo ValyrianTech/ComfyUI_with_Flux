@@ -1,5 +1,11 @@
 # ComfyUI with Flux.1-dev
 
+## Update 2024-09-03
+- Updated ComfyUI to latest version
+- Added Realism LoRa from XLabs-AI and VideoAditor
+- Custom LoRa for Valyrian Tech's virtual spokesperson (Trigger word: "GracePenelopeTargaryen")
+- Added JupiterLab for easy uploading of files
+
 ## Video
 [![demo video](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/video_screenshot.png?raw=true)](https://youtu.be/WojIAFte-5E)
 
@@ -46,3 +52,14 @@ If you want to use a different workflow, keep in mind you must use the API forma
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 10 minutes to complete. 
 
 Happy creating!
+
+## JupiterLab
+You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
+Click on the connect to 8888 to open JupyterLab.
+You will be asked for a token, this will be different each time you deploy a new pod.
+The token can be seen in the logs of the runpod template:
+
+![JupyterLab token](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/JupyterLab_token.png?raw=true)
+
+Alternatively, you can start the web terminal and connect to it and enter the command "jupyter server list" to get the token.
+
