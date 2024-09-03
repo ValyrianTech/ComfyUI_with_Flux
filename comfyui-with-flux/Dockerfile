@@ -88,4 +88,8 @@ COPY --chmod=755 replaceDefaultGraph.py /replaceDefaultGraph.py
 # Run the Python script
 RUN python3 /replaceDefaultGraph.py
 
+# Add Jupyter Notebook
+RUN pip3 install jupyterlab
+EXPOSE 8888
+
 CMD [ "/start.sh" ]
