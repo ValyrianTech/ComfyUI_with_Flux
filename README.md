@@ -55,8 +55,10 @@ Happy creating!
 
 ## JupyterLab
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
-Click on the connect to 8888 to open JupyterLab.
+
+Click on the "Connect to HTTP Service [Port 8888]" button to open JupyterLab.
 You will be asked for a token, this will be different each time you deploy a new pod.
+
 The token can be seen in the logs of the runpod template:
 
 ![JupyterLab token](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/JupyterLab_token.png?raw=true)
