@@ -38,6 +38,15 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd custom_nodes && \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
     git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git && \
+    git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git && \
+    git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git && \
+    git clone https://github.com/WASasquatch/was-node-suite-comfyui.git && \
+    git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git && \
+    git clone https://github.com/melMass/comfy_mtb.git && \
+    git clone https://github.com/rgthree/rgthree-comfy.git && \
+    git clone https://github.com/cubiq/ComfyUI_essentials.git && \
+    git clone https://github.com/chrisgoringe/cg-use-everywhere.git && \
+    git clone https://github.com/Smirnov75/ComfyUI-mxToolkit.git && \
     cd /ComfyUI && \
     mkdir pysssss-workflows
 
@@ -60,8 +69,8 @@ COPY flux/flux1-dev.sft /ComfyUI/models/diffusion_models/
 # Download and move clip_l.safetensors
 RUN wget -O /ComfyUI/models/clip/clip_l.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true"
 
-# Download and move t5xxl_fp8_e4m3fn.safetensors
-RUN wget -O /ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true"
+# Download and move t5xxl_fp16.safetensors
+RUN wget -O /ComfyUI/models/clip/t5xxl_fp16.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true"
 
 # Download and move flux_dev_example.png
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
@@ -73,10 +82,10 @@ RUN cd /ComfyUI/custom_nodes && \
     cd x-flux-comfyui && \
     python3 setup.py
 
-# Download LoRas
-RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV1.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryen/resolve/main/lora.safetensors?download=true"
-RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV2.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV2/resolve/main/lora.safetensors?download=true"
-RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true"
+# Download Extras
+RUN wget -O /ComfyUI/models/ultralytics/bbox/Eyeful_v2-Paired.pt "https://huggingface.co/marshy/models919/resolve/main/Eyeful_v2-Paired.pt?download=true"
+RUN wget -O /ComfyUI/models/upscale_models/4x_NMKD-Siax_200k.pth "https://huggingface.co/marshy/models919/resolve/main/4x_NMKD-Siax_200k.pth?download=true"
+RUN wget -O /ComfyUI/models/clip/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors "https://huggingface.co/zer0int/CLIP-GmP-ViT-L-14/resolve/main/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors?download=true"
 
 # make the xlabs directory
 RUN mkdir -p /ComfyUI/models/xlabs/loras
