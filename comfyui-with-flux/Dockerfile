@@ -92,4 +92,15 @@ RUN python3 /replaceDefaultGraph.py
 RUN pip3 install jupyterlab
 EXPOSE 8888
 
+# Add some additional custom nodes
+# LDSR Upscale
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/flowtyone/ComfyUI-Flowty-LDSR.git && \
+    cd ComfyUI-Flowty-LDSR && \
+    pip3 install -r requirements.txt
+
+# Add download scripts for additional models
+COPY --chmod=755 download_LDSR.sh /download_LDSR.sh
+COPY --chmod=75  download_SUPIR.sh /download_SUPIR.sh
+
 CMD [ "/start.sh" ]
