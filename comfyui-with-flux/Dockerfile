@@ -101,6 +101,36 @@ RUN cd /ComfyUI/custom_nodes && \
 
 # Add download scripts for additional models
 COPY --chmod=755 download_LDSR.sh /download_LDSR.sh
-COPY --chmod=75  download_SUPIR.sh /download_SUPIR.sh
+COPY --chmod=755 download_SUPIR.sh /download_SUPIR.sh
+
+# SUPIR Upscale
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-SUPIR.git && \
+    cd ComfyUI-SUPIR && \
+    pip3 install -r requirements.txt
+
+# KJNodes
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
+    cd ComfyUI-KJNodes && \
+    pip3 install -r requirements.txt
+
+# rgthree
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/rgthree/rgthree-comfy.git && \
+    cd rgthree-comfy && \
+    pip3 install -r requirements.txt
+
+# JPS-Nodes
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git
+
+# Comfyrol Studio
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git
+
+# comfy-plasma
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Jordach/comfy-plasma.git
 
 CMD [ "/start.sh" ]
