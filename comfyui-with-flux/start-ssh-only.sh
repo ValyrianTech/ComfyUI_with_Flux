@@ -20,8 +20,7 @@ fi
 service nginx start
 
 # Start JupyterLab
-jupyter server extension enable --py jupyter_http_over_ws
-jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root &
+jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.allow_origin='*' &
 echo "JupyterLab started"
 
 # Launch the UI
