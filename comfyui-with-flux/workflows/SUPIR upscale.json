@@ -1309,7 +1309,7 @@
         "Node name for S&R": "SUPIR_conditioner"
       },
       "widgets_values": [
-        "high quality, detailed, magenta eyes",
+        "high quality, detailed,",
         "bad quality, blurry, messy",
         ""
       ],
