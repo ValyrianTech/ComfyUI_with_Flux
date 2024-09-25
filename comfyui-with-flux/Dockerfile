@@ -131,4 +131,44 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/Jordach/comfy-plasma.git
 
+# ComfyUI-VideoHelperSuite
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git && \
+    cd ComfyUI-VideoHelperSuite && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-AdvancedLivePortrait
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/PowerHouseMan/ComfyUI-AdvancedLivePortrait.git && \
+    cd ComfyUI-AdvancedLivePortrait && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-Impact-Subpack
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git && \
+    cd ComfyUI-Impact-Subpack && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-Impact-controlnet_aux
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git && \
+    cd comfyui_controlnet_aux && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-UltimateSDUpscale
+RUN cd /ComfyUI/custom_nodes && \
+    git clone git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale --recursive
+
+# ComfyUI-Easy-Use
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/yolain/ComfyUI-Easy-Use.git && \
+    cd ComfyUI-Easy-Use && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-Florence2
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-Florence2.git && \
+    cd ComfyUI-Florence2 && \
+    pip3 install -r requirements.txt
+
 CMD [ "/start.sh" ]
