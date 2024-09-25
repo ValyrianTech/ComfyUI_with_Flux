@@ -157,7 +157,7 @@ RUN cd /ComfyUI/custom_nodes && \
 
 # ComfyUI-UltimateSDUpscale
 RUN cd /ComfyUI/custom_nodes && \
-    git clone git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale --recursive
+    git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale --recursive
 
 # ComfyUI-Easy-Use
 RUN cd /ComfyUI/custom_nodes && \
