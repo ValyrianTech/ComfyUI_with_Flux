@@ -89,7 +89,7 @@ COPY --chmod=755 replaceDefaultGraph.py /replaceDefaultGraph.py
 RUN python3 /replaceDefaultGraph.py
 
 # Add Jupyter Notebook
-RUN pip3 install jupyterlab
+RUN pip3 install jupyterlab jupyter_http_over_ws
 EXPOSE 8888
 
 # Add some additional custom nodes
