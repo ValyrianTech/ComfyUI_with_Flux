@@ -41,10 +41,7 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
     cd /ComfyUI && \
     mkdir pysssss-workflows
 
-COPY --chmod=755 txt2img.json /ComfyUI/pysssss-workflows/txt2img.json
-COPY --chmod=755 img2img.json /ComfyUI/pysssss-workflows/img2img.json
-COPY --chmod=755 LoRa.json /ComfyUI/pysssss-workflows/LoRa.json
-COPY --chmod=755 Xlabs-AI_RealismLoRa.json /ComfyUI/pysssss-workflows/Xlabs-AI_RealismLoRa.json
+COPY --chmod=644 workflows/ /ComfyUI/pysssss-workflows/
 COPY --chmod=755 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 
 WORKDIR /workspace
