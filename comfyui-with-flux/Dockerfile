@@ -148,7 +148,8 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git && \
     cd ComfyUI-Impact-Pack && \
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt && \
+    python3 install.py
 
 # ComfyUI-Impact-controlnet_aux
 RUN cd /ComfyUI/custom_nodes && \
