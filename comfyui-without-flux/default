@@ -1,0 +1,26 @@
+server {
+    listen 8080;
+
+    location / {
+        proxy_pass http://localhost:8188;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /output {
+        alias /workspace/ComfyUI/output;  # Serve files from this directory
+        autoindex off;                    # Disable directory listing
+
+        # Allow access only to PNG files
+        location ~* \.(png)$ {
+            try_files $uri =404;          # Return 404 if the file doesn't exist
+        }
+
+        # Deny access to all other file types
+        location /output/ {
+            deny all;                      # Deny access to all files not matching the PNG pattern
+        }
+    }
+}

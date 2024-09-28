@@ -1,0 +1,263 @@
+{
+  "last_node_id": 67,
+  "last_link_id": 128,
+  "nodes": [
+    {
+      "id": 57,
+      "type": "LDSRModelLoader",
+      "pos": {
+        "0": 530,
+        "1": 100
+      },
+      "size": {
+        "0": 224.54537963867188,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            113
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LDSRModelLoader"
+      },
+      "widgets_values": [
+        "LDSR.ckpt"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 58,
+      "type": "LDSRUpscale",
+      "pos": {
+        "0": 790,
+        "1": 160
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 113
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            124,
+            127
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LDSRUpscale"
+      },
+      "widgets_values": [
+        "100",
+        "None",
+        "None",
+        "Lanczos"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 56,
+      "type": "LoadImage",
+      "pos": {
+        "0": 140,
+        "1": 180
+      },
+      "size": {
+        "0": 322.1391906738281,
+        "1": 512.7100830078125
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            119,
+            128
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 515,
+        "1": 367
+      },
+      "size": [
+        716.5859954686211,
+        664.8557086225765
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 127,
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 128,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jaoje_00003_.png&type=temp&subfolder=&rand=0.8047725200240992"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jaoje_00004_.png&type=temp&subfolder=&rand=0.4377262484629285"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 29,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1288,
+        "1": 156
+      },
+      "size": [
+        800.7164482499843,
+        696.1441786097348
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 124
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "LDSR_upscale"
+      ]
+    }
+  ],
+  "links": [
+    [
+      113,
+      57,
+      0,
+      58,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      119,
+      56,
+      0,
+      58,
+      1,
+      "IMAGE"
+    ],
+    [
+      124,
+      58,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      127,
+      58,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      128,
+      56,
+      0,
+      67,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9229599817706435,
+      "offset": [
+        158.40156440876058,
+        24.383598340180203
+      ]
+    }
+  },
+  "version": 0.4
+}
