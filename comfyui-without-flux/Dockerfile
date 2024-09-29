@@ -80,6 +80,8 @@ COPY --chmod=755 download_Controlnet.sh /download_Controlnet.sh
 COPY --chmod=755 download_fp16.sh /download_fp16.sh
 COPY --chmod=755 download_LDSR.sh /download_LDSR.sh
 COPY --chmod=755 download_SUPIR.sh /download_SUPIR.sh
+COPY --chmod=755 download_Florence-2.sh /download_Florence-2.sh
+COPY --chmod=755 download_ALL.sh /download_ALL.sh
 
 # SUPIR Upscale
 RUN cd /ComfyUI/custom_nodes && \
@@ -150,6 +152,7 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/kijai/ComfyUI-Florence2.git && \
     cd ComfyUI-Florence2 && \
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt && \
+    mkdir /ComfyUI/models/LLM
 
 CMD [ "/start.sh" ]
