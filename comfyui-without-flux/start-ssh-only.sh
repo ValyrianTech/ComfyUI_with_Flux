@@ -2,6 +2,9 @@
 
 echo "pod started"
 
+# Activate the virtual environment
+source /workspace/venv/bin/activate
+
 if [[ $PUBLIC_KEY ]]
 then
     mkdir -p ~/.ssh
