@@ -28,7 +28,8 @@ ARG PYTORCH="2.4.0"
 ARG CUDA="121"
 RUN pip3 install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu$CUDA
 
-COPY --chmod=755 start-ssh-only.sh /workspace/start.sh
+COPY --chmod=755 start-ssh-only.sh /start.sh
+COPY --chmod=755 start-original.sh /start-original.sh
 COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
 
 # Clone the git repo and install requirements in the same RUN command to ensure they are in the same layer
@@ -159,4 +160,4 @@ RUN cd /ComfyUI/custom_nodes && \
     pip3 install -r requirements.txt && \
     mkdir /ComfyUI/models/LLM
 
-CMD [ "/workspace/start.sh" ]
+CMD [ "/start.sh" ]

@@ -26,7 +26,13 @@ service nginx start
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.allow_origin='*' &
 echo "JupyterLab started"
 
-# Launch the UI
-python3 /workspace/ComfyUI/main.py --listen
+# Check if user's script exists in /workspace
+if [ ! -f /workspace/start_user.sh ]; then
+    # If not, copy the original script to /workspace
+    cp /start-original.sh /workspace/start_user.sh
+fi
+
+# Execute the user's script
+bash /workspace/start_user.sh
 
 sleep infinity

@@ -21,4 +21,4 @@ RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "htt
 RUN mkdir -p /ComfyUI/models/xlabs/loras
 RUN wget -O /ComfyUI/models/xlabs/loras/Xlabs-AI_flux-RealismLora.safetensors "https://huggingface.co/XLabs-AI/flux-RealismLora/resolve/main/lora.safetensors?download=true"
 
-CMD [ "/workspace/start.sh" ]
+CMD [ "/start.sh" ]
