@@ -47,10 +47,6 @@ COPY --chmod=644 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 
 WORKDIR /workspace
 
-# Create a virtual environment and activate it
-RUN python3 -m venv /workspace/venv
-ENV PATH="/workspace/venv/bin:$PATH"
-
 EXPOSE 8188
 
 # Download and move flux_dev_example.png
