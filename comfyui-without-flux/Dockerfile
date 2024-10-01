@@ -83,6 +83,7 @@ COPY --chmod=755 download_fp16.sh /download_fp16.sh
 COPY --chmod=755 download_LDSR.sh /download_LDSR.sh
 COPY --chmod=755 download_SUPIR.sh /download_SUPIR.sh
 COPY --chmod=755 download_Florence-2.sh /download_Florence-2.sh
+COPY --chmod=755 download_Upscalers.sh /download_Upscalers.sh
 COPY --chmod=755 download_ALL.sh /download_ALL.sh
 
 # SUPIR Upscale

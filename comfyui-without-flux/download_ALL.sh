@@ -7,5 +7,6 @@ bash download_LDSR.sh
 bash download_SUPIR.sh
 bash download_fp16.sh
 bash download_Florence-2.sh
+bash download_Upscalers.sh
 
 echo "All models downloaded"
