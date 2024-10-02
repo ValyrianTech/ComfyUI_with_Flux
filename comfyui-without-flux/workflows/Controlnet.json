@@ -1254,29 +1254,6 @@
       ]
     },
     {
-      "id": 33,
-      "type": "Note",
-      "pos": {
-        "0": -106,
-        "1": -733
-      },
-      "size": [
-        529.820639303792,
-        58
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "Video tutorial: https://www.youtube.com/watch?v=CTQYnBerHbs&t=114s&ab_channel=goshniiAI"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 1,
       "type": "LoadImage",
       "pos": {
@@ -1288,7 +1265,7 @@
         "1": 342.2345275878906
       },
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1316,6 +1293,29 @@
         "character_sheet_example.png",
         "image"
       ]
+    },
+    {
+      "id": 33,
+      "type": "Note",
+      "pos": {
+        "0": -34,
+        "1": -727
+      },
+      "size": {
+        "0": 529.8206176757812,
+        "1": 58
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Video tutorial: https://www.youtube.com/watch?v=CTQYnBerHbs&t=114s&ab_channel=goshniiAI"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -1658,26 +1658,14 @@
   ],
   "groups": [
     {
-      "title": "Ultimate Upscale",
+      "title": "Face Detailer",
       "bounding": [
-        3624,
+        2375,
         -490,
-        1200,
+        1230,
         1190
       ],
-      "color": "#A88",
-      "font_size": 24,
-      "flags": {}
-    },
-    {
-      "title": "Text To Image",
-      "bounding": [
-        -43,
-        42,
-        1700,
-        650
-      ],
-      "color": "#b58b2a",
+      "color": "#8A8",
       "font_size": 24,
       "flags": {}
     },
@@ -1694,14 +1682,26 @@
       "flags": {}
     },
     {
-      "title": "Face Detailer",
+      "title": "Text To Image",
       "bounding": [
-        2375,
+        -43,
+        42,
+        1700,
+        650
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Ultimate Upscale",
+      "bounding": [
+        3624,
         -490,
-        1230,
+        1200,
         1190
       ],
-      "color": "#8A8",
+      "color": "#A88",
       "font_size": 24,
       "flags": {}
     }
@@ -1709,10 +1709,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5209868481924381,
+      "scale": 0.5644739300537774,
       "offset": [
-        11.962349891713984,
-        1159.7576217417454
+        107.71832487381567,
+        1125.0329235580925
       ]
     }
   },
