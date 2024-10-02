@@ -1,5 +1,5 @@
 {
-  "last_node_id": 92,
+  "last_node_id": 93,
   "last_link_id": 96,
   "nodes": [
     {
@@ -14,7 +14,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 32,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -95,7 +95,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -183,7 +183,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -305,7 +305,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -351,7 +351,7 @@
         "1": 76.00003051757812
       },
       "flags": {},
-      "order": 24,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -382,7 +382,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -447,7 +447,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 33,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -555,7 +555,7 @@
         "1": 988.2251586914062
       },
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -584,7 +584,7 @@
         26
       ],
       "flags": {},
-      "order": 25,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -623,7 +623,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -663,7 +663,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -741,7 +741,7 @@
         "1": 170
       },
       "flags": {},
-      "order": 27,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -807,7 +807,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 31,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -853,7 +853,7 @@
         "1": 642.7651977539062
       },
       "flags": {},
-      "order": 22,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -900,7 +900,7 @@
         "1": 131.03375244140625
       },
       "flags": {},
-      "order": 28,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -1036,7 +1036,7 @@
         "1": 454
       },
       "flags": {},
-      "order": 30,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1110,7 +1110,7 @@
         "Node name for S&R": "SUPIR_sample"
       },
       "widgets_values": [
-        1100467183689555,
+        414755868169709,
         "randomize",
         8,
         1,
@@ -1193,7 +1193,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 34,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1203,7 +1203,9 @@
         }
       ],
       "outputs": [],
-      "properties": {},
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
       "widgets_values": [
         "Supir"
       ]
@@ -1220,7 +1222,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1262,7 +1264,7 @@
         "1": 200.86000061035156
       },
       "flags": {},
-      "order": 29,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1422,7 +1424,7 @@
         "1": 170
       },
       "flags": {},
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1470,6 +1472,29 @@
         false,
         "auto",
         true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 93,
+      "type": "Note",
+      "pos": {
+        "0": -639,
+        "1": -246
+      },
+      "size": [
+        988.3366350087215,
+        58
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Run the command 'bash /download_SUPIR.sh' in the terminal to download the models for this workflow."
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1798,10 +1823,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8390545288824124,
+      "scale": 0.6209213230591552,
       "offset": [
-        742.1765742038875,
-        346.12787214646596
+        732.0014900000001,
+        460.93505000000005
       ]
     }
   },
