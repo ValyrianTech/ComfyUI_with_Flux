@@ -663,7 +663,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1110,7 +1110,7 @@
         "Node name for S&R": "SUPIR_sample"
       },
       "widgets_values": [
-        414755868169709,
+        584657515443660,
         "randomize",
         8,
         1,
@@ -1178,37 +1178,6 @@
       ],
       "color": "#222",
       "bgcolor": "#000"
-    },
-    {
-      "id": 39,
-      "type": "SaveImage",
-      "pos": {
-        "0": 2520,
-        "1": -80
-      },
-      "size": {
-        "0": 315,
-        "1": 270
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 65
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "Supir"
-      ]
     },
     {
       "id": 42,
@@ -1319,48 +1288,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 2,
-      "type": "LoadImage",
-      "pos": {
-        "0": -644,
-        "1": 454
-      },
-      "size": {
-        "0": 441.6546630859375,
-        "1": 571.2802734375
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            28
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "example.png",
-        "image"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 22,
       "type": "CheckpointLoaderSimple",
       "pos": {
@@ -1372,7 +1299,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1424,7 +1351,7 @@
         "1": 170
       },
       "flags": {},
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1483,12 +1410,12 @@
         "0": -639,
         "1": -246
       },
-      "size": [
-        988.3366350087215,
-        58
-      ],
+      "size": {
+        "0": 988.3366088867188,
+        "1": 58
+      },
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1498,6 +1425,79 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": {
+        "0": -644,
+        "1": 454
+      },
+      "size": {
+        "0": 441.6546630859375,
+        "1": 571.2802734375
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example_photo.png",
+        "image"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 39,
+      "type": "SaveImage",
+      "pos": {
+        "0": 2520,
+        "1": -80
+      },
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 65
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Supir"
+      ]
     }
   ],
   "links": [
@@ -1784,14 +1784,14 @@
   ],
   "groups": [
     {
-      "title": "Image Comparer",
+      "title": "Upscale by x factor",
       "bounding": [
-        276,
-        421,
-        688,
-        757
+        -182,
+        201,
+        445,
+        200
       ],
-      "color": "#3f789e",
+      "color": "#b58b2a",
       "font_size": 24,
       "flags": {}
     },
@@ -1808,14 +1808,14 @@
       "flags": {}
     },
     {
-      "title": "Upscale by x factor",
+      "title": "Image Comparer",
       "bounding": [
-        -182,
-        201,
-        445,
-        200
+        276,
+        421,
+        688,
+        757
       ],
-      "color": "#b58b2a",
+      "color": "#3f789e",
       "font_size": 24,
       "flags": {}
     }
@@ -1823,10 +1823,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6209213230591552,
+      "scale": 0.8264462809917354,
       "offset": [
-        732.0014900000001,
-        460.93505000000005
+        820.8000781250003,
+        274.2700042724611
       ]
     }
   },
