@@ -1,5 +1,5 @@
 {
-  "last_node_id": 67,
+  "last_node_id": 68,
   "last_link_id": 128,
   "nodes": [
     {
@@ -49,7 +49,7 @@
         "1": 150
       },
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
@@ -88,60 +88,18 @@
       "bgcolor": "#533"
     },
     {
-      "id": 56,
-      "type": "LoadImage",
-      "pos": {
-        "0": 140,
-        "1": 180
-      },
-      "size": {
-        "0": 322.1391906738281,
-        "1": 512.7100830078125
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            119,
-            128
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "example.png",
-        "image"
-      ]
-    },
-    {
       "id": 67,
       "type": "Image Comparer (rgthree)",
       "pos": {
         "0": 515,
         "1": 367
       },
-      "size": [
-        716.5859954686211,
-        664.8557086225765
-      ],
+      "size": {
+        "0": 716.5859985351562,
+        "1": 664.855712890625
+      },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -183,14 +141,14 @@
         "0": 1288,
         "1": 156
       },
-      "size": [
-        800.7164482499843,
-        696.1441786097348
-      ],
+      "size": {
+        "0": 800.7164306640625,
+        "1": 696.1441650390625
+      },
       "flags": {
         "collapsed": false
       },
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -200,10 +158,77 @@
         }
       ],
       "outputs": [],
-      "properties": {},
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
       "widgets_values": [
         "LDSR_upscale"
       ]
+    },
+    {
+      "id": 56,
+      "type": "LoadImage",
+      "pos": {
+        "0": 140,
+        "1": 180
+      },
+      "size": {
+        "0": 322.1391906738281,
+        "1": 512.7100830078125
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            119,
+            128
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example_photo.png",
+        "image"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "Note",
+      "pos": {
+        "0": 98,
+        "1": 57
+      },
+      "size": {
+        "0": 406.1056213378906,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Run the command 'bash /download_LDSR' to download the model used in this workflow"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -252,10 +277,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9229599817706435,
+      "scale": 1,
       "offset": [
-        158.40156440876058,
-        24.383598340180203
+        0,
+        0
       ]
     }
   },
