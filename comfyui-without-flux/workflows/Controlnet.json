@@ -1,5 +1,5 @@
 {
-  "last_node_id": 32,
+  "last_node_id": 33,
   "last_link_id": 57,
   "nodes": [
     {
@@ -85,15 +85,15 @@
       "id": 19,
       "type": "SaveImage",
       "pos": {
-        "0": 2940,
-        "1": 100
+        "0": 2924.75390625,
+        "1": 40.343997955322266
       },
       "size": {
         "0": 650,
         "1": 630
       },
       "flags": {},
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -114,8 +114,8 @@
       "id": 18,
       "type": "UltralyticsDetectorProvider",
       "pos": {
-        "0": 2420,
-        "1": -290
+        "0": 2404.75390625,
+        "1": -349.65594482421875
       },
       "size": {
         "0": 340.20001220703125,
@@ -153,15 +153,15 @@
       "id": 17,
       "type": "FaceDetailer",
       "pos": {
-        "0": 2410,
-        "1": -160
+        "0": 2394.75390625,
+        "1": -219.65599060058594
       },
       "size": {
         "0": 519,
         "1": 900
       },
       "flags": {},
-      "order": 25,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -345,7 +345,7 @@
         26
       ],
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -411,16 +411,16 @@
       "id": 20,
       "type": "UltimateSDUpscale",
       "pos": {
-        "0": 3710,
-        "1": -150
+        "0": 3673.8759765625,
+        "1": -219.5952911376953
       },
       "size": {
         "0": 315,
         "1": 614
       },
       "flags": {},
-      "order": 27,
-      "mode": 2,
+      "order": 28,
+      "mode": 0,
       "inputs": [
         {
           "name": "image",
@@ -494,8 +494,8 @@
       "id": 21,
       "type": "UpscaleModelLoader",
       "pos": {
-        "0": 3710,
-        "1": -270
+        "0": 3673.8759765625,
+        "1": -339.59527587890625
       },
       "size": {
         "0": 315,
@@ -503,7 +503,7 @@
       },
       "flags": {},
       "order": 1,
-      "mode": 2,
+      "mode": 0,
       "inputs": [],
       "outputs": [
         {
@@ -526,16 +526,16 @@
       "id": 22,
       "type": "SaveImage",
       "pos": {
-        "0": 4060,
-        "1": -10
+        "0": 4023.8759765625,
+        "1": -79.59530639648438
       },
       "size": {
         "0": 760,
         "1": 700
       },
       "flags": {},
-      "order": 28,
-      "mode": 2,
+      "order": 29,
+      "mode": 0,
       "inputs": [
         {
           "name": "images",
@@ -563,7 +563,7 @@
         "1": 510
       },
       "flags": {},
-      "order": 24,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -592,7 +592,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -627,15 +627,15 @@
       "id": 3,
       "type": "ControlNetApplySD3",
       "pos": {
-        "0": 819,
-        "1": -196
+        "0": 891.2484130859375,
+        "1": -194.6734161376953
       },
       "size": {
         "0": 340,
         "1": 190
       },
       "flags": {},
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -701,15 +701,15 @@
       "id": 5,
       "type": "SaveImage",
       "pos": {
-        "0": 801,
-        "1": -556
+        "0": 873.2484130859375,
+        "1": -554.6734619140625
       },
       "size": {
         "0": 420,
         "1": 300
       },
       "flags": {},
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -771,8 +771,8 @@
       "id": 30,
       "type": "Get Image Size (JPS)",
       "pos": {
-        "0": 79,
-        "1": -181
+        "0": 151.24830627441406,
+        "1": -179.6734161376953
       },
       "size": {
         "0": 210,
@@ -781,7 +781,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -815,14 +815,15 @@
       ],
       "properties": {
         "Node name for S&R": "Get Image Size (JPS)"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 29,
       "type": "GetNode",
       "pos": {
-        "0": -90,
-        "1": -177
+        "0": -17.751676559448242,
+        "1": -175.6734161376953
       },
       "size": {
         "0": 210,
@@ -851,59 +852,18 @@
       ]
     },
     {
-      "id": 1,
-      "type": "LoadImage",
-      "pos": {
-        "0": -91,
-        "1": -574
-      },
-      "size": [
-        370.63874321535445,
-        342.2345139561221
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            1,
-            57
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_00078_.png",
-        "image"
-      ]
-    },
-    {
       "id": 32,
       "type": "Display Any (rgthree)",
       "pos": {
-        "0": -86,
-        "1": -77
+        "0": -13.751681327819824,
+        "1": -75.6734619140625
       },
-      "size": [
-        210,
-        76
-      ],
+      "size": {
+        "0": 210,
+        "1": 76
+      },
       "flags": {},
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -926,15 +886,15 @@
       "id": 31,
       "type": "Display Any (rgthree)",
       "pos": {
-        "0": 136,
-        "1": -76
+        "0": 208.248291015625,
+        "1": -74.6734619140625
       },
-      "size": [
-        210,
-        76
-      ],
+      "size": {
+        "0": 210,
+        "1": 76
+      },
       "flags": {},
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -956,8 +916,8 @@
       "id": 28,
       "type": "SetNode",
       "pos": {
-        "0": 297,
-        "1": -570
+        "0": 369.24835205078125,
+        "1": -568.6734619140625
       },
       "size": {
         "0": 210,
@@ -966,7 +926,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 9,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -996,15 +956,15 @@
       "id": 2,
       "type": "AIO_Preprocessor",
       "pos": {
-        "0": 395,
-        "1": -334
+        "0": 467.24835205078125,
+        "1": -332.6734313964844
       },
-      "size": [
-        315,
-        82
-      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -1045,15 +1005,15 @@
       "id": 4,
       "type": "ControlNetLoader",
       "pos": {
-        "0": 383,
-        "1": -201
+        "0": 455.24835205078125,
+        "1": -199.6734161376953
       },
       "size": {
         "0": 340,
         "1": 60
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1086,7 +1046,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1122,7 +1082,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1159,7 +1119,7 @@
         "1": 60.429901123046875
       },
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1188,12 +1148,12 @@
         "0": 399.0709228515625,
         "1": 522.118408203125
       },
-      "size": [
-        315,
-        106
-      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1245,7 +1205,7 @@
         "1": 330
       },
       "flags": {},
-      "order": 22,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -1284,13 +1244,77 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        688690032191984,
+        461380665310605,
         "randomize",
         20,
         1,
         "euler",
         "normal",
         1
+      ]
+    },
+    {
+      "id": 33,
+      "type": "Note",
+      "pos": {
+        "0": -106,
+        "1": -733
+      },
+      "size": [
+        529.820639303792,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Video tutorial: https://www.youtube.com/watch?v=CTQYnBerHbs&t=114s&ab_channel=goshniiAI"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": {
+        "0": -18.751676559448242,
+        "1": -572.6734619140625
+      },
+      "size": {
+        "0": 370.63873291015625,
+        "1": 342.2345275878906
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            57
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "character_sheet_example.png",
+        "image"
       ]
     }
   ],
@@ -1634,26 +1658,14 @@
   ],
   "groups": [
     {
-      "title": "Face Detailer",
+      "title": "Ultimate Upscale",
       "bounding": [
-        2390,
-        -430,
-        1230,
+        3624,
+        -490,
+        1200,
         1190
       ],
-      "color": "#8A8",
-      "font_size": 24,
-      "flags": {}
-    },
-    {
-      "title": "ControlNet",
-      "bounding": [
-        -110,
-        -650,
-        1390,
-        670
-      ],
-      "color": "#3f789e",
+      "color": "#A88",
       "font_size": 24,
       "flags": {}
     },
@@ -1670,14 +1682,26 @@
       "flags": {}
     },
     {
-      "title": "Ultimate Upscale",
+      "title": "ControlNet",
       "bounding": [
-        3660,
-        -420,
-        1200,
+        -38,
+        -649,
+        1390,
+        670
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Face Detailer",
+      "bounding": [
+        2375,
+        -490,
+        1230,
         1190
       ],
-      "color": "#A88",
+      "color": "#8A8",
       "font_size": 24,
       "flags": {}
     }
@@ -1687,8 +1711,8 @@
     "ds": {
       "scale": 0.5209868481924381,
       "offset": [
-        370.28956619207503,
-        756.7604842244702
+        11.962349891713984,
+        1159.7576217417454
       ]
     }
   },
