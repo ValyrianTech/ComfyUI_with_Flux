@@ -1,6 +1,6 @@
 {
-  "last_node_id": 316,
-  "last_link_id": 545,
+  "last_node_id": 318,
+  "last_link_id": 547,
   "nodes": [
     {
       "id": 34,
@@ -1087,54 +1087,6 @@
       ]
     },
     {
-      "id": 36,
-      "type": "VAEDecode",
-      "pos": {
-        "0": 1537.43798828125,
-        "1": 2723.3564453125
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 76,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 36,
-          "label": "samples"
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 544,
-          "label": "vae"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            55,
-            71,
-            329,
-            394
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "IMAGE"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 249,
       "type": "GetNode",
       "pos": {
@@ -1886,12 +1838,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_xqlgl_00001_.png&type=temp&subfolder=&rand=0.5161835034110729"
+            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00003_.png&type=temp&subfolder=&rand=0.5873303923242537"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_xqlgl_00002_.png&type=temp&subfolder=&rand=0.297191811159947"
+            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00004_.png&type=temp&subfolder=&rand=0.9460654885527442"
           }
         ]
       ]
@@ -2137,12 +2089,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_zjurj_00001_.png&type=temp&subfolder=&rand=0.7741188815462976"
+            "url": "/api/view?filename=rgthree.compare._temp_uporn_00003_.png&type=temp&subfolder=&rand=0.10093449035411584"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_zjurj_00002_.png&type=temp&subfolder=&rand=0.32411430755180004"
+            "url": "/api/view?filename=rgthree.compare._temp_uporn_00004_.png&type=temp&subfolder=&rand=0.8864823679455212"
           }
         ]
       ]
@@ -2227,12 +2179,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_egrhy_00001_.png&type=temp&subfolder=&rand=0.4686537615639117"
+            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00003_.png&type=temp&subfolder=&rand=0.10379737045795157"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_egrhy_00002_.png&type=temp&subfolder=&rand=0.0062103534249806636"
+            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00004_.png&type=temp&subfolder=&rand=0.36786286256262213"
           }
         ]
       ]
@@ -2324,12 +2276,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hjgjr_00001_.png&type=temp&subfolder=&rand=0.4906072672292381"
+            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00003_.png&type=temp&subfolder=&rand=0.5242402267368618"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hjgjr_00002_.png&type=temp&subfolder=&rand=0.9871413115070415"
+            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00004_.png&type=temp&subfolder=&rand=0.9243147617804754"
           }
         ]
       ]
@@ -2463,12 +2415,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_izkqm_00001_.png&type=temp&subfolder=&rand=0.2971977610815917"
+            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00003_.png&type=temp&subfolder=&rand=0.3950380092921211"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_izkqm_00002_.png&type=temp&subfolder=&rand=0.35815076328822637"
+            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00004_.png&type=temp&subfolder=&rand=0.3115135248217282"
           }
         ]
       ]
@@ -2540,7 +2492,7 @@
         "1": 597.728759765625
       },
       "flags": {},
-      "order": 88,
+      "order": 90,
       "mode": 0,
       "inputs": [
         {
@@ -2568,12 +2520,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_tuigm_00001_.png&type=temp&subfolder=&rand=0.6897768560736439"
+            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00003_.png&type=temp&subfolder=&rand=0.3631784275189034"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_tuigm_00002_.png&type=temp&subfolder=&rand=0.4006012145969984"
+            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00004_.png&type=temp&subfolder=&rand=0.9202426638568617"
           }
         ]
       ]
@@ -2590,7 +2542,7 @@
         "1": 100
       },
       "flags": {},
-      "order": 89,
+      "order": 91,
       "mode": 0,
       "inputs": [
         {
@@ -2646,7 +2598,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 91,
+      "order": 93,
       "mode": 0,
       "inputs": [
         {
@@ -2684,7 +2636,7 @@
         "1": 613.9246826171875
       },
       "flags": {},
-      "order": 90,
+      "order": 92,
       "mode": 0,
       "inputs": [
         {
@@ -2712,12 +2664,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_xiqjg_00001_.png&type=temp&subfolder=&rand=0.5330036126151609"
+            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00003_.png&type=temp&subfolder=&rand=0.4682726269861557"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_xiqjg_00002_.png&type=temp&subfolder=&rand=0.3047334705412774"
+            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00004_.png&type=temp&subfolder=&rand=0.11989587005163416"
           }
         ]
       ]
@@ -2973,51 +2925,6 @@
       }
     },
     {
-      "id": 175,
-      "type": "VAEDecode",
-      "pos": {
-        "0": 1327.8568115234375,
-        "1": 3141.470703125
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 78,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 257,
-          "label": "samples"
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 258,
-          "label": "vae"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            515
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "IMAGE"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 310,
       "type": "Image Comparer (rgthree)",
       "pos": {
@@ -3029,7 +2936,7 @@
         "1": 563.3944702148438
       },
       "flags": {},
-      "order": 87,
+      "order": 88,
       "mode": 0,
       "inputs": [
         {
@@ -3057,12 +2964,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_pnndy_00001_.png&type=temp&subfolder=&rand=0.6614076087707439"
+            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00001_.png&type=temp&subfolder=&rand=0.9469962249699253"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_pnndy_00002_.png&type=temp&subfolder=&rand=0.9436491301560093"
+            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00002_.png&type=temp&subfolder=&rand=0.9306858918302401"
           }
         ]
       ]
@@ -3540,71 +3447,6 @@
         0
       ],
       "color": "rgba(38, 73, 116, 0.7)"
-    },
-    {
-      "id": 35,
-      "type": "KSampler",
-      "pos": {
-        "0": 843.8262939453125,
-        "1": 2294.141845703125
-      },
-      "size": {
-        "0": 315,
-        "1": 262
-      },
-      "flags": {},
-      "order": 70,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 58,
-          "label": "model"
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 41,
-          "label": "positive"
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 42,
-          "label": "negative"
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 44,
-          "label": "latent_image"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            36
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "LATENT"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        531509771172899,
-        "fixed",
-        30,
-        1,
-        "dpmpp_2m",
-        "karras",
-        0.9500000000000001
-      ]
     },
     {
       "id": 99,
@@ -4303,6 +4145,224 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 175,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1327.8568115234375,
+        "1": 3141.470703125
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 78,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 257,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 258,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            515,
+            546
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 317,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1566,
+        "1": 3128
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 89,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 546
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Outpainting_upscale"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1537.43798828125,
+        "1": 2723.3564453125
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 76,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 36,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 544,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            55,
+            71,
+            329,
+            394,
+            547
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 318,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1779,
+        "1": 2617
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 547
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Outpainting"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "KSampler",
+      "pos": {
+        "0": 843.8262939453125,
+        "1": 2294.141845703125
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 58,
+          "label": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 41,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 42,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 44,
+          "label": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        333015272692230,
+        "randomize",
+        30,
+        1,
+        "dpmpp_2m",
+        "karras",
+        0.9500000000000001
+      ]
     }
   ],
   "links": [
@@ -5217,6 +5277,22 @@
       171,
       0,
       "UPSCALE_MODEL"
+    ],
+    [
+      546,
+      175,
+      0,
+      317,
+      0,
+      "IMAGE"
+    ],
+    [
+      547,
+      36,
+      0,
+      318,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -5296,10 +5372,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9646149645000012,
+      "scale": 1,
       "offset": [
-        251.6007673902281,
-        285.6475809924693
+        238,
+        283.3333740234375
       ]
     }
   },
