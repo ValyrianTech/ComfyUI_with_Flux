@@ -158,4 +158,36 @@ RUN cd /ComfyUI/custom_nodes && \
     pip3 install -r requirements.txt && \
     mkdir /ComfyUI/models/LLM
 
+# was-node-suite-comfyui
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/WASasquatch/was-node-suite-comfyui.git && \
+    cd was-node-suite-comfyui && \
+    pip3 install -r requirements.txt
+
+# ComfyUI-Logic
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/theUpsider/ComfyUI-Logic.git
+
+# ComfyUI_essentials
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/cubiq/ComfyUI_essentials.git && \
+    cd ComfyUI_essentials && \
+    pip3 install -r requirements.txt
+
+# cg-image-picker
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/chrisgoringe/cg-image-picker.git
+
+# ComfyUI_LayerStyle
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/chflame163/ComfyUI_LayerStyle.git && \
+    cd ComfyUI_LayerStyle && \
+    pip3 install -r requirements.txt
+
+# Ccomfyui-mixlab-nodes
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/shadowcz007/comfyui-mixlab-nodes.git && \
+    cd comfyui-mixlab-nodes && \
+    pip3 install -r requirements.txt
+
 CMD [ "/start.sh" ]

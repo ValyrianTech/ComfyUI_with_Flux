@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing Controlnet"
+echo "Downloading Shakker-labs Controlnet"
 cd /ComfyUI/models/controlnet
 
 file="diffusion_pytorch_model.safetensors"
@@ -13,3 +13,15 @@ else
     wget -O $file $url --progress=bar:force:noscroll
 fi
 
+echo "Downloading xinsir controlnet"
+cd /ComfyUI/models/controlnet
+
+file="xinsir_controlnet_union-sdxl-1-promax.safetensors"
+url="https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors?download=true"
+
+if [ -f "$file" ]; then
+    echo "$file already exists."
+else
+    echo "Downloading $file"
+    wget -O $file $url --progress=bar:force:noscroll
+fi
