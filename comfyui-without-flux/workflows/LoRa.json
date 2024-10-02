@@ -1,28 +1,500 @@
 {
-  "last_node_id": 21,
-  "last_link_id": 21,
+  "last_node_id": 22,
+  "last_link_id": 22,
   "nodes": [
+    {
+      "id": 14,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 470,
+        "1": 630
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 13,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": 900,
+        "1": 420
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 58
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 15,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Negative Guidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
+    },
+    {
+      "id": 16,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 470,
+        "1": 420
+      },
+      "size": {
+        "0": 397.11383056640625,
+        "1": 138.2366485595703
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, low quality, deformed, grainy, bad anatomy"
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
+    },
+    {
+      "id": 12,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": 900,
+        "1": 230
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 58
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Positive Guidance",
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 470,
+        "1": 230
+      },
+      "size": {
+        "0": 387.6975402832031,
+        "1": 145.22076416015625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A young woman with platinum blonde hair confidently speaking onstage at a TED conference. Her engaging smile and professional demeanor are highlighted, capturing the essence of her role."
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 17,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": 99,
+        "1": 361
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16,
+            17,
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "UNETLoader",
+      "pos": {
+        "0": 96,
+        "1": 527
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoraLoaderModelOnly",
+      "pos": {
+        "0": 463,
+        "1": 679
+      },
+      "size": {
+        "0": 391.2833557128906,
+        "1": 82
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "tooltip": "The modified diffusion model."
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "VideoAditor_flux_realism_lora.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 21,
+      "type": "Note",
+      "pos": {
+        "0": 463,
+        "1": 809
+      },
+      "size": {
+        "0": 383.2027587890625,
+        "1": 115.59778594970703
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "To make your own Lora, you can use this: https://replicate.com/ostris/flux-dev-lora-trainer/train\nTo try your own LoRa, download the lora.safetensors file into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0 while keeping the noise_seed fixed."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "ModelSamplingFlux",
+      "pos": {
+        "0": 884,
+        "1": 678
+      },
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 9,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7,
+            8
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.15,
+        0.5,
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 3,
+      "type": "RandomNoise",
+      "pos": {
+        "0": 1251,
+        "1": 229
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            1
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        623859888014799,
+        "randomize"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "PerpNegGuider",
+      "pos": {
+        "0": 1252,
+        "1": 358
+      },
+      "size": {
+        "0": 317.4000244140625,
+        "1": 142
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7,
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 11,
+          "slot_index": 1
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 12,
+          "slot_index": 2
+        },
+        {
+          "name": "empty_conditioning",
+          "type": "CONDITIONING",
+          "link": 13,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            2
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PerpNegGuider"
+      },
+      "widgets_values": [
+        1,
+        2
+      ]
+    },
     {
       "id": 5,
       "type": "KSamplerSelect",
       "pos": {
-        "0": 242,
-        "1": 397,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1255,
+        "1": 549
       },
       "size": {
         "0": 315,
         "1": 58
       },
       "flags": {},
-      "order": 0,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -46,16 +518,8 @@
       "id": 6,
       "type": "BasicScheduler",
       "pos": {
-        "0": 242,
-        "1": 522,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1255,
+        "1": 656
       },
       "size": {
         "0": 315,
@@ -94,23 +558,15 @@
       "id": 8,
       "type": "EmptyLatentImage",
       "pos": {
-        "0": 242,
-        "1": 693,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1259,
+        "1": 811
       },
       "size": {
         "0": 315,
         "1": 106
       },
       "flags": {},
-      "order": 1,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -137,16 +593,8 @@
       "id": 2,
       "type": "SamplerCustomAdvanced",
       "pos": {
-        "0": 648,
-        "1": -17,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1663,
+        "1": 229
       },
       "size": {
         "0": 355.20001220703125,
@@ -206,22 +654,47 @@
       ],
       "properties": {
         "Node name for S&R": "SamplerCustomAdvanced"
-      }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 19,
+      "type": "VAELoader",
+      "pos": {
+        "0": 2040,
+        "1": 238
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            20
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
     },
     {
       "id": 18,
       "type": "VAEDecode",
       "pos": {
-        "0": 1082,
-        "1": 82,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 2373,
+        "1": 241
       },
       "size": {
         "0": 210,
@@ -248,7 +721,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            21
+            22
           ],
           "slot_index": 0,
           "shape": 3,
@@ -257,27 +730,20 @@
       ],
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
-      "id": 20,
-      "type": "PreviewImage",
+      "id": 22,
+      "type": "SaveImage",
       "pos": {
-        "0": 1345,
-        "1": -20,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1664,
+        "1": 383
       },
-      "size": {
-        "0": 377.0920104980469,
-        "1": 440.9403076171875
-      },
+      "size": [
+        685.33349609375,
+        620.666748046875
+      ],
       "flags": {},
       "order": 18,
       "mode": 0,
@@ -285,628 +751,15 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 21
+          "link": 22
         }
       ],
       "outputs": [],
       "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 9,
-      "type": "ModelSamplingFlux",
-      "pos": {
-        "0": -153,
-        "1": 446,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 130
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 9,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            7,
-            8
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ModelSamplingFlux"
+        "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        1.15,
-        0.5,
-        1024,
-        1024
-      ]
-    },
-    {
-      "id": 14,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -567,
-        "1": 374,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 210,
-        "1": 58
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 18
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 17,
-      "type": "DualCLIPLoader",
-      "pos": {
-        "0": -1007,
-        "1": 157,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            16,
-            17,
-            18
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
-    },
-    {
-      "id": 13,
-      "type": "FluxGuidance",
-      "pos": {
-        "0": -141,
-        "1": 159,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 15,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            12
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "Negative Guidance",
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
-    {
-      "id": 4,
-      "type": "PerpNegGuider",
-      "pos": {
-        "0": 246,
-        "1": 199,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 317.4000244140625,
-        "1": 142
-      },
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 7,
-          "slot_index": 0
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 11,
-          "slot_index": 1
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 12,
-          "slot_index": 2
-        },
-        {
-          "name": "empty_conditioning",
-          "type": "CONDITIONING",
-          "link": 13,
-          "slot_index": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "GUIDER",
-          "type": "GUIDER",
-          "links": [
-            2
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PerpNegGuider"
-      },
-      "widgets_values": [
-        1,
-        2
-      ]
-    },
-    {
-      "id": 19,
-      "type": "VAELoader",
-      "pos": {
-        "0": 647,
-        "1": 162,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
-      "id": 11,
-      "type": "UNETLoader",
-      "pos": {
-        "0": -989,
-        "1": 446,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            10
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1-dev.sft",
-        "fp8_e4m3fn"
-      ]
-    },
-    {
-      "id": 16,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -572,
-        "1": 157,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 397.11383056640625,
-        "1": 138.2366485595703
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 17,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            15
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Negative Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "blurry, low quality, deformed, grainy, bad anatomy"
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
-    {
-      "id": 21,
-      "type": "Note",
-      "pos": {
-        "0": -600,
-        "1": 574,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 383.2027587890625,
-        "1": 115.59778594970703
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "To make your own Lora, you can use this: https://replicate.com/ostris/flux-dev-lora-trainer/train\nTo try your own LoRa, download the lora.safetensors file into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0 while keeping the noise_seed fixed."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 12,
-      "type": "FluxGuidance",
-      "pos": {
-        "0": -138,
-        "1": -32,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 14,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "Positive Guidance",
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
-      "id": 15,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -572,
-        "1": -33,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 387.6975402832031,
-        "1": 145.22076416015625
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 16,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Positive Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "A young woman with platinum blonde hair confidently speaking onstage at a TED conference. Her engaging smile and professional demeanor are highlighted, capturing the essence of her role."
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
-      "id": 10,
-      "type": "LoraLoaderModelOnly",
-      "pos": {
-        "0": -606,
-        "1": 447,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 391.2833557128906,
-        "1": 82
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 10,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "tooltip": "The modified diffusion model."
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "VideoAditor_flux_realism_lora.safetensors",
-        1
-      ]
-    },
-    {
-      "id": 3,
-      "type": "RandomNoise",
-      "pos": {
-        "0": 250,
-        "1": -22,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "NOISE",
-          "type": "NOISE",
-          "links": [
-            1
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RandomNoise"
-      },
-      "widgets_values": [
-        243980779094661,
-        "randomize"
+        "LoRa"
       ]
     }
   ],
@@ -1064,10 +917,10 @@
       "VAE"
     ],
     [
-      21,
+      22,
       18,
       0,
-      20,
+      22,
       0,
       "IMAGE"
     ]
@@ -1076,10 +929,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0152559799477174,
+      "scale": 1,
       "offset": [
-        1188.7696945832436,
-        106.36307922253044
+        0,
+        0
       ]
     }
   },
