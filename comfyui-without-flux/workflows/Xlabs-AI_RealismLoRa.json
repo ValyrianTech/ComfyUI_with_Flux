@@ -1,73 +1,13 @@
 {
-  "last_node_id": 29,
-  "last_link_id": 45,
+  "last_node_id": 30,
+  "last_link_id": 46,
   "nodes": [
-    {
-      "id": 25,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -335,
-        "1": 51,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 397.11383056640625,
-        "1": 138.2366485595703
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 45,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            41
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Negative Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#571a1a",
-      "bgcolor": "#6b2e2e"
-    },
     {
       "id": 28,
       "type": "FluxGuidance",
       "pos": {
-        "0": 115,
-        "1": -148,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 910,
+        "1": 330
       },
       "size": {
         "0": 317.4000244140625,
@@ -106,19 +46,244 @@
       "bgcolor": "#2e6b2e"
     },
     {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 900,
+        "1": 730
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": 60,
+        "1": 330
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            44,
+            45
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "FluxLoraLoader",
+      "pos": {
+        "0": 910,
+        "1": 190
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxLoraLoader"
+      },
+      "widgets_values": [
+        "Xlabs-AI_flux-RealismLora.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "UNETLoader",
+      "pos": {
+        "0": 454,
+        "1": 195
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 455,
+        "1": 321
+      },
+      "size": {
+        "0": 387.6975402832031,
+        "1": 145.22076416015625
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 44,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Beautiful young woman, age 25, with long braided platinum blonde hair and bright magenta eyes, looking seductively and holding a large red-scaled dragon egg. The words \"Valyrian Tech\" are in a large sleek and stylistic font in the middle of the image."
+      ],
+      "color": "#1a571a",
+      "bgcolor": "#2e6b2e"
+    },
+    {
+      "id": 25,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 456,
+        "1": 512
+      },
+      "size": {
+        "0": 397.11383056640625,
+        "1": 138.2366485595703
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 45,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e"
+    },
+    {
       "id": 29,
       "type": "FluxGuidance",
       "pos": {
-        "0": 122,
-        "1": 54,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 887,
+        "1": 518
       },
       "size": {
         "0": 317.4000244140625,
@@ -157,295 +322,11 @@
       "bgcolor": "#6b2e2e"
     },
     {
-      "id": 10,
-      "type": "UNETLoader",
-      "pos": {
-        "0": -272,
-        "1": -297,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            36
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1-dev.sft",
-        "fp8_e4m3fn"
-      ]
-    },
-    {
-      "id": 6,
-      "type": "EmptyLatentImage",
-      "pos": {
-        "0": 114,
-        "1": 254,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            5
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": {
-        "0": 626,
-        "1": 261,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            7
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.sft"
-      ]
-    },
-    {
-      "id": 7,
-      "type": "VAEDecode",
-      "pos": {
-        "0": 1083,
-        "1": 77,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 6,
-          "slot_index": 0
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            31
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 24,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": -337,
-        "1": -153,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 387.6975402832031,
-        "1": 145.22076416015625
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 44,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            40
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "tooltip": "A conditioning containing the embedded text used to guide the diffusion model."
-        }
-      ],
-      "title": "Positive Prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Beautiful young woman, age 25, with long braided platinum blonde hair and bright magenta eyes, looking seductively and holding a large red-scaled dragon egg. The words \"Valyrian Tech\" are in a large sleek and stylistic font in the middle of the image."
-      ],
-      "color": "#1a571a",
-      "bgcolor": "#2e6b2e"
-    },
-    {
-      "id": 23,
-      "type": "FluxLoraLoader",
-      "pos": {
-        "0": 117,
-        "1": -295,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 36
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            37
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "FluxLoraLoader"
-      },
-      "widgets_values": [
-        "Xlabs-AI_flux-RealismLora.safetensors",
-        1
-      ]
-    },
-    {
       "id": 3,
       "type": "XlabsSampler",
       "pos": {
-        "0": 613,
-        "1": -76,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1284,
+        "1": 191
       },
       "size": {
         "0": 342.5999755859375,
@@ -496,7 +377,7 @@
         "Node name for S&R": "XlabsSampler"
       },
       "widgets_values": [
-        130613628825399,
+        319012545745690,
         "randomize",
         25,
         1,
@@ -506,23 +387,15 @@
       ]
     },
     {
-      "id": 4,
-      "type": "DualCLIPLoader",
+      "id": 8,
+      "type": "VAELoader",
       "pos": {
-        "0": -729,
-        "1": -154,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1317,
+        "1": 527
       },
       "size": {
         "0": 315,
-        "1": 106
+        "1": 58
       },
       "flags": {},
       "order": 3,
@@ -530,44 +403,76 @@
       "inputs": [],
       "outputs": [
         {
-          "name": "CLIP",
-          "type": "CLIP",
+          "name": "VAE",
+          "type": "VAE",
           "links": [
-            44,
-            45
+            7
           ],
           "slot_index": 0,
           "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "DualCLIPLoader"
+        "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
-        "clip_l.safetensors",
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "flux"
+        "ae.sft"
       ]
     },
     {
-      "id": 21,
-      "type": "PreviewImage",
+      "id": 7,
+      "type": "VAEDecode",
       "pos": {
-        "0": 1382,
-        "1": -276,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
+        "0": 1673,
+        "1": 198
       },
       "size": {
-        "0": 585.211181640625,
-        "1": 598.1676635742188
+        "0": 210,
+        "1": 46
       },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 6,
+          "slot_index": 0
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 30,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1674,
+        "1": 291
+      },
+      "size": [
+        614.666748046875,
+        658
+      ],
       "flags": {},
       "order": 11,
       "mode": 0,
@@ -575,14 +480,16 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 31,
-          "slot_index": 0
+          "link": 46
         }
       ],
       "outputs": [],
       "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Xlabs"
+      ]
     }
   ],
   "links": [
@@ -609,14 +516,6 @@
       7,
       1,
       "VAE"
-    ],
-    [
-      31,
-      7,
-      0,
-      21,
-      0,
-      "IMAGE"
     ],
     [
       36,
@@ -681,16 +580,24 @@
       25,
       0,
       "CLIP"
+    ],
+    [
+      46,
+      7,
+      0,
+      30,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917361,
+      "scale": 1,
       "offset": [
-        761.6412501257796,
-        713.1587559929745
+        0,
+        0
       ]
     }
   },
