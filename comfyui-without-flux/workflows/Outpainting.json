@@ -1022,71 +1022,6 @@
       "widgets_values": []
     },
     {
-      "id": 166,
-      "type": "KSampler",
-      "pos": {
-        "0": 977.9421997070312,
-        "1": 3140.98193359375
-      },
-      "size": {
-        "0": 315,
-        "1": 262
-      },
-      "flags": {},
-      "order": 72,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 254,
-          "label": "model"
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 255,
-          "label": "positive"
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 256,
-          "label": "negative"
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 274,
-          "label": "latent_image"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            257
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "LATENT"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        531509771172897,
-        "fixed",
-        20,
-        1,
-        "dpmpp_2m",
-        "karras",
-        0.01
-      ]
-    },
-    {
       "id": 249,
       "type": "GetNode",
       "pos": {
@@ -1838,12 +1773,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00003_.png&type=temp&subfolder=&rand=0.5873303923242537"
+            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00005_.png&type=temp&subfolder=&rand=0.8407798057286244"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00004_.png&type=temp&subfolder=&rand=0.9460654885527442"
+            "url": "/api/view?filename=rgthree.compare._temp_gbrbh_00006_.png&type=temp&subfolder=&rand=0.20658062104851815"
           }
         ]
       ]
@@ -2089,12 +2024,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_uporn_00003_.png&type=temp&subfolder=&rand=0.10093449035411584"
+            "url": "/api/view?filename=rgthree.compare._temp_uporn_00005_.png&type=temp&subfolder=&rand=0.8478791661821958"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_uporn_00004_.png&type=temp&subfolder=&rand=0.8864823679455212"
+            "url": "/api/view?filename=rgthree.compare._temp_uporn_00006_.png&type=temp&subfolder=&rand=0.22823125174862224"
           }
         ]
       ]
@@ -2179,12 +2114,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00003_.png&type=temp&subfolder=&rand=0.10379737045795157"
+            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00005_.png&type=temp&subfolder=&rand=0.9195185829170993"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00004_.png&type=temp&subfolder=&rand=0.36786286256262213"
+            "url": "/api/view?filename=rgthree.compare._temp_vjmbi_00006_.png&type=temp&subfolder=&rand=0.38544893043203343"
           }
         ]
       ]
@@ -2276,12 +2211,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00003_.png&type=temp&subfolder=&rand=0.5242402267368618"
+            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00005_.png&type=temp&subfolder=&rand=0.4715443782009958"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00004_.png&type=temp&subfolder=&rand=0.9243147617804754"
+            "url": "/api/view?filename=rgthree.compare._temp_lcggc_00006_.png&type=temp&subfolder=&rand=0.06647623103251776"
           }
         ]
       ]
@@ -2415,12 +2350,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00003_.png&type=temp&subfolder=&rand=0.3950380092921211"
+            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00005_.png&type=temp&subfolder=&rand=0.06919800602494663"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00004_.png&type=temp&subfolder=&rand=0.3115135248217282"
+            "url": "/api/view?filename=rgthree.compare._temp_lvyrg_00006_.png&type=temp&subfolder=&rand=0.9738406967827533"
           }
         ]
       ]
@@ -2520,12 +2455,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00003_.png&type=temp&subfolder=&rand=0.3631784275189034"
+            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00005_.png&type=temp&subfolder=&rand=0.7084397513668863"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00004_.png&type=temp&subfolder=&rand=0.9202426638568617"
+            "url": "/api/view?filename=rgthree.compare._temp_dtehy_00006_.png&type=temp&subfolder=&rand=0.10991529384522991"
           }
         ]
       ]
@@ -2664,12 +2599,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00003_.png&type=temp&subfolder=&rand=0.4682726269861557"
+            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00005_.png&type=temp&subfolder=&rand=0.56478836849154"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00004_.png&type=temp&subfolder=&rand=0.11989587005163416"
+            "url": "/api/view?filename=rgthree.compare._temp_dudzt_00006_.png&type=temp&subfolder=&rand=0.4112830040958313"
           }
         ]
       ]
@@ -2964,12 +2899,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00001_.png&type=temp&subfolder=&rand=0.9469962249699253"
+            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00003_.png&type=temp&subfolder=&rand=0.3110585103390411"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00002_.png&type=temp&subfolder=&rand=0.9306858918302401"
+            "url": "/api/view?filename=rgthree.compare._temp_bmrli_00004_.png&type=temp&subfolder=&rand=0.3845848322046752"
           }
         ]
       ]
@@ -4277,10 +4212,10 @@
         "0": 1779,
         "1": 2617
       },
-      "size": {
-        "0": 315,
-        "1": 58
-      },
+      "size": [
+        315,
+        270
+      ],
       "flags": {},
       "order": 87,
       "mode": 0,
@@ -4362,6 +4297,71 @@
         "dpmpp_2m",
         "karras",
         0.9500000000000001
+      ]
+    },
+    {
+      "id": 166,
+      "type": "KSampler",
+      "pos": {
+        "0": 977.9421997070312,
+        "1": 3140.98193359375
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 254,
+          "label": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 255,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 256,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 274,
+          "label": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            257
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        531509771172897,
+        "randomize",
+        20,
+        1,
+        "dpmpp_2m",
+        "karras",
+        0.01
       ]
     }
   ],
@@ -5374,8 +5374,8 @@
     "ds": {
       "scale": 1,
       "offset": [
-        238,
-        283.3333740234375
+        241.333251953125,
+        238.66668701171875
       ]
     }
   },
