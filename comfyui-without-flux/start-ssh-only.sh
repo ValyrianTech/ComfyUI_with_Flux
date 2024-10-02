@@ -26,6 +26,12 @@ echo "JupyterLab started"
 # Check if the flux model is present
 bash /check_files.sh
 
+# Check if there is a venv directory, if so, activate it
+if [ -d "/workspace/venv" ]; then
+    echo "venv directory found, activating it"
+    source /workspace/venv/bin/activate
+fi
+
 # Check if user's script exists in /workspace
 if [ ! -f /workspace/start_user.sh ]; then
     # If not, copy the original script to /workspace
