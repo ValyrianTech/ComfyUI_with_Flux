@@ -3,57 +3,18 @@
   "last_link_id": 38,
   "nodes": [
     {
-      "id": 26,
-      "type": "LoadImage",
-      "pos": [
-        574.0879504882818,
-        354.13510488281264
-      ],
-      "size": {
-        "0": 210,
-        "1": 314
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            30
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "source_image.png",
-        "image"
-      ]
-    },
-    {
       "id": 27,
       "type": "VHS_LoadVideo",
-      "pos": [
-        1113,
-        443
-      ],
+      "pos": {
+        "0": 1113,
+        "1": 443
+      },
       "size": [
-        235.1999969482422,
-        491.1999969482422
+        247.455078125,
+        503.455078125
       ],
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [
         {
@@ -127,14 +88,14 @@
     {
       "id": 28,
       "type": "AdvancedLivePortrait",
-      "pos": [
-        1386,
-        353
-      ],
-      "size": [
-        235.1999969482422,
-        674.0390319824219
-      ],
+      "pos": {
+        "0": 1386,
+        "1": 353
+      },
+      "size": {
+        "0": 235.1999969482422,
+        "1": 674.0390625
+      },
       "flags": {},
       "order": 3,
       "mode": 0,
@@ -182,13 +143,13 @@
     {
       "id": 29,
       "type": "VHS_VideoCombine",
-      "pos": [
-        1664,
-        357
-      ],
+      "pos": {
+        "0": 1664,
+        "1": 357
+      },
       "size": [
         272.9300842285156,
-        576.9300842285156
+        310
       ],
       "flags": {},
       "order": 4,
@@ -252,10 +213,10 @@
     {
       "id": 30,
       "type": "ExpressionEditor",
-      "pos": [
-        837.0879504882818,
-        349.1351048828126
-      ],
+      "pos": {
+        "0": 837.0879516601562,
+        "1": 349.1351013183594
+      },
       "size": {
         "0": 256.8715515136719,
         "1": 690
@@ -329,6 +290,46 @@
         "OnlyExpression",
         1.7000000000000002
       ]
+    },
+    {
+      "id": 26,
+      "type": "LoadImage",
+      "pos": {
+        "0": 574.0879516601562,
+        "1": 354.1351013183594
+      },
+      "size": {
+        "0": 210,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "character_sheet_example.png",
+        "image"
+      ]
     }
   ],
   "links": [
@@ -375,16 +376,17 @@
         789
       ],
       "color": "#3f789e",
-      "font_size": 30
+      "font_size": 30,
+      "flags": {}
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917354,
+      "scale": 1,
       "offset": [
-        185.1062862025528,
-        195.77375741392547
+        0,
+        0
       ]
     }
   },
