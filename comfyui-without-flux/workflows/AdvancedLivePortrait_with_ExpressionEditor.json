@@ -149,7 +149,7 @@
       },
       "size": [
         272.9300842285156,
-        310
+        576.9300842285156
       ],
       "flags": {},
       "order": 4,
@@ -201,14 +201,54 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "AdvancedLivePortrait_00001.mp4",
+            "filename": "AdvancedLivePortrait_00002.mp4",
             "subfolder": "",
-            "type": "temp",
+            "type": "output",
             "format": "video/h264-mp4",
             "frame_rate": 15
           }
         }
       }
+    },
+    {
+      "id": 26,
+      "type": "LoadImage",
+      "pos": {
+        "0": 574.0879516601562,
+        "1": 354.1351013183594
+      },
+      "size": {
+        "0": 210,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example_photo.png",
+        "image"
+      ]
     },
     {
       "id": 30,
@@ -284,51 +324,11 @@
         0,
         0,
         0,
-        1.3,
+        0,
         1,
         1,
         "OnlyExpression",
         1.7000000000000002
-      ]
-    },
-    {
-      "id": 26,
-      "type": "LoadImage",
-      "pos": {
-        "0": 574.0879516601562,
-        "1": 354.1351013183594
-      },
-      "size": {
-        "0": 210,
-        "1": 314
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            30
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "character_sheet_example.png",
-        "image"
       ]
     }
   ],

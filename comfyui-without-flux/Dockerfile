@@ -46,6 +46,7 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
 COPY --chmod=644 workflows/ /ComfyUI/pysssss-workflows/
 COPY --chmod=644 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 COPY --chmod=644 character_sheet_example.png /ComfyUI/input/character_sheet_example.png
+COPY --chmod=644 example_photo.png /ComfyUI/input/example_photo.png
 COPY --chmod=644 driving_video.mp4 /ComfyUI/input/driving_video.mp4
 
 WORKDIR /workspace
