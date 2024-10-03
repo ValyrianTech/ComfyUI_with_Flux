@@ -1,45 +1,20 @@
 {
-  "last_node_id": 22,
+  "last_node_id": 23,
   "last_link_id": 20,
   "nodes": [
-    {
-      "id": 13,
-      "type": "Note",
-      "pos": {
-        "0": 19,
-        "1": 780
-      },
-      "size": {
-        "0": 559.9717407226562,
-        "1": 161.16261291503906
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "ReActor fast face swap is a quick and user-friendly extension that can easily swap the faces of one or more characters in images or videos. It leverages multiple models to facilitate face detection, face swapping, and face restoration."
-      ],
-      "color": "#57431a",
-      "bgcolor": "#6b572e"
-    },
     {
       "id": 14,
       "type": "PreviewImage",
       "pos": {
-        "0": 980,
-        "1": 990
+        "0": 1390,
+        "1": 340
       },
       "size": {
         "0": 444.724365234375,
         "1": 457.3431396484375
       },
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -60,15 +35,15 @@
       "id": 11,
       "type": "ReActorFaceSwap",
       "pos": {
-        "0": 606,
-        "1": 984
+        "0": 1010,
+        "1": 330
       },
       "size": {
         "0": 315,
         "1": 358
       },
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -131,15 +106,15 @@
       "id": 22,
       "type": "LoadImage",
       "pos": {
-        "0": 27,
-        "1": 1023
+        "0": 430,
+        "1": 370
       },
       "size": {
         "0": 315,
         "1": 314
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -170,15 +145,15 @@
       "id": 12,
       "type": "LoadImage",
       "pos": {
-        "0": 362,
-        "1": 1026
+        "0": 770,
+        "1": 380
       },
       "size": {
         "0": 210.42282104492188,
         "1": 314
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -206,6 +181,54 @@
       ],
       "color": "#1a5757",
       "bgcolor": "#2e6b6b"
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": {
+        "0": 430,
+        "1": 130
+      },
+      "size": {
+        "0": 559.9717407226562,
+        "1": 161.16261291503906
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "ReActor fast face swap is a quick and user-friendly extension that can easily swap the faces of one or more characters in images or videos. It leverages multiple models to facilitate face detection, face swapping, and face restoration."
+      ],
+      "color": "#57431a",
+      "bgcolor": "#6b572e"
+    },
+    {
+      "id": 23,
+      "type": "Note",
+      "pos": {
+        "0": 1000,
+        "1": 740
+      },
+      "size": [
+        329.8537291970197,
+        121.26046023707022
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "If the swap model is missing: Open Manager and go to Custom Nodes Manager, search for 'ReActor Node for ComfyUI' and click the 'Try update' button. Restart ComfyUI and then refresh the browser, it should download the model automatically."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -238,10 +261,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.283902517749502,
+      "scale": 1,
       "offset": [
-        33.98940951463737,
-        -641.6230061966509
+        0,
+        0
       ]
     }
   },
