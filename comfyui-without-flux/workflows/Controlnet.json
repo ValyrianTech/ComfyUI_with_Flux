@@ -1,5 +1,5 @@
 {
-  "last_node_id": 33,
+  "last_node_id": 34,
   "last_link_id": 57,
   "nodes": [
     {
@@ -14,7 +14,7 @@
         26
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -52,7 +52,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -93,7 +93,7 @@
         "1": 630
       },
       "flags": {},
-      "order": 27,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -161,7 +161,7 @@
         "1": 900
       },
       "flags": {},
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -307,7 +307,7 @@
         26
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -345,7 +345,7 @@
         26
       ],
       "flags": {},
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -381,7 +381,7 @@
         26
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -419,7 +419,7 @@
         "1": 614
       },
       "flags": {},
-      "order": 28,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -534,7 +534,7 @@
         "1": 700
       },
       "flags": {},
-      "order": 29,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -563,7 +563,7 @@
         "1": 510
       },
       "flags": {},
-      "order": 25,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -592,7 +592,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 24,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -635,7 +635,7 @@
         "1": 190
       },
       "flags": {},
-      "order": 22,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -709,7 +709,7 @@
         "1": 300
       },
       "flags": {},
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -738,7 +738,7 @@
         "1": 190
       },
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -781,7 +781,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -863,7 +863,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -894,7 +894,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -926,7 +926,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -964,7 +964,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -1153,7 +1153,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1205,7 +1205,7 @@
         "1": 330
       },
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -1244,7 +1244,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        461380665310605,
+        1002297174302937,
         "randomize",
         20,
         1,
@@ -1313,6 +1313,29 @@
       "properties": {},
       "widgets_values": [
         "Video tutorial: https://www.youtube.com/watch?v=CTQYnBerHbs&t=114s&ab_channel=goshniiAI"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": {
+        "0": 525,
+        "1": -725
+      },
+      "size": [
+        645.839422673625,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Run the command 'bash /download_Controlnet.sh' in the terminal to download the models used in this workflow."
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1709,10 +1732,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5644739300537774,
+      "scale": 0.620921323059155,
       "offset": [
-        107.71832487381567,
-        1125.0329235580925
+        353.01172780151444,
+        977.6009560992437
       ]
     }
   },
