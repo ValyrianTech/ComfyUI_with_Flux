@@ -16,6 +16,9 @@ fi
 # Move text-generation-webui's folder to $VOLUME so models and all config will persist
 /comfyui-on-workspace.sh
 
+# Move ai-toolkit's folder to $VOLUME so models and all config will persist
+/ai-toolkit-on-workspace.sh
+
 # Start nginx as reverse proxy to enable api access
 service nginx start
 
