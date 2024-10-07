@@ -90,6 +90,7 @@ COPY --chmod=755 download_SUPIR.sh /download_SUPIR.sh
 COPY --chmod=755 download_Florence-2.sh /download_Florence-2.sh
 COPY --chmod=755 download_Upscalers.sh /download_Upscalers.sh
 COPY --chmod=755 download_Outpainting.sh /download_Outpainting.sh
+COPY --chmod=755 download_Workflows.sh /download_Workflows.sh
 COPY --chmod=755 download_ALL.sh /download_ALL.sh
 COPY --chmod=755 make_venv.sh /make_venv.sh
 
