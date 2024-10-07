@@ -13,3 +13,6 @@ fi
 
 # Then link /ai-toolkit folder to /workspace so it's available in that familiar location as well
 ln -s /workspace/ai-toolkit /ai-toolkit
+
+# Ensure we have /workspace/training_sets in all scenarios
+mkdir -p /workspace/training_set

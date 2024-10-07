@@ -215,4 +215,7 @@ RUN cd / && \
     git submodule update --init --recursive && \
     pip3 install -r requirements.txt
 
+# copy default train_lora.yaml file
+COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
+
 CMD [ "/start.sh" ]
