@@ -26,6 +26,11 @@ service nginx start
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.allow_origin='*' &
 echo "JupyterLab started"
 
+# Start AI-Toolkit UI
+cd /workspace/ai-toolkit
+python3 flux_train_ui.py &
+cd /
+
 # Check if the flux model is present
 bash /check_files.sh
 

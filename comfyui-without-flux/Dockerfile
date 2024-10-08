@@ -217,5 +217,6 @@ RUN cd / && \
 
 # copy default train_lora.yaml file
 COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
+EXPOSE 7860
 
 CMD [ "/start.sh" ]

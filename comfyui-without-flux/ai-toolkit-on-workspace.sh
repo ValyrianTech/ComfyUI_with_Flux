@@ -16,3 +16,4 @@ ln -s /workspace/ai-toolkit /ai-toolkit
 
 # Ensure we have /workspace/training_sets in all scenarios
 mkdir -p /workspace/training_set
+ln -s /workspace/ai-toolkit/output /workspace/ComfyUI/models/loras/output
