@@ -19,6 +19,16 @@ fi
 # Move ai-toolkit's folder to $VOLUME so models and all config will persist
 /ai-toolkit-on-workspace.sh
 
+#!/bin/bash
+if [[ -z "${HUGGINGFACE_TOKEN}" ]] || [[ "${HUGGINGFACE_TOKEN}" == "enter_your_huggingface_token_here" ]]
+then
+    echo "HUGGINGFACE_TOKEN is not set"
+else
+    echo "HUGGINGFACE_TOKEN is set, logging in..."
+    huggingface-cli login --token ${HUGGINGFACE_TOKEN}
+fi
+
+
 # Start nginx as reverse proxy to enable api access
 service nginx start
 
