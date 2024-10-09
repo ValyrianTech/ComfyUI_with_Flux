@@ -4,6 +4,9 @@ from PIL import Image, UnidentifiedImageError
 import torch
 from transformers import AutoProcessor, AutoModelForCausalLM
 
+
+CAPTION_PROMPT = '''<MORE_DETAILED_CAPTION>'''
+
 def caption_images(directory, trigger_word):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch_dtype = torch.float16
@@ -22,8 +25,7 @@ def caption_images(directory, trigger_word):
                 print(f"Skipping file {filename} due to error: {e}")
                 continue
 
-            prompt = "<DETAILED_CAPTION>"
-            inputs = processor(text=prompt, images=image, return_tensors="pt").to(device, torch_dtype)
+            inputs = processor(text=CAPTION_PROMPT, images=image, return_tensors="pt").to(device, torch_dtype)
 
             generated_ids = model.generate(
                 input_ids=inputs["input_ids"], pixel_values=inputs["pixel_values"], max_new_tokens=1024, num_beams=3
@@ -31,9 +33,9 @@ def caption_images(directory, trigger_word):
 
             generated_text = processor.batch_decode(generated_ids, skip_special_tokens=False)[0]
             parsed_answer = processor.post_process_generation(
-                generated_text, task=prompt, image_size=(image.width, image.height)
+                generated_text, task=CAPTION_PROMPT, image_size=(image.width, image.height)
             )
-            caption_text = trigger_word + parsed_answer["<DETAILED_CAPTION>"]
+            caption_text = trigger_word + ' ' + parsed_answer[CAPTION_PROMPT]
             print(f"Image: {filename} - Caption: {caption_text}")
 
             # Save the caption to a .txt file with the same name as the image
