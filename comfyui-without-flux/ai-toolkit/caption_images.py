@@ -7,7 +7,7 @@ from transformers import AutoProcessor, AutoModelForCausalLM
 
 CAPTION_PROMPT = '''<MORE_DETAILED_CAPTION>'''
 
-def caption_images(directory, trigger_word):
+def caption_images(directory, caption_prefix):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch_dtype = torch.float16
 
@@ -35,7 +35,7 @@ def caption_images(directory, trigger_word):
             parsed_answer = processor.post_process_generation(
                 generated_text, task=CAPTION_PROMPT, image_size=(image.width, image.height)
             )
-            caption_text = trigger_word + ' ' + parsed_answer[CAPTION_PROMPT]
+            caption_text = caption_prefix + ' ' + parsed_answer[CAPTION_PROMPT]
             print(f"Image: {filename} - Caption: {caption_text}")
 
             # Save the caption to a .txt file with the same name as the image
@@ -51,7 +51,7 @@ def caption_images(directory, trigger_word):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Caption images in a directory.')
     parser.add_argument('directory', type=str, help='The directory containing images to be captioned.')
-    parser.add_argument('trigger_word', type=str, help='The trigger word will be prepended to the caption.')
+    parser.add_argument('caption_prefix', type=str, help='The prefix will be prepended to the caption. For example, "A photo of [trigger]".')
     args = parser.parse_args()
 
-    caption_images(args.directory, args.trigger_word)
+    caption_images(args.directory, args.caption_prefix)
