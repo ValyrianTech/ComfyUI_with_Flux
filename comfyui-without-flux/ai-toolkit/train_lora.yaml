@@ -6,7 +6,7 @@ config:
   process:
     - type: 'sd_trainer'
       # root folder to save training sessions/samples/weights
-      training_folder: "output"
+      training_folder: "/workspace/ai-toolkit/output"
       # uncomment to see performance stats in the terminal every N steps
 #      performance_log_every: 1000
       device: cuda:0
@@ -74,17 +74,17 @@ config:
         height: 1024
         prompts:
           # you can add [trigger] to the prompts here and it will be replaced with the trigger word
-          - "[trigger] holding a sign that says 'I LOVE PROMPTS!'"
-          - "woman with red hair, playing chess at the park, bomb going off in the background"
-          - "a woman holding a coffee cup, in a beanie, sitting at a cafe"
-          - "a horse is a DJ at a night club, fish eye lens, smoke machine, lazer lights, holding a martini"
-          - "a man showing off his cool new t shirt at the beach, a shark is jumping out of the water in the background"
-          - "a bear building a log cabin in the snow covered mountains"
-          - "woman playing the guitar, on stage, singing a song, laser lights, punk rocker"
-          - "hipster man with a beard, building a chair, in a wood shop"
-          - "photo of a man, white background, medium shot, modeling clothing, studio lighting, white backdrop"
-          - "a man holding a sign that says, 'this is a sign'"
-          - "a bulldog, in a post apocalyptic world, with a shotgun, in a leather jacket, in a desert, with a motorcycle"
+          - "A photograph of [trigger] resting on a table in a bustling coffee shop, the soft glow of the morning sun filtering through the window."
+          - "A landscape painting of a serene park at sunset, with [trigger] nestled among the fallen autumn leaves, bathed in the warm golden light."
+          - "An art studio filled with paintbrushes, easels, and a charcoal sketch of [trigger] prominently displayed, under the stark white light of a single bulb."
+          - "A vintage mirror reflection of [trigger] in a boutique, surrounded by antique trinkets, captured as a sepia-toned image under soft, diffused lighting."
+          - "A black and white photograph of a dimly lit jazz club with [trigger] subtly illuminated under the spotlight."
+          - "A watercolor painting of a beach at dawn, the sand imprinted with seashells and [trigger], under the soft pastel hues of the morning light."
+          - "A pencil drawing of [trigger] on a desk in a quiet library, surrounded by towering bookshelves, lit by the focused beam of a desk lamp."
+          - "A vibrant digital art piece of a garden in full bloom, with [trigger] hidden amongst the flora, under the bright, midday sun."
+          - "A Polaroid photo of [trigger] perched on a window sill of a high-rise apartment, the city's night lights twinkling in the background, bathed in the cool, ambient city light."
+          - "A cozy kitchen filled with the aroma of fresh baking, [trigger] resting on the countertop, captured as a still life oil painting, under the warm, inviting glow of the kitchen lights."
+        
         neg: ""  # not used on flux
         seed: 42
         walk_seed: true
