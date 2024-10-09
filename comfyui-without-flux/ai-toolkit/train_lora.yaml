@@ -6,7 +6,7 @@ config:
   process:
     - type: 'sd_trainer'
       # root folder to save training sessions/samples/weights
-      training_folder: "/workspace/ai-toolkit/output"
+      training_folder: "/workspace/LoRas"
       # uncomment to see performance stats in the terminal every N steps
 #      performance_log_every: 1000
       device: cuda:0
