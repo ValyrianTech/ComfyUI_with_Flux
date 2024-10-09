@@ -20,7 +20,7 @@ config:
       save:
         dtype: float16 # precision to save
         save_every: 100 # save every this many steps
-        max_step_saves_to_keep: 10 # how many intermittent saves to keep
+        max_step_saves_to_keep: 20 # how many intermittent saves to keep
         push_to_hub: false #change this to True to push your trained model to Hugging Face.
         # You can either set up a HF_TOKEN env variable or you'll be prompted to log-in         
 #       hf_repo_id: your-username/your-model-slug
@@ -39,7 +39,7 @@ config:
           resolution: [ 512, 768, 1024 ]  # flux enjoys multiple resolutions
       train:
         batch_size: 1
-        steps: 1000  # total number of steps to train 500 - 4000 is a good range
+        steps: 2000  # total number of steps to train 500 - 4000 is a good range
         gradient_accumulation_steps: 1
         train_unet: true
         train_text_encoder: false  # probably won't work with flux
@@ -74,7 +74,8 @@ config:
         height: 1024
         prompts:
           # you can add [trigger] to the prompts here and it will be replaced with the trigger word
-          - "A photograph of [trigger] resting on a table in a bustling coffee shop, the soft glow of the morning sun filtering through the window."
+          - "A photo of [trigger]"
+          - "A photo of [trigger] resting on a table in a bustling coffee shop, the soft glow of the morning sun filtering through the window."
           - "A landscape painting of a serene park at sunset, with [trigger] nestled among the fallen autumn leaves, bathed in the warm golden light."
           - "An art studio filled with paintbrushes, easels, and a charcoal sketch of [trigger] prominently displayed, under the stark white light of a single bulb."
           - "A vintage mirror reflection of [trigger] in a boutique, surrounded by antique trinkets, captured as a sepia-toned image under soft, diffused lighting."
