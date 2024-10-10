@@ -2,6 +2,7 @@
 
 echo "Downloading all models"
 
+bash download_Files.sh
 bash download_Controlnet.sh
 bash download_LDSR.sh
 bash download_SUPIR.sh
