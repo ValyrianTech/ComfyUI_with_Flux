@@ -94,6 +94,7 @@ COPY --chmod=755 download_Workflows.sh /download_Workflows.sh
 COPY --chmod=755 update_Workflows.sh /update_Workflows.sh
 COPY --chmod=755 download_ALL.sh /download_ALL.sh
 COPY --chmod=755 make_venv.sh /make_venv.sh
+COPY --chmod=755 download_Files.sh /download_Files.sh
 
 # SUPIR Upscale
 RUN cd /ComfyUI/custom_nodes && \
