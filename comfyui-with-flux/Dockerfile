@@ -13,7 +13,7 @@ RUN wget -O /ComfyUI/models/clip/clip_l.safetensors "https://huggingface.co/comf
 RUN wget -O /ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true" --progress=bar:force:noscroll
 
 # Download LoRas
-RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV3.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV3/resolve/main/GracePenelopeTargaryenV3.safetensors?download=true" --progress=bar:force:noscroll
+RUN wget -O /ComfyUI/models/loras/GracePenelopeTargaryenV3.safetensors "https://huggingface.co/WouterGlorieux/GracePenelopeTargaryenV4/resolve/main/GracePenelopeTargaryenV4.safetensors?download=true" --progress=bar:force:noscroll
 RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "https://huggingface.co/VideoAditor/Flux-Lora-Realism/resolve/main/flux_realism_lora.safetensors?download=true" --progress=bar:force:noscroll
 
 # make the xlabs directory
