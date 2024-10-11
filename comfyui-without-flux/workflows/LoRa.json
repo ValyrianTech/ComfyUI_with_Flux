@@ -325,29 +325,6 @@
       ]
     },
     {
-      "id": 21,
-      "type": "Note",
-      "pos": {
-        "0": 463,
-        "1": 809
-      },
-      "size": {
-        "0": 383.2027587890625,
-        "1": 115.59778594970703
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "To make your own Lora, you can use this: https://replicate.com/ostris/flux-dev-lora-trainer/train\nTo try your own LoRa, download the lora.safetensors file into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0 while keeping the noise_seed fixed."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 9,
       "type": "ModelSamplingFlux",
       "pos": {
@@ -403,7 +380,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -494,7 +471,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -566,7 +543,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -669,7 +646,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -740,10 +717,10 @@
         "0": 1664,
         "1": 383
       },
-      "size": [
-        685.33349609375,
-        620.666748046875
-      ],
+      "size": {
+        "0": 685.33349609375,
+        "1": 620.666748046875
+      },
       "flags": {},
       "order": 18,
       "mode": 0,
@@ -761,6 +738,29 @@
       "widgets_values": [
         "LoRa"
       ]
+    },
+    {
+      "id": 21,
+      "type": "Note",
+      "pos": {
+        "0": 463,
+        "1": 809
+      },
+      "size": {
+        "0": 383.2027587890625,
+        "1": 115.59778594970703
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "To make your own Lora, you can use this: https://replicate.com/ostris/flux-dev-lora-trainer/train\nTo try your own LoRa, download the lora.safetensors file into /workspace/ComfyUI/models/loras and select it in the node above. To test if the LoRa is working you can bybass the node or set the strength to 0 while keeping the noise_seed fixed.\n\nUPDATE: It is now also possible to train LoRas directly in this template, see the following tutorial: https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/comfyui-without-flux/ai-toolkit/Tutorial_how_to_train_a_LoRa.md"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -929,10 +929,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1,
+      "scale": 1.4122927695244514,
       "offset": [
-        0,
-        0
+        127.95971083854126,
+        -409.59722548667804
       ]
     }
   },
