@@ -1,5 +1,53 @@
 # ComfyUI with Flux.1-dev
 
+## Update 2024-10-11
+
+- **Added AI-Toolkit to train LoRas**
+    - You can now train your own LoRas with the AI-Toolkit directly in this template and try them at the same time.
+    - Here is a tutorial on how to train your own LoRa: [AI-Toolkit Tutorial](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/comfyui-without-flux/ai-toolkit/Tutorial_how_to_train_a_LoRa.md)
+
+- **Included workflows:**
+    - AdvanceLivePortrait
+    - AdvancedLivePortrait_with_ExpressionEditor
+    - Controlnet
+    - ExpressionEditor
+    - FaceSwap
+    - img2img
+    - Inpainting
+    - LoRa
+    - Outpainting
+    - txt2img
+    - Upscale_LDSR
+    - Upscale_SUPIR
+    - Xlab-AI_Realism_LoRa
+
+    **Note**: Some of these workflows require additional models to be downloaded, in the root folder there are some scripts starting with 'download_X.sh' that you can run to download the models in the correct folder.
+    Run `bash /download_ALL.sh` to download all the models at once (this will take a while, it's about 50GB of data).
+    You can also just run the scripts for the workflows you are interested in.
+
+
+- **Improved support for network volumes and customization**
+    - The startup script is now located in `/workspace/start_user.sh` and is persistent on the network volume. This allows you to customize the startup script to your liking.
+
+- **New secondary template without the 20GB+ flux model for faster deploy**
+    - There is now a secondary template that is identical to this template, but it does not include the 20GB+ flux model, so it would be faster to deploy. You can find it here: [ComfyUI without Flux.1 dev one-click](https://runpod.io/console/deploy?template=aomdggbx0y&ref=2vdt3dn9)
+    - If you use a network volume, all the files are copied to the network volume on the first run, so the next time you deploy a pod, you can change the template to the `ComfyUI without Flux.1 dev one-click` template.
+
+- **Fixed some issues with JupyterLab**
+
+- **Pre-installed a bunch of popular custom nodes**
+
+    - websocket_image_save, ComfyUI-Florence2, ComfyUI-Logic, cg-use-everywhere, comfy-plasma, cg-image-picker, ComfyUI_JPS-Nodes,
+    ComfyUI_essentials, ComfyUI-Flowty-LDSR, ComfyUI-VideoHelperSuite, ComfyUI-KJNodes, ComfyUI-Custom-Scripts, ComfyUI-Manager, 
+    ComfyUI_UltimateSDUpscale, ComfyUI-AdvancedLivePortrait, x-flux-comfyui, rgthree-comfy, ComfyUI-Impact-Pack, ComfyUI_ComfyRoll_CustomNodes,
+    ComfyUI-SUPIR, was-node-suite-comfyui, comfyui_controlnet_aux, ComfyUI-Easy-Use, comfyui-reactor-node, ComfyUI_LayerStyle, comfyui-mixlab-nodes
+
+    - This should make the problems with 'IMPORT FAILED' less frequent. If you still encounter this problem when restarting a pod, you can go to the manager and click on 'Custom Nodes Manager', find the one that is causing the problem and click on the 'Try fix' button. 
+    - If you have a lot of custom nodes that are causing problems, there is another possible solution, but should only be use as a 'last resort', you can make a persistent venv by running the command `bash /make_venv.sh` in the terminal.
+    - This will create a persistent venv on the workspace and install all the dependencies that are needed. However, this will take a long time and will require at least another 15GB of space on the network volume.
+
+
+
 ## Update 2024-09-03
 - Updated ComfyUI to latest version
 - Added Realism LoRa from XLabs-AI and VideoAditor
@@ -48,11 +96,6 @@ You will need the Public IP and the External Port.
 
 If you want to use a different workflow, keep in mind you must use the API format of the workflow, you can get this by clicking the 'Save (API Format)' button in the ComfyUI.
 
-## Note
-Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 10 minutes to complete. 
-
-Happy creating!
-
 ## JupyterLab
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
 
@@ -67,3 +110,11 @@ Alternatively, you can start the web terminal and connect to it and enter the co
 
 Note: Due to a technical peculiarity in JupyterLab, the folder /ComfyUI/models/checkpoints will not open, because 'checkpoints' is a special word in JupyterLab.
 If you need to copy a file in this folder, you can still connect via the web terminal and use the 'wget' command to download your file.
+
+## Note
+Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 
+
+Update: If you have a network volume that has been used with this template before, you can use another template that will deploy faster, as all the files are already on the network volume. You can find it here:
+[ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
+
+Happy creating!

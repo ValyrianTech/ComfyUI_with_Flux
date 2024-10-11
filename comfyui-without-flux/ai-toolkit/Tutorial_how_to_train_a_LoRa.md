@@ -1,4 +1,4 @@
-# How to Train a LoRa using the 'ComfyUI with Flux.1 dev one-click' Template on Runpod
+# How to Train a LoRa with AI-Toolkit using the 'ComfyUI with Flux.1 dev one-click' Template on Runpod
 
 This tutorial will guide you through the process of training a LoRa using our 'ComfyUI with Flux.1 dev one-click' template on runpod. 
 
