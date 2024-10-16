@@ -114,7 +114,8 @@ If you need to copy a file in this folder, you can still connect via the web ter
 ## Note
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 
 
-Update: If you have a network volume that has been used with this template before, you can use another template that will deploy faster, as all the files are already on the network volume. You can find it here:
+
+Update: there is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, this will copy all the files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
 [ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
 
 Happy creating!
