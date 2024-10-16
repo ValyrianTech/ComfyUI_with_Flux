@@ -1,6 +1,6 @@
 # ComfyUI with Flux.1-dev
 
-This is a shortened version of the README, read the full README here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
+This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 
 ## Update 2024-10-11
@@ -40,7 +40,8 @@ Ready to dive in? Simply click on the 'Deploy' button. This will automatically s
 ## Note
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 
 
-Update: there is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, this will copy all the files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
-[ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
+## Deploy faster
+There is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, this will copy all the files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
+Link: [ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
 
 Happy creating!
