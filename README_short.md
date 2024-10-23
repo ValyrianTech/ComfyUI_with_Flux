@@ -37,10 +37,10 @@ Welcome to the one-click deployment template of ComfyUI with Flux.1-dev. This te
 ## Getting Started
 Ready to dive in? Simply click on the 'Deploy' button. This will automatically set up ComfyUI with Flux.1-dev on your Runpod.io account, along with the default workflows, ComfyUI Manager, and Custom-Scripts.
 
-# API
+## API
 See full README for more info on how to use the API: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
-# JupyterLab
+## JupyterLab
 See full README for more info on how to use JupyterLab: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 ## Note
