@@ -330,7 +330,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        128043994645709,
+        382283104744843,
         "randomize",
         20,
         1,
@@ -501,46 +501,6 @@
       "widgets_values": []
     },
     {
-      "id": 31,
-      "type": "LoraLoaderModelOnly",
-      "pos": {
-        "0": 525,
-        "1": 462
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 32
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            39
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "VideoAditor_flux_realism_lora.safetensors",
-        1
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 7,
       "type": "CLIPTextEncode",
       "pos": {
@@ -578,6 +538,46 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 31,
+      "type": "LoraLoaderModelOnly",
+      "pos": {
+        "0": 525,
+        "1": 462
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "VideoAditor_flux_realism_lora.safetensors",
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
