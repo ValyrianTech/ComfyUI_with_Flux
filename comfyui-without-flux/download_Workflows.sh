@@ -7,7 +7,27 @@ repo_url="https://raw.githubusercontent.com/ValyrianTech/ComfyUI_with_Flux/main/
 local_dir="/workspace/ComfyUI/pysssss-workflows"
 
 # List of file names
-file_list=("AdvancedLivePortrait.json" "AdvancedLivePortrait_with_ExpressionEditor.json" "Controlnet.json" "ExpressionEditor.json" "FaceSwap.json" "img2img.json" "Inpainting.json" "LoRa.json" "Outpainting.json" "txt2img.json" "Upscale_LDSR.json" "Upscale_SUPIR.json" "Xlabs-AI_RealismLoRa.json")
+file_list=(
+  "AdvancedLivePortrait.json"
+  "AdvancedLivePortrait_with_ExpressionEditor.json"
+  "CogVideoX_img2vid.json"
+  "CogVideoX_txt2vid.json"
+  "Controlnet.json"
+  "Controlnet2img.json"
+  "ExpressionEditor.json"
+  "Facedetailer.json"
+  "FaceSwap.json"
+  "img2img.json"
+  "img2pose.json"
+  "Inpainting.json"
+  "LoRa.json"
+  "Outpainting.json"
+  "pose2img.json"
+  "txt2img.json"
+  "Upscale_LDSR.json"
+  "Upscale_SUPIR.json"
+  "Xlabs-AI_RealismLoRa.json"
+  )
 
 # Change to the local directory
 cd $local_dir
