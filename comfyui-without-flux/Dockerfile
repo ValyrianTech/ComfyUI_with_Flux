@@ -212,6 +212,12 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/chrisgoringe/cg-use-everywhere.git
 
+# ComfyUI-CogVideoXWrapper
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-CogVideoXWrapper.git && \
+    cd ComfyUI-CogVideoXWrapper && \
+    pip3 install -r requirements.txt
+
 # AI-Toolkit
 RUN cd / && \
     git clone https://github.com/ostris/ai-toolkit.git && \
