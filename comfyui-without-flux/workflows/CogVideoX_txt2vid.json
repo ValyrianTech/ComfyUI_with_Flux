@@ -52,80 +52,6 @@
       ]
     },
     {
-      "id": 33,
-      "type": "VHS_VideoCombine",
-      "pos": {
-        "0": 1767,
-        "1": 39
-      },
-      "size": [
-        778.7022705078125,
-        829.801513671875
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 59
-        },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "meta_batch",
-          "type": "VHS_BatchManager",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VHS_VideoCombine"
-      },
-      "widgets_values": {
-        "frame_rate": 8,
-        "loop_count": 0,
-        "filename_prefix": "CogVideoX5B-T2V",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 19,
-        "save_metadata": true,
-        "pingpong": false,
-        "save_output": false,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "CogVideoX5B-T2V_00001.mp4",
-            "subfolder": "",
-            "type": "temp",
-            "format": "video/h264-mp4",
-            "frame_rate": 8
-          },
-          "muted": false
-        }
-      }
-    },
-    {
       "id": 36,
       "type": "DownloadAndLoadCogVideoModel",
       "pos": {
@@ -187,55 +113,6 @@
         "sdpa",
         "main_device"
       ]
-    },
-    {
-      "id": 30,
-      "type": "CogVideoTextEncode",
-      "pos": {
-        "0": 500,
-        "1": 308
-      },
-      "size": {
-        "0": 470.9939880371094,
-        "1": 237.5088653564453
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 54
-        }
-      ],
-      "outputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "links": [
-            67
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": [],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CogVideoTextEncode"
-      },
-      "widgets_values": [
-        "A cute 3D Pixar character of a dragon spewing fire.\n\n",
-        1,
-        false
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 31,
@@ -438,11 +315,134 @@
         49,
         50,
         6,
-        531968958378284,
+        81490895056273,
         "randomize",
         "CogVideoXDDIM",
         1
       ]
+    },
+    {
+      "id": 33,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 1767,
+        "1": 39
+      },
+      "size": [
+        778.7022705078125,
+        1082.7022705078125
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "CogVideoX5B-T2V",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "CogVideoX5B-T2V_00002.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 8
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 30,
+      "type": "CogVideoTextEncode",
+      "pos": {
+        "0": 500,
+        "1": 308
+      },
+      "size": {
+        "0": 470.9939880371094,
+        "1": 237.5088653564453
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            67
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "A cute 3D Pixar dragon flying through the air.\n\n",
+        1,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -525,8 +525,8 @@
     "ds": {
       "scale": 0.9090909090909091,
       "offset": [
-        -263.08479855349805,
-        346.186175580808
+        -224.95164425662307,
+        189.98610844213613
       ]
     }
   },
