@@ -3,95 +3,6 @@
   "last_link_id": 149,
   "nodes": [
     {
-      "id": 63,
-      "type": "CogVideoSampler",
-      "pos": {
-        "0": 1142,
-        "1": 74
-      },
-      "size": {
-        "0": 330,
-        "1": 574
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "COGVIDEOMODEL",
-          "link": 144
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 145
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 146
-        },
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "image_cond_latents",
-          "type": "LATENT",
-          "link": 147,
-          "shape": 7
-        },
-        {
-          "name": "context_options",
-          "type": "COGCONTEXT",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "controlnet",
-          "type": "COGVIDECONTROLNET",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "tora_trajectory",
-          "type": "TORAFEATURES",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "fastercache",
-          "type": "FASTERCACHEARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "links": [
-            148
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CogVideoSampler"
-      },
-      "widgets_values": [
-        49,
-        25,
-        6,
-        0,
-        "fixed",
-        "CogVideoXDDIM",
-        1
-      ]
-    },
-    {
       "id": 62,
       "type": "CogVideoImageEncode",
       "pos": {
@@ -582,6 +493,95 @@
         "example_photo.png",
         "image"
       ]
+    },
+    {
+      "id": 63,
+      "type": "CogVideoSampler",
+      "pos": {
+        "0": 1142,
+        "1": 74
+      },
+      "size": {
+        "0": 330,
+        "1": 574
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "COGVIDEOMODEL",
+          "link": 144
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 145
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 146
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "image_cond_latents",
+          "type": "LATENT",
+          "link": 147,
+          "shape": 7
+        },
+        {
+          "name": "context_options",
+          "type": "COGCONTEXT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "controlnet",
+          "type": "COGVIDECONTROLNET",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "tora_trajectory",
+          "type": "TORAFEATURES",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "fastercache",
+          "type": "FASTERCACHEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            148
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoSampler"
+      },
+      "widgets_values": [
+        49,
+        25,
+        6,
+        637231104804884,
+        "randomize",
+        "CogVideoXDDIM",
+        1
+      ]
     }
   ],
   "links": [
@@ -686,10 +686,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917354,
+      "scale": 0.8264462809917361,
       "offset": [
-        168.60498140289346,
-        240.5403789855377
+        172.03700574413028,
+        313.67892663796306
       ]
     }
   },
