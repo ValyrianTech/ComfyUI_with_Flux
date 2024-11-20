@@ -1,26 +1,26 @@
 {
-  "last_node_id": 34,
-  "last_link_id": 64,
+  "last_node_id": 37,
+  "last_link_id": 72,
   "nodes": [
     {
-      "id": 30,
+      "id": 31,
       "type": "CogVideoTextEncode",
       "pos": {
-        "0": 500,
-        "1": 308
+        "0": 503,
+        "1": 602
       },
       "size": {
-        "0": 480.61834716796875,
-        "1": 237.08575439453125
+        "0": 464.498046875,
+        "1": 169.87478637695312
       },
       "flags": {},
-      "order": 2,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 54
+          "link": 65
         }
       ],
       "outputs": [
@@ -28,7 +28,7 @@
           "name": "conditioning",
           "type": "CONDITIONING",
           "links": [
-            61
+            68
           ],
           "slot_index": 0,
           "shape": 3
@@ -43,47 +43,127 @@
         "Node name for S&R": "CogVideoTextEncode"
       },
       "widgets_values": [
-        "A golden retriever, sporting sleek black sunglasses, with its lengthy fur flowing in the breeze, sprints playfully across a rooftop terrace, recently refreshed by a light rain. The scene unfolds from a distance, the dog's energetic bounds growing larger as it approaches the camera, its tail wagging with unrestrained joy, while droplets of water glisten on the concrete behind it. The overcast sky provides a dramatic backdrop, emphasizing the vibrant golden coat of the canine as it dashes towards the viewer.\n\n",
+        "",
         1,
         true
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
+      ]
     },
     {
-      "id": 34,
-      "type": "CogVideoSampler",
+      "id": 11,
+      "type": "CogVideoDecode",
       "pos": {
-        "0": 1041,
-        "1": 342
+        "0": 1416,
+        "1": 40
       },
       "size": {
-        "0": 315.8404846191406,
-        "1": 410
+        "0": 300.396484375,
+        "1": 198
       },
       "flags": {},
-      "order": 4,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
-          "name": "pipeline",
-          "type": "COGVIDEOPIPE",
-          "link": 60
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 61
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 62
+          "name": "vae",
+          "type": "VAE",
+          "link": 71
         },
         {
           "name": "samples",
           "type": "LATENT",
-          "link": null,
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            59
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoDecode"
+      },
+      "widgets_values": [
+        false,
+        240,
+        360,
+        0.2,
+        0.2,
+        true
+      ]
+    },
+    {
+      "id": 37,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 643,
+        "1": 827
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            72
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        720,
+        480,
+        1
+      ]
+    },
+    {
+      "id": 35,
+      "type": "CogVideoSampler",
+      "pos": {
+        "0": 1042,
+        "1": 291
+      },
+      "size": {
+        "0": 330,
+        "1": 574
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "COGVIDEOMODEL",
+          "link": 70
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 67
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 68
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 72,
           "shape": 7
         },
         {
@@ -119,202 +199,32 @@
       ],
       "outputs": [
         {
-          "name": "cogvideo_pipe",
-          "type": "COGVIDEOPIPE",
-          "links": [
-            63
-          ],
-          "shape": 3
-        },
-        {
           "name": "samples",
           "type": "LATENT",
           "links": [
-            64
-          ],
-          "shape": 3
+            69
+          ]
         }
       ],
       "properties": {
         "Node name for S&R": "CogVideoSampler"
       },
       "widgets_values": [
-        480,
-        720,
         49,
         50,
         6,
-        976615220210036,
-        "randomize",
-        "DPM++",
+        0,
+        "fixed",
+        "CogVideoXDDIM",
         1
       ]
-    },
-    {
-      "id": 11,
-      "type": "CogVideoDecode",
-      "pos": {
-        "0": 1425,
-        "1": 340
-      },
-      "size": {
-        "0": 300.396484375,
-        "1": 198
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pipeline",
-          "type": "COGVIDEOPIPE",
-          "link": 63
-        },
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 64
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": [
-            59
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CogVideoDecode"
-      },
-      "widgets_values": [
-        false,
-        240,
-        360,
-        0.2,
-        0.2,
-        true
-      ]
-    },
-    {
-      "id": 1,
-      "type": "DownloadAndLoadCogVideoModel",
-      "pos": {
-        "0": 513,
-        "1": 12
-      },
-      "size": {
-        "0": 455.7476806640625,
-        "1": 214.88381958007812
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pab_config",
-          "type": "PAB_CONFIG",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "block_edit",
-          "type": "TRANSFORMERBLOCKS",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "lora",
-          "type": "COGLORA",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "compile_args",
-          "type": "COMPILEARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "cogvideo_pipe",
-          "type": "COGVIDEOPIPE",
-          "links": [
-            60
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DownloadAndLoadCogVideoModel"
-      },
-      "widgets_values": [
-        "THUDM/CogVideoX-5b",
-        "bf16",
-        "disabled",
-        "disabled",
-        false
-      ]
-    },
-    {
-      "id": 31,
-      "type": "CogVideoTextEncode",
-      "pos": {
-        "0": 506,
-        "1": 612
-      },
-      "size": {
-        "0": 475.097900390625,
-        "1": 191.3256072998047
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 56
-        }
-      ],
-      "outputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "links": [
-            62
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CogVideoTextEncode"
-      },
-      "widgets_values": [
-        "",
-        1,
-        true
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
     },
     {
       "id": 20,
       "type": "CLIPLoader",
       "pos": {
-        "0": -53,
-        "1": 471
+        "0": 5,
+        "1": 308
       },
       "size": {
         "0": 451.30548095703125,
@@ -329,8 +239,7 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            54,
-            56
+            54
           ],
           "slot_index": 0,
           "shape": 3
@@ -342,23 +251,21 @@
       "widgets_values": [
         "t5xxl_fp8_e4m3fn.safetensors",
         "sd3"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
+      ]
     },
     {
       "id": 33,
       "type": "VHS_VideoCombine",
       "pos": {
-        "0": 1782,
-        "1": 335
+        "0": 1767,
+        "1": 39
       },
       "size": [
         778.7022705078125,
-        829.801513671875
+        310
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -399,26 +306,138 @@
       "widgets_values": {
         "frame_rate": 8,
         "loop_count": 0,
-        "filename_prefix": "CogVideoX5B",
+        "filename_prefix": "CogVideoX5B-T2V",
         "format": "video/h264-mp4",
         "pix_fmt": "yuv420p",
         "crf": 19,
         "save_metadata": true,
         "pingpong": false,
-        "save_output": true,
+        "save_output": false,
         "videopreview": {
           "hidden": false,
           "paused": false,
           "params": {
             "filename": "CogVideoX5B_00001.mp4",
             "subfolder": "",
-            "type": "output",
+            "type": "temp",
             "format": "video/h264-mp4",
             "frame_rate": 8
           },
           "muted": false
         }
       }
+    },
+    {
+      "id": 36,
+      "type": "DownloadAndLoadCogVideoModel",
+      "pos": {
+        "0": 645,
+        "1": 17
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "block_edit",
+          "type": "TRANSFORMERBLOCKS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "lora",
+          "type": "COGLORA",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "COGVIDEOMODEL",
+          "links": [
+            70
+          ]
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            71
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadCogVideoModel"
+      },
+      "widgets_values": [
+        "kijai/CogVideoX-5b-1.5-T2V",
+        "bf16",
+        "disabled",
+        false,
+        "sdpa",
+        "main_device"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "CogVideoTextEncode",
+      "pos": {
+        "0": 500,
+        "1": 308
+      },
+      "size": {
+        "0": 470.9939880371094,
+        "1": 237.5088653564453
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            67
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            65
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "A cute 3D Pixar character of a dragon spewing fire.\n\n",
+        1,
+        false
+      ]
     }
   ],
   "links": [
@@ -431,14 +450,6 @@
       "CLIP"
     ],
     [
-      56,
-      20,
-      0,
-      31,
-      0,
-      "CLIP"
-    ],
-    [
       59,
       11,
       0,
@@ -447,43 +458,59 @@
       "IMAGE"
     ],
     [
-      60,
+      65,
+      30,
       1,
+      31,
       0,
-      34,
-      0,
-      "COGVIDEOPIPE"
+      "CLIP"
     ],
     [
-      61,
+      67,
       30,
       0,
-      34,
+      35,
       1,
       "CONDITIONING"
     ],
     [
-      62,
+      68,
       31,
       0,
-      34,
+      35,
       2,
       "CONDITIONING"
     ],
     [
-      63,
-      34,
+      69,
+      35,
       0,
       11,
-      0,
-      "COGVIDEOPIPE"
+      1,
+      "LATENT"
     ],
     [
-      64,
-      34,
+      70,
+      36,
+      0,
+      35,
+      0,
+      "COGVIDEOMODEL"
+    ],
+    [
+      71,
+      36,
       1,
       11,
-      1,
+      0,
+      "VAE"
+    ],
+    [
+      72,
+      37,
+      0,
+      35,
+      3,
       "LATENT"
     ]
   ],
@@ -491,10 +518,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5644739300537773,
+      "scale": 0.9090909090909091,
       "offset": [
-        1160.5123089483482,
-        401.8126822927111
+        -263.08479855349805,
+        346.186175580808
       ]
     }
   },
