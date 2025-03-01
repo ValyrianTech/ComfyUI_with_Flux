@@ -73,7 +73,7 @@ COPY --chmod=755 replaceDefaultGraph.py /replaceDefaultGraph.py
 # Run the Python script
 RUN python3 /replaceDefaultGraph.py
 
-# Overwrite the default.json file in ComfyUI\web\templates\default.json for the new UI
+# Overwrite the default.json file in ComfyUI/web/templates for the new UI
 COPY --chmod=644 defaultGraph.json /ComfyUI/web/templates/default.json
 
 # Add Jupyter Notebook
