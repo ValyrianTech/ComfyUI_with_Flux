@@ -223,8 +223,9 @@ RUN cd /ComfyUI/custom_nodes && \
     cd comfyui-reactor-node && \
     pip3 install -r requirements.txt
 
-# Download the swap_model file
-RUN wget "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /ComfyUI/models/insightface/inswapper_128.onnx
+# make the directory and download the swap_model file
+RUN mkdir -p /ComfyUI/models/insightface && \
+    wget "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /ComfyUI/models/insightface/inswapper_128.onnx
 
 # cg-use-everywhere
 RUN cd /ComfyUI/custom_nodes && \
