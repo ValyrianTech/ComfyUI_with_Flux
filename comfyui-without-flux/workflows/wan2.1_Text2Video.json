@@ -1,40 +1,28 @@
 {
-  "last_node_id": 48,
-  "last_link_id": 95,
+  "last_node_id": 49,
+  "last_link_id": 96,
   "nodes": [
     {
-      "id": 8,
-      "type": "VAEDecode",
+      "id": 37,
+      "type": "UNETLoader",
       "pos": [
-        1210,
-        190
+        25.13335609436035,
+        39.26667785644531
       ],
       "size": [
-        210,
-        46
+        346.7470703125,
+        82
       ],
       "flags": {},
-      "order": 8,
+      "order": 0,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 35
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 76
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            56,
-            93
+            94
           ],
           "slot_index": 0
         }
@@ -42,42 +30,87 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.18",
-        "Node name for S&R": "VAEDecode"
+        "Node name for S&R": "UNETLoader"
       },
-      "widgets_values": []
+      "widgets_values": [
+        "wan2.1_t2v_14B_bf16.safetensors",
+        "default"
+      ]
     },
     {
-      "id": 28,
-      "type": "SaveAnimatedWEBP",
+      "id": 48,
+      "type": "ModelSamplingSD3",
       "pos": [
-        1460,
-        190
+        415.79998779296875,
+        44.866676330566406
       ],
       "size": [
-        870.8511352539062,
-        643.7430419921875
+        210,
+        58
       ],
       "flags": {},
-      "order": 9,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 56
+          "name": "model",
+          "type": "MODEL",
+          "link": 94
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            95
+          ],
+          "slot_index": 0
+        }
+      ],
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.18",
-        "Node name for S&R": "SaveAnimatedWEBP"
+        "Node name for S&R": "ModelSamplingSD3"
       },
       "widgets_values": [
-        "ComfyUI",
-        16,
-        false,
-        90,
+        8
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -14.916814804077148,
+        403.96490478515625
+      ],
+      "size": [
+        390,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74,
+            75
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
         "default"
       ]
     },
@@ -85,15 +118,15 @@
       "id": 40,
       "type": "EmptyHunyuanLatentVideo",
       "pos": [
-        520,
-        620
+        419.5334167480469,
+        162.39999389648438
       ],
       "size": [
         315,
         130
       ],
       "flags": {},
-      "order": 0,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -112,52 +145,18 @@
         "Node name for S&R": "EmptyHunyuanLatentVideo"
       },
       "widgets_values": [
-        832,
-        480,
-        33,
+        720,
+        720,
+        121,
         1
-      ]
-    },
-    {
-      "id": 47,
-      "type": "SaveWEBM",
-      "pos": [
-        2367.213134765625,
-        193.6114959716797
-      ],
-      "size": [
-        315,
-        130
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 93
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.18",
-        "Node name for S&R": "SaveWEBM"
-      },
-      "widgets_values": [
-        "ComfyUI",
-        "vp9",
-        24,
-        32
       ]
     },
     {
       "id": 3,
       "type": "KSampler",
       "pos": [
-        863,
-        187
+        915.8002319335938,
+        43.266719818115234
       ],
       "size": [
         315,
@@ -204,7 +203,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        1011204122937927,
+        974009184047117,
         "randomize",
         30,
         6,
@@ -214,32 +213,26 @@
       ]
     },
     {
-      "id": 48,
-      "type": "ModelSamplingSD3",
+      "id": 39,
+      "type": "VAELoader",
       "pos": [
-        440,
-        50
+        917.7264404296875,
+        376.7193603515625
       ],
       "size": [
-        210,
+        306.36004638671875,
         58
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 94
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "MODEL",
-          "type": "MODEL",
+          "name": "VAE",
+          "type": "VAE",
           "links": [
-            95
+            76
           ],
           "slot_index": 0
         }
@@ -247,61 +240,18 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.18",
-        "Node name for S&R": "ModelSamplingSD3"
+        "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
-        8
+        "wan_2.1_vae.safetensors"
       ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        415,
-        186
-      ],
-      "size": [
-        422.84503173828125,
-        164.31304931640625
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 74
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            46
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "CLIP Text Encode (Positive Prompt)",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.18",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "a fox moving quickly in a beautiful winter scenery nature trees mountains daytime tracking camera"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 7,
       "type": "CLIPTextEncode",
       "pos": [
-        413,
-        389
+        422.5333251953125,
+        567.933349609375
       ],
       "size": [
         425.27801513671875,
@@ -340,98 +290,38 @@
       "bgcolor": "#533"
     },
     {
-      "id": 37,
-      "type": "UNETLoader",
+      "id": 8,
+      "type": "VAEDecode",
       "pos": [
-        20,
-        40
+        1271.60009765625,
+        50.66664505004883
       ],
       "size": [
-        346.7470703125,
-        82
+        210,
+        46
       ],
       "flags": {},
-      "order": 1,
+      "order": 8,
       "mode": 0,
-      "inputs": [],
-      "outputs": [
+      "inputs": [
         {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            94
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.18",
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "wan2.1_t2v_14B_bf16.safetensors",
-        "default"
-      ]
-    },
-    {
-      "id": 38,
-      "type": "CLIPLoader",
-      "pos": [
-        12.94982624053955,
-        184.6981658935547
-      ],
-      "size": [
-        390,
-        82
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
+          "name": "samples",
+          "type": "LATENT",
+          "link": 35
+        },
         {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            74,
-            75
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.18",
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
-        "wan",
-        "default"
-      ]
-    },
-    {
-      "id": 39,
-      "type": "VAELoader",
-      "pos": [
-        866.3932495117188,
-        499.18597412109375
-      ],
-      "size": [
-        306.36004638671875,
-        58
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
+          "name": "vae",
           "type": "VAE",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            76
+            56,
+            96
           ],
           "slot_index": 0
         }
@@ -439,11 +329,156 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.18",
-        "Node name for S&R": "VAELoader"
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 49,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2170.640625,
+        52.674903869628906
+      ],
+      "size": [
+        214.7587890625,
+        376
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 96
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4c7858ddd5126f7293dc3c9f6e0fc4c263cde079",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/webm",
+        "pix_fmt": "yuv420p",
+        "crf": 20,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      }
+    },
+    {
+      "id": 28,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        1271.533447265625,
+        151.1333770751953
+      ],
+      "size": [
+        873.7845458984375,
+        780.8764038085938
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "SaveAnimatedWEBP"
       },
       "widgets_values": [
-        "wan_2.1_vae.safetensors"
+        "ComfyUI",
+        16,
+        false,
+        90,
+        "default"
       ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        417.2000732421875,
+        348.80010986328125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            46
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A beautiful woman with long braided platinum-blonde hair and magenta eyes. She is holding a large red-scaled dragon egg and smiling. in the background there is a fireplace."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -512,14 +547,6 @@
       "LATENT"
     ],
     [
-      93,
-      8,
-      0,
-      47,
-      0,
-      "IMAGE"
-    ],
-    [
       94,
       37,
       0,
@@ -534,17 +561,25 @@
       3,
       0,
       "MODEL"
+    ],
+    [
+      96,
+      8,
+      0,
+      49,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1,
-      "offset": {
-        "0": 78.6666259765625,
-        "1": 122.6666259765625
-      }
+      "scale": 0.9090909090909091,
+      "offset": [
+        266.22761941704834,
+        139.8252529932448
+      ]
     },
     "ue_links": [],
     "VHS_latentpreview": false,
