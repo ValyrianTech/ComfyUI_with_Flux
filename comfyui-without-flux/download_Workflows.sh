@@ -4,7 +4,7 @@
 repo_url="https://raw.githubusercontent.com/ValyrianTech/ComfyUI_with_Flux/main/comfyui-without-flux/workflows"
 
 # The local directory to store the files
-local_dir="/workspace/ComfyUI/pysssss-workflows"
+local_dir="/workspace/ComfyUI/user/default/workflows"
 
 # List of file names
 file_list=(
