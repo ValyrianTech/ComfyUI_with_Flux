@@ -6,13 +6,13 @@
       "id": 17,
       "type": "BasicScheduler",
       "pos": [
-        478.49737039819684,
-        845.2171299774604
+        478.49737548828125,
+        845.2171020507812
       ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
+      "size": [
+        315,
+        106
+      ],
       "flags": {},
       "order": 7,
       "mode": 0,
@@ -28,13 +28,15 @@
         {
           "name": "SIGMAS",
           "type": "SIGMAS",
+          "shape": 3,
           "links": [
             20
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "BasicScheduler"
       },
       "widgets_values": [
@@ -50,24 +52,27 @@
         478,
         749
       ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
+      "size": [
+        315,
+        58
+      ],
       "flags": {},
       "order": 0,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "SAMPLER",
           "type": "SAMPLER",
+          "shape": 3,
           "links": [
             19
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "KSamplerSelect"
       },
       "widgets_values": [
@@ -81,10 +86,10 @@
         480,
         144
       ],
-      "size": {
-        "0": 317.4000244140625,
-        "1": 58
-      },
+      "size": [
+        317.4000244140625,
+        58
+      ],
       "flags": {},
       "order": 9,
       "mode": 0,
@@ -99,14 +104,16 @@
         {
           "name": "CONDITIONING",
           "type": "CONDITIONING",
+          "shape": 3,
           "links": [
             42
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "FluxGuidance"
       },
       "widgets_values": [
@@ -122,10 +129,10 @@
         576,
         48
       ],
-      "size": {
-        "0": 222.3482666015625,
-        "1": 46
-      },
+      "size": [
+        222.3482666015625,
+        46
+      ],
       "flags": {},
       "order": 10,
       "mode": 0,
@@ -147,16 +154,19 @@
         {
           "name": "GUIDER",
           "type": "GUIDER",
+          "shape": 3,
           "links": [
             30
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "BasicGuider"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 10,
@@ -165,25 +175,28 @@
         48,
         432
       ],
-      "size": {
-        "0": 311.81634521484375,
-        "1": 60.429901123046875
-      },
+      "size": [
+        311.81634521484375,
+        60.429901123046875
+      ],
       "flags": {},
       "order": 1,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "VAE",
           "type": "VAE",
+          "shape": 3,
           "links": [
             12
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
@@ -197,10 +210,10 @@
         864,
         192
       ],
-      "size": {
-        "0": 272.3617858886719,
-        "1": 124.53733825683594
-      },
+      "size": [
+        272.3617858886719,
+        124.53733825683594
+      ],
       "flags": {},
       "order": 11,
       "mode": 0,
@@ -240,22 +253,25 @@
         {
           "name": "output",
           "type": "LATENT",
+          "shape": 3,
           "links": [
             24
           ],
-          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "denoised_output",
           "type": "LATENT",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "SamplerCustomAdvanced"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 25,
@@ -264,24 +280,27 @@
         480,
         624
       ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
+      "size": [
+        315,
+        82
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "NOISE",
           "type": "NOISE",
+          "shape": 3,
           "links": [
             37
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
@@ -298,10 +317,10 @@
         866,
         367
       ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
+      "size": [
+        210,
+        46
+      ],
       "flags": {},
       "order": 12,
       "mode": 0,
@@ -328,8 +347,11 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 9,
@@ -338,10 +360,10 @@
         1155,
         196
       ],
-      "size": {
-        "0": 985.3012084960938,
-        "1": 1060.3828125
-      },
+      "size": [
+        985.3012084960938,
+        1060.3828125
+      ],
       "flags": {},
       "order": 13,
       "mode": 0,
@@ -352,7 +374,12 @@
           "link": 9
         }
       ],
-      "properties": {},
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "SaveImage"
+      },
       "widgets_values": [
         "ComfyUI"
       ]
@@ -364,25 +391,28 @@
         477,
         472
       ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
+      "size": [
+        315,
+        106
+      ],
       "flags": {},
       "order": 3,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "LATENT",
           "type": "LATENT",
+          "shape": 3,
           "links": [
             43
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "EmptySD3LatentImage"
       },
       "widgets_values": [
@@ -394,55 +424,35 @@
       "bgcolor": "#535"
     },
     {
-      "id": 28,
-      "type": "Note",
-      "pos": [
-        48,
-        576
-      ],
-      "size": {
-        "0": 336,
-        "1": 288
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Click on the arrow next to the Load button to load any of the included workflows like txt2img, img2img and LoRa."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 12,
       "type": "UNETLoader",
       "pos": [
         48,
         144
       ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
+      "size": [
+        315,
+        82
+      ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "MODEL",
           "type": "MODEL",
+          "shape": 3,
           "links": [
             38,
             39
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "UNETLoader"
       },
       "widgets_values": [
@@ -459,31 +469,35 @@
         49,
         275
       ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
+      "size": [
+        315,
+        106
+      ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "CLIP",
           "type": "CLIP",
+          "shape": 3,
           "links": [
             10
           ],
-          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "DualCLIPLoader"
       },
       "widgets_values": [
         "t5xxl_fp8_e4m3fn.safetensors",
         "clip_l.safetensors",
-        "flux"
+        "flux",
+        "default"
       ]
     },
     {
@@ -493,10 +507,10 @@
         395,
         253
       ],
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
       "flags": {},
       "order": 8,
       "mode": 0,
@@ -519,6 +533,8 @@
       ],
       "title": "CLIP Text Encode (Positive Prompt)",
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
@@ -526,6 +542,31 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 28,
+      "type": "Note",
+      "pos": [
+        48,
+        576
+      ],
+      "size": [
+        336,
+        288
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Click on the Workflows Icon to load any of the included workflows like txt2img, img2img and LoRa, Wan2.1 and many more."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -638,12 +679,17 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6209213230591555,
+      "scale": 0.7008995921104095,
       "offset": [
-        630.2062790609183,
-        -156.81578238072996
+        686.4182427853955,
+        201.73046875
       ]
-    }
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

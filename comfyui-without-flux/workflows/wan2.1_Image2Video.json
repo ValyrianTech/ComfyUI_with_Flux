@@ -1,5 +1,5 @@
 {
-  "last_node_id": 55,
+  "last_node_id": 56,
   "last_link_id": 112,
   "nodes": [
     {
@@ -86,7 +86,7 @@
         262
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -126,7 +126,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        910915906055959,
+        950599181474395,
         "randomize",
         20,
         6,
@@ -147,7 +147,7 @@
         180.6060791015625
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -190,7 +190,7 @@
         61.90425109863281
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -265,7 +265,7 @@
         78
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -386,7 +386,7 @@
         210
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -467,7 +467,7 @@
         46
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -511,7 +511,7 @@
         909.9430541992188
       ],
       "flags": {},
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -531,8 +531,7 @@
         16,
         false,
         90,
-        "default",
-        ""
+        "default"
       ]
     },
     {
@@ -547,7 +546,7 @@
         376
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -616,7 +615,7 @@
         164.31304931640625
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -646,6 +645,29 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": [
+        -455.7824401855469,
+        -178.8026580810547
+      ],
+      "size": [
+        988.3366088867188,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Run the command 'bash /download_wan2.1.sh' in the terminal to download the models for this workflow. (Will require 75GB of disk space.)"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -798,10 +820,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6094643076877886,
+      "scale": 0.638711061321116,
       "offset": [
-        1113.9620071907643,
-        225.43774344943233
+        998.2107493082681,
+        478.73268988193604
       ]
     },
     "ue_links": [],

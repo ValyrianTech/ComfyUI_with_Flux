@@ -1,5 +1,5 @@
 {
-  "last_node_id": 49,
+  "last_node_id": 50,
   "last_link_id": 96,
   "nodes": [
     {
@@ -49,7 +49,7 @@
         58
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -163,7 +163,7 @@
         262
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -258,7 +258,7 @@
         180.6060791015625
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -301,7 +301,7 @@
         46
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -345,7 +345,7 @@
         376
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -414,7 +414,7 @@
         780.8764038085938
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -449,7 +449,7 @@
         164.31304931640625
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -479,6 +479,29 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 50,
+      "type": "Note",
+      "pos": [
+        25.639062881469727,
+        -70.52523040771484
+      ],
+      "size": [
+        988.3366088867188,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Run the command 'bash /download_wan2.1.sh' in the terminal to download the models for this workflow. (Will require 75GB of disk space.)"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -575,10 +598,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9090909090909091,
+      "scale": 0.7734526495641642,
       "offset": [
-        266.22761941704834,
-        139.8252529932448
+        428.3028529485066,
+        344.4852658173977
       ]
     },
     "ue_links": [],
