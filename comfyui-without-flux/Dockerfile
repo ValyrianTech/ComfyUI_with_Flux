@@ -158,8 +158,9 @@ RUN cd /ComfyUI/custom_nodes && \
     cd ComfyUI-Impact-Subpack && \
     pip3 install -r requirements.txt
 
-# download face_yolov8m.pt
-RUN wget "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /ComfyUI/models/ultralytics/bbox/face_yolov8m.pt
+# make directory and download face_yolov8m.pt
+RUN mkdir -p /ComfyUI/models/ultralytics/bbox && \
+    wget "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /ComfyUI/models/ultralytics/bbox/face_yolov8m.pt
 
 # ComfyUI-Impact-controlnet_aux
 RUN cd /ComfyUI/custom_nodes && \
