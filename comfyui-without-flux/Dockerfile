@@ -158,6 +158,9 @@ RUN cd /ComfyUI/custom_nodes && \
     cd ComfyUI-Impact-Subpack && \
     pip3 install -r requirements.txt
 
+# download face_yolov8m.pt
+RUN wget "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /ComfyUI/models/ultralytics/bbox/face_yolov8m.pt
+
 # ComfyUI-Impact-controlnet_aux
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git && \
@@ -218,6 +221,9 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone https://codeberg.org/Gourieff/comfyui-reactor-node.git && \
     cd comfyui-reactor-node && \
     pip3 install -r requirements.txt
+
+# Download the swap_model file
+RUN wget "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /ComfyUI/models/insightface/inswapper_128.onnx
 
 # cg-use-everywhere
 RUN cd /ComfyUI/custom_nodes && \
