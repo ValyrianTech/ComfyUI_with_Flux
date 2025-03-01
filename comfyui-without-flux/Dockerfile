@@ -205,7 +205,7 @@ RUN cd /ComfyUI/custom_nodes && \
 
 # comfyui-reactor-node
 RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/Gourieff/comfyui-reactor-node.git && \
+    git clone https://codeberg.org/Gourieff/comfyui-reactor-node.git && \
     cd comfyui-reactor-node && \
     pip3 install -r requirements.txt
 
