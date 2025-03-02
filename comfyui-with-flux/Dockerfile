@@ -20,4 +20,13 @@ RUN wget -O /ComfyUI/models/loras/VideoAditor_flux_realism_lora.safetensors "htt
 RUN mkdir -p /ComfyUI/models/xlabs/loras
 RUN wget -O /ComfyUI/models/xlabs/loras/Xlabs-AI_flux-RealismLora.safetensors "https://huggingface.co/XLabs-AI/flux-RealismLora/resolve/main/lora.safetensors?download=true" --progress=bar:force:noscroll
 
+# This step is optional, the reActor node will download these models automatically on first launch if they are not present
+# To include then in the docker image we need to download them manually and copy them to a folder called facerestore_models
+# I'm not sure where to download them from, I just copied them from and existing installation
+# Check if the directory exists and copy its contents if it does
+RUN if [ -d "facerestore_models" ]; then \
+    mkdir -p /ComfyUI/models/facerestore_models && \
+    cp -r facerestore_models/* /ComfyUI/models/facerestore_models/; \
+    fi
+
 CMD [ "/start.sh" ]
