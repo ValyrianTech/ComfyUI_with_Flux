@@ -249,4 +249,8 @@ COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
 COPY --chmod=755 ai-toolkit/caption_images.py /caption_images.py
 EXPOSE 7860
 
+# make the directory and download the model needed for the tutorial workflow on first launch
+RUN mkdir -p /ComfyUI/models/checkpoints && \
+    wget "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -O /ComfyUI/models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors
+
 CMD [ "/start.sh" ]
