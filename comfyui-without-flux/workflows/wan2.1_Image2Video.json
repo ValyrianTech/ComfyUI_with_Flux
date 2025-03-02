@@ -535,75 +535,6 @@
       ]
     },
     {
-      "id": 55,
-      "type": "VHS_VideoCombine",
-      "pos": [
-        2196.4169921875,
-        -75.86640167236328
-      ],
-      "size": [
-        214.7587890625,
-        376
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 112
-        },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "shape": 7,
-          "link": null
-        },
-        {
-          "name": "meta_batch",
-          "type": "VHS_BatchManager",
-          "shape": 7,
-          "link": null
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "shape": 7,
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-videohelpersuite",
-        "ver": "4c7858ddd5126f7293dc3c9f6e0fc4c263cde079",
-        "Node name for S&R": "VHS_VideoCombine"
-      },
-      "widgets_values": {
-        "frame_rate": 24,
-        "loop_count": 0,
-        "filename_prefix": "AnimateDiff",
-        "format": "video/webm",
-        "pix_fmt": "yuv420p",
-        "crf": 20,
-        "save_metadata": true,
-        "trim_to_audio": false,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {}
-        }
-      }
-    },
-    {
       "id": 6,
       "type": "CLIPTextEncode",
       "pos": [
@@ -668,6 +599,75 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 55,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2196.4169921875,
+        -75.86640167236328
+      ],
+      "size": [
+        214.7587890625,
+        376
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 112
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4c7858ddd5126f7293dc3c9f6e0fc4c263cde079",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Wan2.1_I2V",
+        "format": "video/webm",
+        "pix_fmt": "yuv420p",
+        "crf": 20,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      }
     }
   ],
   "links": [
@@ -820,10 +820,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.638711061321116,
+      "scale": 0.9351368648802463,
       "offset": [
-        998.2107493082681,
-        478.73268988193604
+        -117.75819512388489,
+        303.54197058441383
       ]
     },
     "ue_links": [],
