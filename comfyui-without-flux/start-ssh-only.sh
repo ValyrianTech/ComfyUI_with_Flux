@@ -28,6 +28,14 @@ else
     huggingface-cli login --token ${HF_TOKEN}
 fi
 
+# Check and run the download scripts based on environment variables
+if [[ "${DOWNLOAD_WAN}" == "true" ]]; then
+    /download_wan2.1.sh
+fi
+
+if [[ "${DOWNLOAD_FLUX}" == "true" ]]; then
+    /download_Files.sh
+fi
 
 # Start nginx as reverse proxy to enable api access
 service nginx start
