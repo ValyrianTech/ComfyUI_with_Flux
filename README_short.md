@@ -2,6 +2,12 @@
 
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
+## Update 2025-03-02
+- **Added new workflows for Wan2.1 Text2Video and Image2Video**
+- **Updated ComfyUI to latest version, now using the new UI**
+- **Added Environment Variables: DOWNLOAD_WAN and DOWNLOAD_FLUX, set to true to auto-download the models**
+- **Note: the Wan2.1 models will require 70GB+ of storage**
+- **Note: the Flux.1-dev models will require 30GB+ of storage and also require the HF_TOKEN environment set (This is only for the ComfyUI_without_Flux template, these files are already included in the ComfyUI_with_Flux template)**
 
 ## Update 2024-10-11
 
