@@ -26,4 +26,11 @@ RUN wget -O /ComfyUI/models/xlabs/loras/Xlabs-AI_flux-RealismLora.safetensors "h
 # Check if the directory exists and copy its contents if it does
 COPY facerestore_models /ComfyUI/models/facerestore_models/
 
+# make the directory for the openpose models and download the models needed
+RUN mkdir -p /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators && \
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/body_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/body_pose_model.pth && \
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/hand_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/hand_pose_model.pth && \
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/facenet.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/facenet.pth
+
+
 CMD [ "/start.sh" ]
