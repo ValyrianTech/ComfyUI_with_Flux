@@ -28,9 +28,9 @@ COPY facerestore_models /ComfyUI/models/facerestore_models/
 
 # make the directory for the openpose models and download the models needed
 RUN mkdir -p /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators && \
-    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/body_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/body_pose_model.pth && \
-    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/hand_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/hand_pose_model.pth && \
-    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/facenet.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/facenet.pth
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/body_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators/body_pose_model.pth && \
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/hand_pose_model.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators/hand_pose_model.pth && \
+    wget "https://huggingface.co/lllyasviel/Annotators/resolve/main/facenet.pth?download=true" -O /ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators/facenet.pth
 
 
 CMD [ "/start.sh" ]
