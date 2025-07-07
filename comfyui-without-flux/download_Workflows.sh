@@ -14,6 +14,7 @@ file_list=(
   "CogVideoX_txt2vid.json"
   "Controlnet.json"
   "Controlnet2img.json"
+  "EditImage_flux-kontext-dev.json"
   "ExpressionEditor.json"
   "Facedetailer.json"
   "FaceSwap.json"
