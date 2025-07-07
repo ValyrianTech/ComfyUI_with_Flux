@@ -26,6 +26,8 @@ file_list=(
   "txt2img.json"
   "Upscale_LDSR.json"
   "Upscale_SUPIR.json"
+  "wan2.1_Image2Video.json"
+  "wan2.1_Text2Video.json"
   "Xlabs-AI_RealismLoRa.json"
   )
 
