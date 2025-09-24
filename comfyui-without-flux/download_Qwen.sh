@@ -52,3 +52,16 @@ else
     echo "Downloading $file"
     wget -O $file $url --progress=bar:force:noscroll
 fi
+
+echo "Downloading qwen_image_edit_2509_fp8_e4m3fn.safetensors"
+cd /ComfyUI/models/diffusion_models/
+
+file="qwen_image_edit_2509_fp8_e4m3fn.safetensors"
+url="https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors"
+
+if [ -f "$file" ]; then
+    echo "$file already exists."
+else
+    echo "Downloading $file"
+    wget -O $file $url --progress=bar:force:noscroll
+fi
