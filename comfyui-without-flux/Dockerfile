@@ -1,7 +1,4 @@
-ARG CUDA_VERSION="12.1.1"
-ARG CUDNN_VERSION="8"
-ARG UBUNTU_VERSION="22.04"
-ARG DOCKER_FROM=nvidia/cuda:$CUDA_VERSION-cudnn$CUDNN_VERSION-devel-ubuntu$UBUNTU_VERSION
+ARG DOCKER_FROM=nvidia/cuda:12.8.0-runtime-ubuntu22.04
 
 # Base NVidia CUDA Ubuntu image
 FROM $DOCKER_FROM AS base
@@ -24,9 +21,7 @@ COPY default /etc/nginx/sites-available/default
 ENV PATH="/usr/local/cuda/bin:${PATH}"
 
 # Install pytorch
-ARG PYTORCH="2.4.0"
-ARG CUDA="121"
-RUN pip3 install --no-cache-dir -U torch==$PYTORCH torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu$CUDA
+RUN pip3 install --no-cache-dir -U torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
 
 COPY --chmod=755 start-ssh-only.sh /start.sh
 COPY --chmod=755 start-original.sh /start-original.sh

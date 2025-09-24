@@ -21,6 +21,15 @@ else
     else
         echo "flux1-dev.sft already exists, skipping download."
     fi
+
+    if [[ ! -e "/ComfyUI/models/diffusion_models/flux1-kontext-dev.safetensors" ]]
+    then
+        echo "Downloading flux1-kontext-dev.safetensors..."
+        wget -O "/ComfyUI/models/diffusion_models/flux1-kontext-dev.safetensors" --header="Authorization: Bearer ${HF_TOKEN}" "https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/resolve/main/flux1-kontext-dev.safetensors?download=true"
+    else
+        echo "flux1-kontext-dev.safetensors already exists, skipping download."
+    fi
+
 fi
 
 # Define the download function
