@@ -47,6 +47,7 @@ COPY --chmod=644 example_photo_small.png /ComfyUI/input/example_photo_small.png
 COPY --chmod=644 example_pose.png /ComfyUI/input/example_pose.png
 COPY --chmod=644 example2.png /ComfyUI/input/example2.png
 COPY --chmod=644 driving_video.mp4 /ComfyUI/input/driving_video.mp4
+COPY --chmod=644 ScarlettJohansson.mp3 /ComfyUI/input/ScarlettJohansson.mp3
 
 WORKDIR /workspace
 
@@ -232,6 +233,19 @@ RUN cd /ComfyUI/custom_nodes && \
     cd ComfyUI-CogVideoXWrapper && \
     pip3 install -r requirements.txt
 
+# ComfyUI-WanVideoWrapper
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-WanVideoWrapper.git && \
+    cd ComfyUI-WanVideoWrapper && \
+    pip3 install -r requirements.txt && \
+    pip3 install sageattention==1.0.6
+
+# ComfyUI-MelBandRoFormer
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-MelBandRoFormer.git && \
+    cd ComfyUI-MelBandRoFormer && \
+    pip3 install -r requirements.txt
+
 # AI-Toolkit
 RUN cd / && \
     git clone https://github.com/ostris/ai-toolkit.git && \
@@ -243,6 +257,9 @@ RUN cd / && \
 COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
 COPY --chmod=755 ai-toolkit/caption_images.py /caption_images.py
 EXPOSE 7860
+
+# caption_images.py seems to be broken with the latest transformers, so downgrade to 4.49.0
+RUN pip3 install transformers==4.49.0
 
 # make the directory and download the model needed for the tutorial workflow on first launch
 RUN mkdir -p /ComfyUI/models/checkpoints && \
