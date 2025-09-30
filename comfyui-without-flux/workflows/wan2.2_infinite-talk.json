@@ -1552,164 +1552,6 @@
       "bgcolor": "#29699c"
     },
     {
-      "id": 128,
-      "type": "WanVideoSampler",
-      "pos": [
-        3279.373046875,
-        -1999.322021484375
-      ],
-      "size": [
-        320.79998779296875,
-        999
-      ],
-      "flags": {},
-      "order": 42,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "WANVIDEOMODEL",
-          "link": 464
-        },
-        {
-          "name": "image_embeds",
-          "type": "WANVIDIMAGE_EMBEDS",
-          "link": 413
-        },
-        {
-          "name": "text_embeds",
-          "shape": 7,
-          "type": "WANVIDEOTEXTEMBEDS",
-          "link": 437
-        },
-        {
-          "name": "samples",
-          "shape": 7,
-          "type": "LATENT",
-          "link": null
-        },
-        {
-          "name": "feta_args",
-          "shape": 7,
-          "type": "FETAARGS",
-          "link": null
-        },
-        {
-          "name": "context_options",
-          "shape": 7,
-          "type": "WANVIDCONTEXT",
-          "link": null
-        },
-        {
-          "name": "cache_args",
-          "shape": 7,
-          "type": "CACHEARGS",
-          "link": null
-        },
-        {
-          "name": "flowedit_args",
-          "shape": 7,
-          "type": "FLOWEDITARGS",
-          "link": null
-        },
-        {
-          "name": "slg_args",
-          "shape": 7,
-          "type": "SLGARGS",
-          "link": null
-        },
-        {
-          "name": "loop_args",
-          "shape": 7,
-          "type": "LOOPARGS",
-          "link": null
-        },
-        {
-          "name": "experimental_args",
-          "shape": 7,
-          "type": "EXPERIMENTALARGS",
-          "link": null
-        },
-        {
-          "name": "sigmas",
-          "shape": 7,
-          "type": "SIGMAS",
-          "link": null
-        },
-        {
-          "name": "unianimate_poses",
-          "shape": 7,
-          "type": "UNIANIMATE_POSE",
-          "link": null
-        },
-        {
-          "name": "fantasytalking_embeds",
-          "shape": 7,
-          "type": "FANTASYTALKING_EMBEDS",
-          "link": null
-        },
-        {
-          "name": "uni3c_embeds",
-          "shape": 7,
-          "type": "UNI3C_EMBEDS",
-          "link": null
-        },
-        {
-          "name": "multitalk_embeds",
-          "shape": 7,
-          "type": "MULTITALK_EMBEDS",
-          "link": 357
-        },
-        {
-          "name": "freeinit_args",
-          "shape": 7,
-          "type": "FREEINITARGS",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "slot_index": 0,
-          "links": [
-            530
-          ]
-        },
-        {
-          "name": "denoised_samples",
-          "type": "LATENT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-WanVideoWrapper",
-        "ver": "c3ee35f3ece76e38099dc516182d69b406e16772",
-        "Node name for S&R": "WanVideoSampler",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        6,
-        1.0000000000000002,
-        11.000000000000002,
-        2,
-        "fixed",
-        true,
-        "dpm++_sde",
-        0,
-        1,
-        false,
-        "comfy",
-        0,
-        -1,
-        true
-      ]
-    },
-    {
       "id": 284,
       "type": "LoadImage",
       "pos": [
@@ -2358,6 +2200,164 @@
         "fp16",
         "main_device"
       ]
+    },
+    {
+      "id": 128,
+      "type": "WanVideoSampler",
+      "pos": [
+        3279.373046875,
+        -1999.322021484375
+      ],
+      "size": [
+        320.79998779296875,
+        999
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "WANVIDEOMODEL",
+          "link": 464
+        },
+        {
+          "name": "image_embeds",
+          "type": "WANVIDIMAGE_EMBEDS",
+          "link": 413
+        },
+        {
+          "name": "text_embeds",
+          "shape": 7,
+          "type": "WANVIDEOTEXTEMBEDS",
+          "link": 437
+        },
+        {
+          "name": "samples",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "name": "feta_args",
+          "shape": 7,
+          "type": "FETAARGS",
+          "link": null
+        },
+        {
+          "name": "context_options",
+          "shape": 7,
+          "type": "WANVIDCONTEXT",
+          "link": null
+        },
+        {
+          "name": "cache_args",
+          "shape": 7,
+          "type": "CACHEARGS",
+          "link": null
+        },
+        {
+          "name": "flowedit_args",
+          "shape": 7,
+          "type": "FLOWEDITARGS",
+          "link": null
+        },
+        {
+          "name": "slg_args",
+          "shape": 7,
+          "type": "SLGARGS",
+          "link": null
+        },
+        {
+          "name": "loop_args",
+          "shape": 7,
+          "type": "LOOPARGS",
+          "link": null
+        },
+        {
+          "name": "experimental_args",
+          "shape": 7,
+          "type": "EXPERIMENTALARGS",
+          "link": null
+        },
+        {
+          "name": "sigmas",
+          "shape": 7,
+          "type": "SIGMAS",
+          "link": null
+        },
+        {
+          "name": "unianimate_poses",
+          "shape": 7,
+          "type": "UNIANIMATE_POSE",
+          "link": null
+        },
+        {
+          "name": "fantasytalking_embeds",
+          "shape": 7,
+          "type": "FANTASYTALKING_EMBEDS",
+          "link": null
+        },
+        {
+          "name": "uni3c_embeds",
+          "shape": 7,
+          "type": "UNI3C_EMBEDS",
+          "link": null
+        },
+        {
+          "name": "multitalk_embeds",
+          "shape": 7,
+          "type": "MULTITALK_EMBEDS",
+          "link": 357
+        },
+        {
+          "name": "freeinit_args",
+          "shape": 7,
+          "type": "FREEINITARGS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            530
+          ]
+        },
+        {
+          "name": "denoised_samples",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-WanVideoWrapper",
+        "ver": "c3ee35f3ece76e38099dc516182d69b406e16772",
+        "Node name for S&R": "WanVideoSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        6,
+        1.0000000000000002,
+        11.000000000000002,
+        375305388659040,
+        "randomize",
+        true,
+        "dpm++_sde",
+        0,
+        1,
+        false,
+        "comfy",
+        0,
+        -1,
+        true
+      ]
     }
   ],
   "links": [
@@ -2694,10 +2694,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.3150066548057275,
+      "scale": 0.7422869744850602,
       "offset": [
-        -122.90734738045211,
-        3513.2890108174515
+        -1048.0321449121632,
+        2359.720185855115
       ]
     },
     "frontendVersion": "1.26.13",
