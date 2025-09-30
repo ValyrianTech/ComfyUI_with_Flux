@@ -7,6 +7,8 @@ FROM $DOCKER_FROM AS base
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv && \
     apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim zip unzip curl && \
+    # Build deps for wheels compiled from source (e.g. pycairo via rlpycairo/svglib)
+    apt-get install -y --no-install-recommends build-essential pkg-config libcairo2-dev && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
