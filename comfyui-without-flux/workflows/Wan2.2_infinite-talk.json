@@ -1,7 +1,7 @@
 {
   "id": "4fa4f5af-fcdc-42fd-8c45-d3518e8cf59a",
   "revision": 0,
-  "last_node_id": 304,
+  "last_node_id": 305,
   "last_link_id": 546,
   "nodes": [
     {
@@ -1160,8 +1160,7 @@
         "0, 0, 0",
         "center",
         16,
-        "cpu",
-        "<tr><td>Output: </td><td><b>1</b> x <b>480</b> x <b>848 | 4.66MB</b></td></tr>"
+        "cpu"
       ]
     },
     {
@@ -1962,36 +1961,6 @@
       ]
     },
     {
-      "id": 303,
-      "type": "MarkdownNote",
-      "pos": [
-        875.717529296875,
-        -854.7509155273438
-      ],
-      "size": [
-        355.3899841308594,
-        125.51774597167969
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Wav2vec2 safetensors",
-      "properties": {
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "Alternative to the download node is to use single .safetensors file from:\n\n[https://huggingface.co/Kijai/wav2vec2_safetensors/tree/main](https://huggingface.co/Kijai/wav2vec2_safetensors/tree/main)\n\nThe model goes to `ComfyUI/models/wav2vec2`"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 138,
       "type": "WanVideoLoraSelect",
       "pos": [
@@ -2003,7 +1972,7 @@
         150
       ],
       "flags": {},
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -2059,7 +2028,7 @@
         214.95587158203125
       ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -2078,46 +2047,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 300,
-      "type": "Wav2VecModelLoader",
-      "pos": [
-        439.94451904296875,
-        -836.0673217773438
-      ],
-      "size": [
-        346.9834289550781,
-        106
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "wav2vec_model",
-          "type": "WAV2VECMODEL",
-          "links": [
-            546
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-WanVideoWrapper",
-        "ver": "6fce0e2d3bb976b0006bc6d8e37e1f23460938ee",
-        "Node name for S&R": "Wav2VecModelLoader",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "wav2vec2-chinese-base_fp16.safetensors",
-        "fp16",
-        "main_device"
-      ]
-    },
-    {
       "id": 241,
       "type": "WanVideoTextEncodeCached",
       "pos": [
@@ -2129,7 +2058,7 @@
         386.354248046875
       ],
       "flags": {},
-      "order": 26,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -2189,7 +2118,7 @@
       ],
       "size": [
         668.1777954101562,
-        314
+        318
       ],
       "flags": {},
       "order": 34,
@@ -2268,7 +2197,8 @@
         "fp16_fast",
         "disabled",
         "offload_device",
-        "sageattn"
+        "sageattn",
+        "default"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -2359,6 +2289,75 @@
           }
         }
       }
+    },
+    {
+      "id": 305,
+      "type": "Note",
+      "pos": [
+        479.4930114746094,
+        -3249.483154296875
+      ],
+      "size": [
+        645.8394165039062,
+        88
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Run the command 'bash /download_wan2.2_InfiniteTalk.sh' in the terminal to download the models used in this workflow."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 300,
+      "type": "Wav2VecModelLoader",
+      "pos": [
+        461.4146423339844,
+        -1008.4417114257812
+      ],
+      "size": [
+        346.9834289550781,
+        106
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "wav2vec_model",
+          "type": "WAV2VECMODEL",
+          "links": [
+            546
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-WanVideoWrapper",
+        "ver": "6fce0e2d3bb976b0006bc6d8e37e1f23460938ee",
+        "Node name for S&R": "Wav2VecModelLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "wav2vec2-chinese-base_fp16.safetensors",
+        "fp16",
+        "main_device"
+      ]
     }
   ],
   "links": [
@@ -2695,10 +2694,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9879839630396139,
+      "scale": 1.3150066548057275,
       "offset": [
-        -2441.1091168353896,
-        1768.952686264864
+        -122.90734738045211,
+        3513.2890108174515
       ]
     },
     "frontendVersion": "1.26.13",

@@ -1,7 +1,7 @@
 {
   "id": "ad18abd3-bdee-4f80-8fae-d15d4f845b9d",
   "revision": 0,
-  "last_node_id": 67,
+  "last_node_id": 68,
   "last_link_id": 177,
   "nodes": [
     {
@@ -16,7 +16,7 @@
         58
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -60,7 +60,7 @@
         58
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -144,7 +144,7 @@
         46
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -192,7 +192,7 @@
         1060.3828125
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -228,7 +228,7 @@
         200
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -460,7 +460,7 @@
         200
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -519,7 +519,7 @@
         262
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -563,7 +563,7 @@
         }
       },
       "widgets_values": [
-        618559113646930,
+        618559113646931,
         "increment",
         30,
         4,
@@ -571,6 +571,35 @@
         "simple",
         1
       ]
+    },
+    {
+      "id": 68,
+      "type": "Note",
+      "pos": [
+        -302.5694885253906,
+        -242.47828674316406
+      ],
+      "size": [
+        645.8394165039062,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Run the command 'bash /download_Qwen_fp8.sh' in the terminal to download the models used in this workflow."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -699,10 +728,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8264462809917354,
+      "scale": 1.3310000000000004,
       "offset": [
-        750.8646335352557,
-        -45.940079881615794
+        791.4249744450979,
+        287.80762163528874
       ]
     },
     "frontendVersion": "1.26.13",
