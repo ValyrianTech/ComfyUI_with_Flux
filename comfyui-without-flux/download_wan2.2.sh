@@ -78,3 +78,29 @@ else
     echo "Downloading $file"
     wget -O $file $url --progress=bar:force:noscroll
 fi
+
+echo "Downloading wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors"
+cd /ComfyUI/models/loras/
+
+file="wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors"
+url="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors"
+
+if [ -f "$file" ]; then
+    echo "$file already exists."
+else
+    echo "Downloading $file"
+    wget -O $file $url --progress=bar:force:noscroll
+fi
+
+echo "Downloading wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors"
+cd /ComfyUI/models/loras/
+
+file="wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors"
+url="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors"
+
+if [ -f "$file" ]; then
+    echo "$file already exists."
+else
+    echo "Downloading $file"
+    wget -O $file $url --progress=bar:force:noscroll
+fi
