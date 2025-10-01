@@ -101,7 +101,8 @@ COPY --chmod=755 download_Files.sh /download_Files.sh
 COPY --chmod=755 download_wan2.1.sh /download_wan2.1.sh
 COPY --chmod=755 download_wan2.2.sh /download_wan2.2.sh
 COPY --chmod=755 download_wan2.2_InfiniteTalk.sh /download_wan2.2_InfiniteTalk.sh
-COPY --chmod=755 download_Qwen.sh /download_Qwen.sh
+COPY --chmod=755 download_Qwen_bf16.sh /download_Qwen_bf16.sh
+COPY --chmod=755 download_Qwen_fp8.sh /download_Qwen_fp8.sh
 COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
 
 # SUPIR Upscale
