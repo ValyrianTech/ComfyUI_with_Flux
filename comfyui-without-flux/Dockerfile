@@ -251,6 +251,18 @@ RUN cd /ComfyUI/custom_nodes && \
     cd ComfyUI-MelBandRoFormer && \
     pip3 install -r requirements.txt
 
+# ComfyUI-Frame-Interpolation
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git && \
+    cd ComfyUI-Frame-Interpolation && \
+    python3 install.py
+
+# VibeVoice-ComfyUI
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/Enemyx-net/VibeVoice-ComfyUI.git && \
+    cd VibeVoice-ComfyUI && \
+    pip3 install -r requirements.txt
+
 # AI-Toolkit
 RUN cd / && \
     git clone https://github.com/ostris/ai-toolkit.git && \
