@@ -262,7 +262,8 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/Enemyx-net/VibeVoice-ComfyUI.git && \
     cd VibeVoice-ComfyUI && \
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt && \
+    mkdir -p /ComfyUI/models/vibevoice/vvembed
 
 # AI-Toolkit
 RUN cd / && \
