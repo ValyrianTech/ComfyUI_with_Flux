@@ -266,6 +266,18 @@ RUN cd /ComfyUI/custom_nodes && \
     pip3 install -r requirements.txt && \
     mkdir -p /ComfyUI/models/vibevoice/vvembed
 
+# ComfyUI-segment-anything-2
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/kijai/ComfyUI-segment-anything-2.git && \
+    cd ComfyUI-segment-anything-2 && \
+    pip3 install -e .
+
+# ComfyUI-VFI
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/GACLove/ComfyUI-VFI.git && \
+    cd ComfyUI-VFI && \
+    pip3 install -r requirements.txt
+
 # AI-Toolkit
 RUN cd / && \
     git clone https://github.com/ostris/ai-toolkit.git && \
