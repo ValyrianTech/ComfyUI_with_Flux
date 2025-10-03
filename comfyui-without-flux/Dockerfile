@@ -288,8 +288,8 @@ COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
 COPY --chmod=755 ai-toolkit/caption_images.py /caption_images.py
 EXPOSE 7860
 
-# caption_images.py seems to be broken with the latest transformers, so downgrade to 4.49.0
-RUN pip3 install transformers==4.49.0
+# VibeVoice needs latest version of tranformers but caption_images.py seems to be broken with the latest transformers, uncomment next line if needed to downgrade to 4.49.0
+#RUN pip3 install transformers==4.49.0
 
 # make the directory and download the model needed for the tutorial workflow on first launch
 RUN mkdir -p /ComfyUI/models/checkpoints && \
