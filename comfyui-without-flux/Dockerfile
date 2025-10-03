@@ -268,9 +268,7 @@ RUN cd /ComfyUI/custom_nodes && \
 
 # ComfyUI-segment-anything-2
 RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/kijai/ComfyUI-segment-anything-2.git && \
-    cd ComfyUI-segment-anything-2 && \
-    pip3 install -e .
+    git clone https://github.com/kijai/ComfyUI-segment-anything-2.git
 
 # ComfyUI-VFI
 RUN cd /ComfyUI/custom_nodes && \
