@@ -49,7 +49,7 @@ COPY --chmod=644 example_photo_small.png /ComfyUI/input/example_photo_small.png
 COPY --chmod=644 example_pose.png /ComfyUI/input/example_pose.png
 COPY --chmod=644 example2.png /ComfyUI/input/example2.png
 COPY --chmod=644 driving_video.mp4 /ComfyUI/input/driving_video.mp4
-COPY --chmod=644 ScarlettJohansson.mp3 /ComfyUI/input/ScarlettJohansson.mp3
+COPY --chmod=644 GracePenelopeTargaryen.mp3 /ComfyUI/input/GracePenelopeTargaryen.mp3
 
 WORKDIR /workspace
 
