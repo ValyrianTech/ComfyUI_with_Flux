@@ -1,0 +1,378 @@
+{
+  "id": "e5ca15c5-18b5-4d37-8852-795692a14b29",
+  "revision": 0,
+  "last_node_id": 39,
+  "last_link_id": 58,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "LoadTextFromFileNode",
+      "pos": [
+        9.889446258544922,
+        621.1560668945312
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "VibeVoice-ComfyUI",
+        "ver": "5a24489a7b0bf0c406d291dd51e82a085d338d44",
+        "Node name for S&R": "LoadTextFromFileNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "file": true
+          },
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "No text files found in any directory"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 31,
+      "type": "Note",
+      "pos": [
+        379.3583984375,
+        725.9093627929688
+      ],
+      "size": [
+        415,
+        88
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Voice Speed Factor",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "The voice speed factor influences the original source audio to attempt to achieve a slower or faster final speech. 1.0 is the normal speed. It is recommended not to exceed values ​​between 0.95 and 1.05. The effect is best when you provide a sample audio of at least 20 seconds."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 20,
+      "type": "Note",
+      "pos": [
+        -55.931907653808594,
+        726.6131591796875
+      ],
+      "size": [
+        415,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Load Text From File",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Use Load Text From File if you want to use a .txt file instead of text-area. You can load .txt files from ComfyUI/input, ComfyUI/output or ComfyUI/temp directories."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "LoadAudio",
+      "pos": [
+        39.80283737182617,
+        96.04145812988281
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            55
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "audio": true,
+            "audioUI": true,
+            "upload": true
+          },
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "GracePenelopeTargaryen.mp3",
+        null,
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 17,
+      "type": "LoadAudio",
+      "pos": [
+        37.358821868896484,
+        282.224609375
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "audio": true,
+            "audioUI": true,
+            "upload": true
+          },
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Male-MiddleAged_American.mp3",
+        null,
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 36,
+      "type": "VibeVoiceMultipleSpeakersNode",
+      "pos": [
+        393.1620178222656,
+        96.5234603881836
+      ],
+      "size": [
+        397.06658935546875,
+        549.1333618164062
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "speaker1_voice",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 55
+        },
+        {
+          "name": "speaker2_voice",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 56
+        },
+        {
+          "name": "speaker3_voice",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "speaker4_voice",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "LORA_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "VibeVoice-ComfyUI",
+        "ver": "9185f531ac45fc67576f9877caf1a6c8c7d340b5",
+        "Node name for S&R": "VibeVoiceMultipleSpeakersNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true,
+            "model": true,
+            "attention_type": true,
+            "quantize_llm": true,
+            "free_memory_after_generate": true,
+            "diffusion_steps": true,
+            "seed": true,
+            "cfg_scale": true,
+            "use_sampling": true,
+            "temperature": true,
+            "top_p": true,
+            "voice_speed_factor": true
+          },
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "[1]: Hello, this is the first speaker.\n[2]: Hi there, I'm the second speaker.\n[1]: Nice to meet you!\n[2]: Nice to meet you too!",
+        "VibeVoice-Large",
+        "auto",
+        "4bit",
+        true,
+        30,
+        2783046172,
+        "randomize",
+        1.3,
+        false,
+        0.95,
+        0.95,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 39,
+      "type": "SaveAudioMP3",
+      "pos": [
+        860.1168212890625,
+        94.6934814453125
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 58
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "SaveAudioMP3",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.1"
+        }
+      },
+      "widgets_values": [
+        "vibevoice",
+        "320k"
+      ]
+    }
+  ],
+  "links": [
+    [
+      55,
+      15,
+      0,
+      36,
+      0,
+      "AUDIO"
+    ],
+    [
+      56,
+      17,
+      0,
+      36,
+      1,
+      "AUDIO"
+    ],
+    [
+      58,
+      36,
+      0,
+      39,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1105014650346745,
+      "offset": [
+        586.724221569792,
+        72.05382537841797
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.27.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

@@ -1,0 +1,355 @@
+{
+  "id": "c6ef8963-032c-45f6-954f-b5f6b354343b",
+  "revision": 0,
+  "last_node_id": 46,
+  "last_link_id": 65,
+  "nodes": [
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        377.95758056640625,
+        593.4078979492188
+      ],
+      "size": [
+        415,
+        88
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Voice Speed Factor",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "The voice speed factor influences the original source audio to attempt to achieve a slower or faster final speech. 1.0 is the normal speed. It is recommended not to exceed values ​​between 0.95 and 1.05. The effect is best when you provide a sample audio of at least 20 seconds."
+      ],
+      "color": "#432",
+      "bgcolor": "hsla(40, 33.3%, 30%, 1)"
+    },
+    {
+      "id": 15,
+      "type": "LoadAudio",
+      "pos": [
+        15.256911277770996,
+        126.44892883300781
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            60,
+            63
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "audio": true,
+            "audioUI": true,
+            "upload": true
+          },
+          "version": "7.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "GracePenelopeTargaryen.mp3",
+        null,
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "hsla(198, 17.1%, 29.8%, 1)"
+    },
+    {
+      "id": 46,
+      "type": "Note",
+      "pos": [
+        21.764062881469727,
+        -16.201148986816406
+      ],
+      "size": [
+        645.8394165039062,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Run the command 'bash /download_VibeVoice.sh' in the terminal to download the models used in this workflow."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 28,
+      "type": "LoadTextFromFileNode",
+      "pos": [
+        -7.094600200653076,
+        319.8124694824219
+      ],
+      "size": [
+        289.5152282714844,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "VibeVoice-ComfyUI",
+        "ver": "5a24489a7b0bf0c406d291dd51e82a085d338d44",
+        "Node name for S&R": "LoadTextFromFileNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "file": true
+          },
+          "version": "7.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "No text files found in any directory"
+      ],
+      "color": "#323",
+      "bgcolor": "hsla(300, 100%, 50%, 1)"
+    },
+    {
+      "id": 44,
+      "type": "VibeVoiceSingleSpeakerNode",
+      "pos": [
+        388.8460693359375,
+        126.70189666748047
+      ],
+      "size": [
+        400,
+        420
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "voice_to_clone",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 63
+        },
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "LORA_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            61,
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "VibeVoice-ComfyUI",
+        "ver": "76785d478f0e35d089b3ce59a27f6a5ec78e7aa3",
+        "Node name for S&R": "VibeVoiceSingleSpeakerNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true,
+            "model": true,
+            "attention_type": true,
+            "quantize_llm": true,
+            "free_memory_after_generate": true,
+            "diffusion_steps": true,
+            "seed": true,
+            "cfg_scale": true,
+            "use_sampling": true,
+            "temperature": true,
+            "top_p": true,
+            "max_words_per_chunk": true,
+            "voice_speed_factor": true
+          },
+          "version": "7.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Hello, this is a test of the VibeVoice text-to-speech system.",
+        "VibeVoice-Large",
+        "auto",
+        "full precision",
+        true,
+        20,
+        676077899,
+        "randomize",
+        1.3,
+        false,
+        0.95,
+        0.95,
+        250,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "hsla(240, 25%, 26.7%, 1)"
+    },
+    {
+      "id": 45,
+      "type": "SaveAudioMP3",
+      "pos": [
+        861.984619140625,
+        126.49857330322266
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 64
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "SaveAudioMP3",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.1"
+        }
+      },
+      "widgets_values": [
+        "vibevoice",
+        "320k"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "Note",
+      "pos": [
+        -57.99285125732422,
+        428.85870361328125
+      ],
+      "size": [
+        415,
+        88
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Load Text From File",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Use Load Text From File if you want to use a .txt file instead of text-area. You can load .txt files from ComfyUI/input, ComfyUI/output or ComfyUI/temp directories."
+      ],
+      "color": "#432",
+      "bgcolor": "hsla(40, 33.3%, 30%, 1)"
+    }
+  ],
+  "links": [
+    [
+      60,
+      15,
+      0,
+      44,
+      0,
+      "AUDIO"
+    ],
+    [
+      61,
+      44,
+      0,
+      16,
+      0,
+      "AUDIO"
+    ],
+    [
+      63,
+      15,
+      0,
+      44,
+      0,
+      "AUDIO"
+    ],
+    [
+      64,
+      44,
+      0,
+      45,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2100000000000004,
+      "offset": [
+        569.4204660257722,
+        130.52625820613628
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.27.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
