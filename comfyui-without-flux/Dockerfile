@@ -33,6 +33,8 @@ RUN pip install --no-cache-dir jupyterlab
 RUN set -eux; cd /ComfyUI/custom_nodes; \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git; \
     git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git; \
+    git clone https://github.com/XLabs-AI/x-flux-comfyui.git; \
+    python /ComfyUI/custom_nodes/x-flux-comfyui/setup.py; \
     git clone https://github.com/flowtyone/ComfyUI-Flowty-LDSR.git; \
     pip install --no-cache-dir -r ComfyUI-Flowty-LDSR/requirements.txt; \
     git clone https://github.com/kijai/ComfyUI-SUPIR.git; \
@@ -152,11 +154,7 @@ EXPOSE 7860
 # Downloads and runtime-only adjustments
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
 
-# Xlabs-AI/flux-RealismLora
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/XLabs-AI/x-flux-comfyui.git && \
-    cd x-flux-comfyui && \
-    python3 setup.py
+ 
 
 # Default graph handling
 COPY --chmod=644 defaultGraph.json /defaultGraph.json
