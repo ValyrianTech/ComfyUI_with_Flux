@@ -25,7 +25,7 @@ then
     echo "HF_TOKEN is not set"
 else
     echo "HF_TOKEN is set, logging in..."
-    huggingface-cli login --token ${HF_TOKEN}
+    hf auth login --token ${HF_TOKEN}
 fi
 
 # Check and run the download scripts based on environment variables
