@@ -1,20 +1,22 @@
 {
-  "last_node_id": 33,
+  "id": "2be0eda7-3b85-414d-a147-0215dcc8264f",
+  "revision": 0,
+  "last_node_id": 34,
   "last_link_id": 39,
   "nodes": [
     {
       "id": 12,
       "type": "VAEDecode",
-      "pos": {
-        "0": 1845,
-        "1": 130
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
+      "pos": [
+        1845,
+        130
+      ],
+      "size": [
+        210,
+        46
+      ],
       "flags": {},
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -38,21 +40,28 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": []
     },
     {
       "id": 24,
       "type": "DualCLIPLoader",
-      "pos": {
-        "0": 100,
-        "1": 762
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
+      "pos": [
+        100,
+        762
+      ],
+      "size": [
+        315,
+        130
+      ],
       "flags": {},
       "order": 0,
       "mode": 0,
@@ -68,12 +77,20 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "DualCLIPLoader"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "DualCLIPLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "t5xxl_fp8_e4m3fn.safetensors",
         "clip_l.safetensors",
-        "flux"
+        "flux",
+        "default"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -81,16 +98,16 @@
     {
       "id": 8,
       "type": "CLIPTextEncode",
-      "pos": {
-        "0": 515,
-        "1": 848
-      },
-      "size": {
-        "0": 400,
-        "1": 200
-      },
+      "pos": [
+        515,
+        848
+      ],
+      "size": [
+        400,
+        200
+      ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -109,7 +126,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         ""
@@ -120,16 +144,16 @@
     {
       "id": 13,
       "type": "SaveImage",
-      "pos": {
-        "0": 2109,
-        "1": 130
-      },
-      "size": {
-        "0": 315,
-        "1": 270
-      },
+      "pos": [
+        2109,
+        130
+      ],
+      "size": [
+        315,
+        270
+      ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -140,7 +164,14 @@
       ],
       "outputs": [],
       "properties": {
-        "Node name for S&R": "SaveImage"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "SaveImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "pose2img"
@@ -149,14 +180,14 @@
     {
       "id": 25,
       "type": "VAELoader",
-      "pos": {
-        "0": 104,
-        "1": 920
-      },
-      "size": {
-        "0": 315,
-        "1": 58
-      },
+      "pos": [
+        104,
+        920
+      ],
+      "size": [
+        315,
+        58
+      ],
       "flags": {},
       "order": 1,
       "mode": 0,
@@ -172,7 +203,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "VAELoader"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "ae.sft"
@@ -183,14 +221,14 @@
     {
       "id": 23,
       "type": "UNETLoader",
-      "pos": {
-        "0": 103,
-        "1": 615
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
+      "pos": [
+        103,
+        615
+      ],
+      "size": [
+        315,
+        82
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
@@ -205,7 +243,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "UNETLoader"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "flux1-dev.sft",
@@ -217,16 +262,16 @@
     {
       "id": 33,
       "type": "ControlNetApplyAdvanced",
-      "pos": {
-        "0": 1072,
-        "1": 590
-      },
-      "size": {
-        "0": 315,
-        "1": 186
-      },
+      "pos": [
+        1072,
+        590
+      ],
+      "size": [
+        315,
+        186
+      ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -251,9 +296,9 @@
         },
         {
           "name": "vae",
+          "shape": 7,
           "type": "VAE",
-          "link": 38,
-          "shape": 7
+          "link": 38
         }
       ],
       "outputs": [
@@ -273,7 +318,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ControlNetApplyAdvanced"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "ControlNetApplyAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         0.5,
@@ -284,16 +336,16 @@
     {
       "id": 9,
       "type": "KSampler",
-      "pos": {
-        "0": 1495,
-        "1": 521
-      },
-      "size": {
-        "0": 315,
-        "1": 262
-      },
+      "pos": [
+        1495,
+        521
+      ],
+      "size": [
+        315,
+        262
+      ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -327,7 +379,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "KSampler"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         382283104744843,
@@ -342,33 +401,33 @@
     {
       "id": 11,
       "type": "EmptyLatentImage",
-      "pos": {
-        "0": 1075,
-        "1": 432
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
+      "pos": [
+        1075,
+        432
+      ],
+      "size": [
+        315,
+        106
+      ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
           "name": "width",
           "type": "INT",
-          "link": 26,
           "widget": {
             "name": "width"
-          }
+          },
+          "link": 26
         },
         {
           "name": "height",
           "type": "INT",
-          "link": 27,
           "widget": {
             "name": "height"
-          }
+          },
+          "link": 27
         }
       ],
       "outputs": [
@@ -381,7 +440,17 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "EmptyLatentImage"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "EmptyLatentImage",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "width": true,
+            "height": true
+          },
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         512,
@@ -392,14 +461,14 @@
     {
       "id": 4,
       "type": "ControlNetLoader",
-      "pos": {
-        "0": 1078,
-        "1": 831
-      },
-      "size": {
-        "0": 315,
-        "1": 58
-      },
+      "pos": [
+        1078,
+        831
+      ],
+      "size": [
+        315,
+        58
+      ],
       "flags": {},
       "order": 3,
       "mode": 0,
@@ -414,7 +483,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ControlNetLoader"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "ControlNetLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "diffusion_pytorch_model.safetensors"
@@ -423,14 +499,14 @@
     {
       "id": 1,
       "type": "LoadImage",
-      "pos": {
-        "0": 101,
-        "1": 61
-      },
-      "size": {
-        "0": 387.467529296875,
-        "1": 487.3503112792969
-      },
+      "pos": [
+        101,
+        61
+      ],
+      "size": [
+        387.467529296875,
+        487.3503112792969
+      ],
       "flags": {},
       "order": 4,
       "mode": 0,
@@ -451,7 +527,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "example_pose.png",
@@ -461,16 +544,16 @@
     {
       "id": 30,
       "type": "Get Image Size (JPS)",
-      "pos": {
-        "0": 532,
-        "1": 361
-      },
-      "size": {
-        "0": 252,
-        "1": 46
-      },
+      "pos": [
+        532,
+        361
+      ],
+      "size": [
+        252,
+        46
+      ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -496,23 +579,28 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "Get Image Size (JPS)"
+        "Node name for S&R": "Get Image Size (JPS)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": []
     },
     {
       "id": 7,
       "type": "CLIPTextEncode",
-      "pos": {
-        "0": 522,
-        "1": 595
-      },
-      "size": {
-        "0": 400,
-        "1": 200
-      },
+      "pos": [
+        522,
+        595
+      ],
+      "size": [
+        400,
+        200
+      ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -531,7 +619,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "A photo of a woman, smiling and dancing with her arms in the air."
@@ -542,16 +637,16 @@
     {
       "id": 31,
       "type": "LoraLoaderModelOnly",
-      "pos": {
-        "0": 525,
-        "1": 462
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
+      "pos": [
+        525,
+        462
+      ],
+      "size": [
+        315,
+        82
+      ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 4,
       "inputs": [
         {
@@ -570,7 +665,14 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.62",
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "VideoAditor_flux_realism_lora.safetensors",
@@ -578,6 +680,35 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": [
+        1083.5091552734375,
+        934.95654296875
+      ],
+      "size": [
+        645.8394165039062,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Run the command 'bash /download_Controlnet.sh' in the terminal to download the models used in this workflow."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -735,7 +866,13 @@
         197.1574148425973,
         -227.28993367868588
       ]
-    }
+    },
+    "ue_links": [],
+    "frontendVersion": "1.27.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

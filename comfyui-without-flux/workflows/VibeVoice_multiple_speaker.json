@@ -1,7 +1,7 @@
 {
   "id": "e5ca15c5-18b5-4d37-8852-795692a14b29",
   "revision": 0,
-  "last_node_id": 39,
+  "last_node_id": 40,
   "last_link_id": 58,
   "nodes": [
     {
@@ -27,9 +27,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadTextFromFileNode",
         "cnr_id": "VibeVoice-ComfyUI",
         "ver": "5a24489a7b0bf0c406d291dd51e82a085d338d44",
-        "Node name for S&R": "LoadTextFromFileNode",
         "ue_properties": {
           "widget_ue_connectable": {
             "file": true
@@ -208,7 +208,7 @@
         549.1333618164062
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -252,9 +252,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VibeVoiceMultipleSpeakersNode",
         "cnr_id": "VibeVoice-ComfyUI",
         "ver": "9185f531ac45fc67576f9877caf1a6c8c7d340b5",
-        "Node name for S&R": "VibeVoiceMultipleSpeakersNode",
         "ue_properties": {
           "widget_ue_connectable": {
             "text": true,
@@ -304,7 +304,7 @@
         136
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -328,6 +328,29 @@
         "vibevoice",
         "320k"
       ]
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        861.2703247070312,
+        282.4406433105469
+      ],
+      "size": [
+        276.6392517089844,
+        98.01652526855469
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "I think there is some bug in VibeVoice, sometimes it generates random noice, especially if you have been running other workflows. Restart ComfyUI to fix it."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
