@@ -12,6 +12,12 @@ RUN apt-get update -y && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install Node.js 22 LTS for AI-Toolkit build-time needs
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get update -y && apt-get install -y nodejs && \
+    npm -v && node -v && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Create a virtual environment for all Python deps
 ENV VENV_PATH=/opt/venv
 RUN python3 -m venv ${VENV_PATH}
@@ -112,6 +118,12 @@ RUN apt-get update -y && \
         openssh-server openssh-client git git-lfs wget zip unzip curl vim \
         nginx libgl1-mesa-glx libglib2.0-0 && \
     python3 -m pip install --upgrade pip && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 22 LTS for AI-Toolkit runtime needs
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get update -y && apt-get install -y nodejs && \
+    npm -v && node -v && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Nginx config
