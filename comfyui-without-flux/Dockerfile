@@ -7,8 +7,8 @@ FROM nvidia/cuda:12.8.0-devel-ubuntu22.04 AS builder
 
 # Install Python, git, and build dependencies for compiling wheels
 RUN apt-get update -y && \
-    apt-get install -y python3 python3-pip python3-venv git git-lfs wget zip unzip curl \
-        build-essential pkg-config libcairo2-dev && \
+    apt-get install -y python3 python3-pip python3-venv python-is-python3 git git-lfs wget zip unzip curl \
+        build-essential pkg-config libcairo2-dev libsqlite3-dev && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -106,6 +106,12 @@ RUN git clone https://github.com/ostris/ai-toolkit.git /ai-toolkit && \
     cd /ai-toolkit && git submodule update --init --recursive && \
     pip install --no-cache-dir -r requirements.txt
 
+# Prebuild AI-Toolkit UI (install deps, init DB, and build)
+RUN set -eux; cd /ai-toolkit/ui; \
+    npm ci || npm install; \
+    npm run update_db; \
+    npm run build
+
 # Prune git histories to reduce copy size
 RUN find /ComfyUI -name .git -type d -prune -exec rm -rf {} + && \
     find /ai-toolkit -name .git -type d -prune -exec rm -rf {} +
@@ -119,7 +125,7 @@ FROM ${DOCKER_FROM} AS runtime
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv python-is-python3 \
         openssh-server openssh-client git git-lfs wget zip unzip curl vim \
-        nginx libgl1-mesa-glx libglib2.0-0 && \
+        nginx libgl1-mesa-glx libglib2.0-0 libsqlite3-0 && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -171,6 +177,7 @@ WORKDIR /workspace
 EXPOSE 8188
 EXPOSE 8888
 EXPOSE 7860
+EXPOSE 8675
 
 # Downloads and runtime-only adjustments
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI

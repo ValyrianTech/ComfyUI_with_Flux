@@ -28,6 +28,22 @@ else
     hf auth login --token ${HF_TOKEN}
 fi
 
+# Start AI-Toolkit UI in the background (prebuilt artifacts preferred)
+if [ -d "/workspace/ai-toolkit/ui" ]; then
+    echo "Starting AI-Toolkit UI in background on port 8675"
+    cd /workspace/ai-toolkit/ui
+    if [ -d .next ] && [ -f dist/worker.js ]; then
+        echo "Prebuilt artifacts found. Running: npm run start"
+        nohup npm run start > /workspace/ai-toolkit/ui/server.log 2>&1 &
+    else
+        echo "Prebuilt artifacts not found. Falling back to: npm run build_and_start (this may take a while)"
+        nohup npm run build_and_start > /workspace/ai-toolkit/ui/server.log 2>&1 &
+    fi
+    cd - >/dev/null 2>&1 || true
+else
+    echo "AI-Toolkit UI directory not found at /workspace/ai-toolkit/ui; skipping UI startup"
+fi
+
 # Check and run the download scripts based on environment variables
 if [[ "${DOWNLOAD_WAN}" == "true" ]]; then
     /download_wan2.1.sh
