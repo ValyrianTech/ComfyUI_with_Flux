@@ -35,6 +35,9 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git /ComfyUI && \
 # JupyterLab (preserve original behavior)
 RUN pip install --no-cache-dir jupyterlab
 
+# Upgrade albumentations to latest to avoid update warnings at runtime
+RUN pip install --no-cache-dir -U albumentations
+
 # Pre-clone essential custom nodes and install their requirements
 RUN set -eux; cd /ComfyUI/custom_nodes; \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git; \
@@ -114,7 +117,7 @@ FROM ${DOCKER_FROM} AS runtime
 
 # Install Python and only runtime OS packages
 RUN apt-get update -y && \
-    apt-get install -y python3 python3-pip python3-venv \
+    apt-get install -y python3 python3-pip python3-venv python-is-python3 \
         openssh-server openssh-client git git-lfs wget zip unzip curl vim \
         nginx libgl1-mesa-glx libglib2.0-0 && \
     python3 -m pip install --upgrade pip && \
@@ -125,6 +128,12 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get update -y && apt-get install -y nodejs && \
     npm -v && node -v && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install uv (fast Python package manager) for ComfyUI-Manager compatibility
+RUN curl -fsSL https://astral.sh/uv/install.sh | sh && \
+    if [ -f "/root/.local/bin/uv" ]; then ln -sf /root/.local/bin/uv /usr/local/bin/uv; fi && \
+    if [ -f "/root/.cargo/bin/uv" ]; then ln -sf /root/.cargo/bin/uv /usr/local/bin/uv; fi && \
+    uv --version || true
 
 # Nginx config
 COPY default /etc/nginx/sites-available/default
