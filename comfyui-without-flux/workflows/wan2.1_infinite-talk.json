@@ -2157,7 +2157,7 @@
         }
       },
       "widgets_values": [
-        "Run the command 'bash /download_wan2.2_InfiniteTalk.sh' in the terminal to download the models used in this workflow."
+        "Run the command 'bash /download_wan2.1_InfiniteTalk.sh' in the terminal to download the models used in this workflow."
       ],
       "color": "#432",
       "bgcolor": "#653"
