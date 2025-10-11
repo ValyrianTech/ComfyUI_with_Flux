@@ -2,6 +2,12 @@
 
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
+## Update 2025-10-11
+- Updated ComfyUI to latest version and CUDA to 12.8, so now it supports the latest GPUs like the RTX 5090 and RTX PRO 6000
+- Added new workflows for Wan2.2 + InfiniteTalk and Qwen-image-edit-2509
+- Added workflow for VibeVoice to generate AI voices from text
+- Updated AI Toolkit to the latest version, check out the new UI! It will be started automatically on port 8675, in the environment variables you can set the password for the UI with the variable AI_TOOLKIT_AUTH (default is 'changeme')
+
 ## Update 2025-03-02
 - **Added new workflows for Wan2.1 Text2Video and Image2Video**
 - **Updated ComfyUI to latest version, now using the new UI, click on the Icon labeled 'Workflows' to load any of the included workflows**
@@ -19,13 +25,6 @@ This is a shortened version of the README, read the full version here: [ComfyUI 
     - If you use a network volume, all the files are copied to the network volume on the first run, so the next time you deploy a pod, you can change the template to the `ComfyUI without Flux.1 dev one-click` template.
 - **Fixed some issues with JupyterLab**
 - **Pre-installed a bunch of popular custom nodes**
-
-
-## Update 2024-09-03
-- Updated ComfyUI to latest version
-- Added Realism LoRa from XLabs-AI and VideoAditor
-- Custom LoRa for Valyrian Tech's virtual spokesperson (Trigger word: "GracePenelopeTargaryen")
-- Added JupyterLab for easy uploading of files
 
 ## Video
 [![demo video](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/video_screenshot.png?raw=true)](https://youtu.be/WojIAFte-5E)
