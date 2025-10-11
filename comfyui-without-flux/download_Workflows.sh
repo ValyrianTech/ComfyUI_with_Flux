@@ -35,7 +35,7 @@ file_list=(
   "wan2.1_Image2Video.json"
   "wan2.1_Text2Video.json"
   "wan2.2_Image2Video.json"
-  "wan2.2_infinite-talk.json"
+  "wan2.1_infinite-talk.json"
   "wan2.2_Text2Video.json"
   "Xlabs-AI_RealismLoRa.json"
   )
