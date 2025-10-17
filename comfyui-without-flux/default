@@ -14,8 +14,10 @@ server {
         alias /workspace/ComfyUI/output;  # Serve files from this directory
         autoindex off;                    # Disable directory listing
 
-        # Allow access only to PNG files
-        location ~* \.(png)$ {
+        # Allow access to common image and video files
+        # Images: png, jpg, jpeg, webp, gif, bmp, tif, tiff, svg
+        # Videos: mp4, webm, mkv, mov, avi, m4v
+        location ~* \.(png|jpe?g|webp|gif|bmp|tiff?|svg|mp4|webm|mkv|mov|avi|m4v)$ {
             try_files $uri =404;          # Return 404 if the file doesn't exist
         }
 
