@@ -2,11 +2,14 @@
 
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
+## Update 2025-11-26
+- Updated ComfyUI and AI-Toolkit to latest version to support Flux.2
+
 ## Update 2025-10-11
 - Updated ComfyUI to latest version and CUDA to 12.8, so now it supports the latest GPUs like the RTX 5090 and RTX PRO 6000
 - Added new workflows for Wan2.2 + InfiniteTalk and Qwen-image-edit-2509
 - Added workflow for VibeVoice to generate AI voices from text
-- Updated AI Toolkit to the latest version, check out the new UI! It will be started automatically on port 8675, in the environment variables you can set the password for the UI with the variable AI_TOOLKIT_AUTH (default is 'changeme')
+- Updated AI Toolkit to the latest version, check out the new UI! It will be started automatically on port 8675, in the environment variables you can set the password for the UI with the variable AI_TOOLKIT_AUTH (default is 'changeme')_
 
 ## Update 2025-03-02
 - **Added new workflows for Wan2.1 Text2Video and Image2Video**

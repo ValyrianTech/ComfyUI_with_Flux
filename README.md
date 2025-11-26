@@ -1,5 +1,8 @@
 # ComfyUI with Flux.1-dev
 
+## Update 2025-11-26
+- Updated ComfyUI and AI-Toolkit to latest version to support Flux.2 
+
 ## Update 2025-10-11
 - Updated ComfyUI to latest version and CUDA to 12.8, so now it supports the latest GPUs like the RTX 5090 and RTX PRO 6000
 - Added new workflows for Wan2.2 + InfiniteTalk and Qwen-image-edit-2509
