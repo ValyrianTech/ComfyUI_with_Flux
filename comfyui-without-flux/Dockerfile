@@ -203,6 +203,7 @@ COPY --chmod=755 update_Workflows.sh /update_Workflows.sh
 COPY --chmod=755 download_ALL.sh /download_ALL.sh
 COPY --chmod=755 make_venv.sh /make_venv.sh
 COPY --chmod=755 download_Files.sh /download_Files.sh
+COPY --chmod=755 download_Flux2.sh /download_Flux2.sh
 COPY --chmod=755 download_wan2.1.sh /download_wan2.1.sh
 COPY --chmod=755 download_wan2.2.sh /download_wan2.2.sh
 COPY --chmod=755 download_wan2.1_InfiniteTalk.sh /download_wan2.1_InfiniteTalk.sh

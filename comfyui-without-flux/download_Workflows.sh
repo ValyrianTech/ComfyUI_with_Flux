@@ -18,6 +18,8 @@ file_list=(
   "ExpressionEditor.json"
   "Facedetailer.json"
   "FaceSwap.json"
+  "Flux2_ImageEdit.json"
+  "Flux2_Text2Image.json"
   "img2img.json"
   "img2pose.json"
   "Inpainting.json"
