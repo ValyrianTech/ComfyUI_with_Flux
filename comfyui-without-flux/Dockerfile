@@ -230,4 +230,7 @@ RUN mkdir -p /ComfyUI/models/checkpoints && \
 COPY --chmod=644 ai-toolkit/train_lora.yaml /ai-toolkit/config/train_lora.yaml
 COPY --chmod=755 ai-toolkit/caption_images.py /caption_images.py
 
+# fix missing directory for old network volumes
+RUN mkdir -p /opt/venv/lib/python3.10/site-packages/comfyui_workflow_templates/templates
+
 CMD [ "/start.sh" ]
