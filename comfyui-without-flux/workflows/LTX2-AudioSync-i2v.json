@@ -359,7 +359,7 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        928549410133600,
+        741352478545989,
         "randomize"
       ]
     },
@@ -1548,7 +1548,7 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        655315651135361,
+        585480020950744,
         "randomize"
       ]
     },
@@ -4015,13 +4015,13 @@
           "hidden": false,
           "paused": true,
           "params": {
-            "filename": "LTX-2-AudioSync-i2v_00013-audio.mp4",
+            "filename": "LTX-2-AudioSync-i2v_00016-audio.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
             "frame_rate": 24,
-            "workflow": "LTX-2-AudioSync-i2v_00013.png",
-            "fullpath": "/workspace/ComfyUI/output/LTX-2-AudioSync-i2v_00013-audio.mp4"
+            "workflow": "LTX-2-AudioSync-i2v_00016.png",
+            "fullpath": "/workspace/ComfyUI/output/LTX-2-AudioSync-i2v_00016-audio.mp4"
           }
         }
       }
@@ -4742,44 +4742,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 118,
-      "type": "SaveVideo",
-      "pos": [
-        -1.6832344880817924,
-        5477.902911411572
-      ],
-      "size": [
-        642.5793174607472,
-        740.5793174607472
-      ],
-      "flags": {},
-      "order": 67,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "link": 137
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.9.2",
-        "Node name for S&R": "SaveVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        "video/ComfyUI",
-        "mp4",
-        "h264"
-      ]
-    },
-    {
       "id": 12,
       "type": "LoadAudio",
       "pos": [
@@ -4822,6 +4784,44 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
+    },
+    {
+      "id": 118,
+      "type": "SaveVideo",
+      "pos": [
+        -1.6832344880817924,
+        5477.902911411572
+      ],
+      "size": [
+        642.5793174607472,
+        740.5793174607472
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 137
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.9.2",
+        "Node name for S&R": "SaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "mp4",
+        "h264"
+      ]
     },
     {
       "id": 90,
@@ -4883,7 +4883,7 @@
         }
       },
       "widgets_values": [
-        "ceil(a*24)+1"
+        "ceil(a)*24 + 1"
       ]
     }
   ],
@@ -5764,10 +5764,10 @@
   "extra": {
     "workflowRendererVersion": "LG",
     "ds": {
-      "scale": 1.183653252227714,
+      "scale": 0.6074012755508306,
       "offset": [
-        1658.2429943808982,
-        -4506.798106435157
+        3530.1193715698237,
+        -4097.878608139451
       ]
     },
     "ue_links": [],
