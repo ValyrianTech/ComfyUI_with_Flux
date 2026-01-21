@@ -210,6 +210,7 @@ COPY --chmod=755 download_wan2.1_InfiniteTalk.sh /download_wan2.1_InfiniteTalk.s
 COPY --chmod=755 download_Qwen_bf16.sh /download_Qwen_bf16.sh
 COPY --chmod=755 download_Qwen_fp8.sh /download_Qwen_fp8.sh
 COPY --chmod=755 download_VibeVoice.sh /download_VibeVoice.sh
+COPY --chmod=755 download_z-image.sh /download_z-image.sh
 COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
 
 # Runtime model downloads (keep large assets out of builder to avoid duplication)
