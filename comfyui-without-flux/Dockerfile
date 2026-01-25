@@ -116,10 +116,6 @@ RUN set -eux; cd /ai-toolkit/ui; \
     npm run update_db; \
     npm run build
 
-# Prune git histories to reduce copy size
-RUN find /ComfyUI -name .git -type d -prune -exec rm -rf {} + && \
-    find /ai-toolkit -name .git -type d -prune -exec rm -rf {} +
-
 ###############################
 # Runtime stage
 ###############################
