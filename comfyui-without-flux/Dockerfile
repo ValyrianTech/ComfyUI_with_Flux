@@ -216,6 +216,7 @@ COPY --chmod=755 download_Qwen_fp8.sh /download_Qwen_fp8.sh
 COPY --chmod=755 download_VibeVoice.sh /download_VibeVoice.sh
 COPY --chmod=755 download_z-image.sh /download_z-image.sh
 COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
+COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 
 # Runtime model downloads (keep large assets out of builder to avoid duplication)
 RUN mkdir -p /ComfyUI/models/ultralytics/bbox && \
