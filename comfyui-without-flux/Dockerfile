@@ -99,7 +99,11 @@ RUN set -eux; cd /ComfyUI/custom_nodes; \
     mkdir -p /ComfyUI/models/vibevoice/vvembed; \
     git clone https://github.com/kijai/ComfyUI-segment-anything-2.git; \
     git clone https://github.com/GACLove/ComfyUI-VFI.git; \
-    pip install --no-cache-dir -r ComfyUI-VFI/requirements.txt
+    pip install --no-cache-dir -r ComfyUI-VFI/requirements.txt; \
+    git clone https://github.com/Lightricks/ComfyUI-LTXVideo.git; \
+    pip install --no-cache-dir -r ComfyUI-LTXVideo/requirements.txt; \
+    git clone https://github.com/Fictiverse/ComfyUI_Fictiverse.git; \
+    pip install --no-cache-dir -r ComfyUI_Fictiverse/requirements.txt
 
 # Clone and install AI-Toolkit
 RUN git clone https://github.com/ostris/ai-toolkit.git /ai-toolkit && \
