@@ -42,7 +42,7 @@ file_list=(
   "wan2.1_infinite-talk.json"
   "wan2.2_Text2Video.json"
   "Xlabs-AI_RealismLoRa.json"
-  "z-image_turbo_Text2Image"
+  "z-image_turbo_Text2Image.json"
   )
 
 # Change to the local directory

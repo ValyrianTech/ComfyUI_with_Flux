@@ -1,7 +1,7 @@
 {
   "id": "02859364-59c9-4342-ae4f-a67dd0413019",
   "revision": 0,
-  "last_node_id": 119,
+  "last_node_id": 120,
   "last_link_id": 140,
   "nodes": [
     {
@@ -57,7 +57,7 @@
         66
       ],
       "flags": {},
-      "order": 90,
+      "order": 89,
       "mode": 0,
       "inputs": [
         {
@@ -131,7 +131,7 @@
         46
       ],
       "flags": {},
-      "order": 89,
+      "order": 88,
       "mode": 0,
       "inputs": [
         {
@@ -185,7 +185,7 @@
         120
       ],
       "flags": {},
-      "order": 88,
+      "order": 87,
       "mode": 0,
       "inputs": [
         {
@@ -259,7 +259,7 @@
         106.66666666666667
       ],
       "flags": {},
-      "order": 77,
+      "order": 76,
       "mode": 0,
       "inputs": [
         {
@@ -359,7 +359,7 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        741352478545989,
+        96263157582636,
         "randomize"
       ]
     },
@@ -476,7 +476,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 85,
+      "order": 84,
       "mode": 0,
       "inputs": [
         {
@@ -559,7 +559,7 @@
         124
       ],
       "flags": {},
-      "order": 76,
+      "order": 75,
       "mode": 0,
       "inputs": [
         {
@@ -606,9 +606,7 @@
         "secondTabOffset": 80,
         "secondTabWidth": 65
       },
-      "widgets_values": [
-        "width: 512, height: 512\n batch size: 1"
-      ]
+      "widgets_values": []
     },
     {
       "id": 71,
@@ -624,7 +622,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 59,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
@@ -669,7 +667,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 74,
+      "order": 73,
       "mode": 0,
       "inputs": [
         {
@@ -712,7 +710,7 @@
         98
       ],
       "flags": {},
-      "order": 92,
+      "order": 91,
       "mode": 0,
       "inputs": [
         {
@@ -772,7 +770,7 @@
         122
       ],
       "flags": {},
-      "order": 93,
+      "order": 92,
       "mode": 0,
       "inputs": [
         {
@@ -875,7 +873,7 @@
         98
       ],
       "flags": {},
-      "order": 91,
+      "order": 90,
       "mode": 0,
       "inputs": [
         {
@@ -981,7 +979,7 @@
         106
       ],
       "flags": {},
-      "order": 95,
+      "order": 94,
       "mode": 0,
       "inputs": [
         {
@@ -1051,11 +1049,11 @@
         4304.174332186333
       ],
       "size": [
-        193.2916015625,
+        193.33333435058594,
         46
       ],
       "flags": {},
-      "order": 96,
+      "order": 95,
       "mode": 0,
       "inputs": [
         {
@@ -1194,7 +1192,7 @@
         110
       ],
       "flags": {},
-      "order": 94,
+      "order": 93,
       "mode": 0,
       "inputs": [
         {
@@ -1248,7 +1246,7 @@
         146.66666666666669
       ],
       "flags": {},
-      "order": 81,
+      "order": 80,
       "mode": 0,
       "inputs": [
         {
@@ -1321,7 +1319,7 @@
         122
       ],
       "flags": {},
-      "order": 84,
+      "order": 83,
       "mode": 0,
       "inputs": [
         {
@@ -1383,7 +1381,7 @@
         60
       ],
       "flags": {},
-      "order": 86,
+      "order": 85,
       "mode": 0,
       "inputs": [
         {
@@ -1548,7 +1546,7 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        585480020950744,
+        950520528061416,
         "randomize"
       ]
     },
@@ -1789,7 +1787,7 @@
         82
       ],
       "flags": {},
-      "order": 63,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -1993,7 +1991,7 @@
         86.66666666666667
       ],
       "flags": {},
-      "order": 64,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -2123,7 +2121,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 54,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -2284,7 +2282,7 @@
         170
       ],
       "flags": {},
-      "order": 87,
+      "order": 86,
       "mode": 0,
       "inputs": [
         {
@@ -2374,7 +2372,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 98,
+      "order": 97,
       "mode": 0,
       "inputs": [
         {
@@ -2491,58 +2489,6 @@
       ]
     },
     {
-      "id": 97,
-      "type": "LTXVTiledVAEDecode",
-      "pos": [
-        3196.2316321674894,
-        4454.301086813132
-      ],
-      "size": [
-        297.362890625,
-        198
-      ],
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": null
-        },
-        {
-          "name": "latents",
-          "type": "LATENT",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-LTXVideo",
-        "ver": "e56af6973cba3c08e4c3426310c4c4ef1cb31e34",
-        "Node name for S&R": "LTXVTiledVAEDecode",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        4,
-        4,
-        2,
-        false,
-        "auto",
-        "auto"
-      ]
-    },
-    {
       "id": 53,
       "type": "VAEDecodeTiled",
       "pos": [
@@ -2554,7 +2500,7 @@
         150
       ],
       "flags": {},
-      "order": 97,
+      "order": 96,
       "mode": 0,
       "inputs": [
         {
@@ -2608,7 +2554,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2691,7 +2637,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 80,
+      "order": 79,
       "mode": 0,
       "inputs": [
         {
@@ -2736,7 +2682,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 60,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -2841,7 +2787,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 66,
+      "order": 65,
       "mode": 0,
       "inputs": [
         {
@@ -2870,9 +2816,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MelBandRoFormerSampler",
         "cnr_id": "ComfyUI-MelBandRoFormer",
         "ver": "b40e263224778ec417114d91d8b3b39934e30de5",
+        "Node name for S&R": "MelBandRoFormerSampler",
         "ue_properties": {
           "widget_ue_connectable": {},
           "version": "7.5.2",
@@ -2895,7 +2841,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 65,
+      "order": 64,
       "mode": 0,
       "inputs": [
         {
@@ -2938,7 +2884,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2978,7 +2924,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3078,7 +3024,7 @@
         82
       ],
       "flags": {},
-      "order": 62,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -3140,7 +3086,7 @@
         60
       ],
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3197,7 +3143,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 73,
+      "order": 72,
       "mode": 0,
       "inputs": [
         {
@@ -3240,7 +3186,7 @@
         60.24896944691409
       ],
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3254,9 +3200,9 @@
       ],
       "title": "6. Set Audio File Start Index (in seconds)",
       "properties": {
-        "Node name for S&R": "FloatConstant",
         "cnr_id": "comfyui-kjnodes",
         "ver": "204f6d5aae73b10c0fe2fb26e61405fd6337bb77",
+        "Node name for S&R": "FloatConstant",
         "ue_properties": {
           "widget_ue_connectable": {},
           "input_ue_unconnectable": {},
@@ -3326,7 +3272,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3334,7 +3280,6 @@
           "name": "AUDIO",
           "type": "AUDIO",
           "links": [
-            87,
             136
           ]
         }
@@ -3365,7 +3310,7 @@
         274
       ],
       "flags": {},
-      "order": 28,
+      "order": 27,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3403,7 +3348,7 @@
         395.214250180677
       ],
       "flags": {},
-      "order": 72,
+      "order": 71,
       "mode": 0,
       "inputs": [
         {
@@ -3440,7 +3385,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 83,
+      "order": 82,
       "mode": 0,
       "inputs": [
         {
@@ -3483,7 +3428,7 @@
         1124.8340574266467
       ],
       "flags": {},
-      "order": 29,
+      "order": 28,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3513,7 +3458,7 @@
         58
       ],
       "flags": {},
-      "order": 30,
+      "order": 29,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3526,9 +3471,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "MelBandRoFormerModelLoader",
         "cnr_id": "ComfyUI-MelBandRoFormer",
         "ver": "b40e263224778ec417114d91d8b3b39934e30de5",
+        "Node name for S&R": "MelBandRoFormerModelLoader",
         "ue_properties": {
           "widget_ue_connectable": {},
           "version": "7.5.2",
@@ -3553,7 +3498,7 @@
         56.34705382017182
       ],
       "flags": {},
-      "order": 78,
+      "order": 77,
       "mode": 0,
       "inputs": [
         {
@@ -3597,11 +3542,11 @@
         3682.1323853782055
       ],
       "size": [
-        188.1373046875,
+        188.15,
         46
       ],
       "flags": {},
-      "order": 82,
+      "order": 81,
       "mode": 0,
       "inputs": [
         {
@@ -3650,7 +3595,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 31,
+      "order": 30,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3688,7 +3633,7 @@
         336.9070705025797
       ],
       "flags": {},
-      "order": 58,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -3733,9 +3678,9 @@
       ],
       "title": "2. Set Width and Height of Video",
       "properties": {
-        "Node name for S&R": "ImageResizeKJv2",
         "cnr_id": "comfyui-kjnodes",
         "ver": "204f6d5aae73b10c0fe2fb26e61405fd6337bb77",
+        "Node name for S&R": "ImageResizeKJv2",
         "ue_properties": {
           "widget_ue_connectable": {},
           "version": "7.5.2",
@@ -3750,8 +3695,7 @@
         "0, 0, 0",
         "center",
         32,
-        "cpu",
-        "<tr><td>Output: </td><td><b>1</b> x <b>1024</b> x <b>1024 | 12.00MB</b></td></tr>"
+        "cpu"
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -3768,7 +3712,7 @@
         168.9629000888899
       ],
       "flags": {},
-      "order": 32,
+      "order": 31,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3797,7 +3741,7 @@
         138
       ],
       "flags": {},
-      "order": 33,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -3858,7 +3802,7 @@
         46
       ],
       "flags": {},
-      "order": 61,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -3905,7 +3849,7 @@
         58
       ],
       "flags": {},
-      "order": 75,
+      "order": 74,
       "mode": 0,
       "inputs": [
         {
@@ -3929,9 +3873,9 @@
       ],
       "title": "7. Set Audio Length (in seconds)",
       "properties": {
-        "Node name for S&R": "FloatConstant",
         "cnr_id": "comfyui-kjnodes",
         "ver": "204f6d5aae73b10c0fe2fb26e61405fd6337bb77",
+        "Node name for S&R": "FloatConstant",
         "ue_properties": {
           "widget_ue_connectable": {},
           "input_ue_unconnectable": {},
@@ -3945,88 +3889,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 66,
-      "type": "VHS_VideoCombine",
-      "pos": [
-        -2.7038644005714128,
-        4456.172399592743
-      ],
-      "size": [
-        635.4111428671392,
-        963.4111428671392
-      ],
-      "flags": {},
-      "order": 52,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 91
-        },
-        {
-          "name": "audio",
-          "shape": 7,
-          "type": "AUDIO",
-          "link": 87
-        },
-        {
-          "name": "meta_batch",
-          "shape": 7,
-          "type": "VHS_BatchManager",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VHS_VideoCombine",
-        "cnr_id": "comfyui-videohelpersuite",
-        "ver": "1.7.9",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.5.2",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": {
-        "frame_rate": 24,
-        "loop_count": 0,
-        "filename_prefix": "LTX-2-AudioSync-i2v",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 0,
-        "save_metadata": true,
-        "trim_to_audio": false,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": true,
-          "params": {
-            "filename": "LTX-2-AudioSync-i2v_00016-audio.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4",
-            "frame_rate": 24,
-            "workflow": "LTX-2-AudioSync-i2v_00016.png",
-            "fullpath": "/workspace/ComfyUI/output/LTX-2-AudioSync-i2v_00016-audio.mp4"
-          }
-        }
-      }
-    },
-    {
       "id": 85,
       "type": "Text Multiline",
       "pos": [
@@ -4038,7 +3900,7 @@
         200
       ],
       "flags": {},
-      "order": 34,
+      "order": 33,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4052,9 +3914,9 @@
       ],
       "title": "8. Put in a Prompt for other actions.",
       "properties": {
-        "Node name for S&R": "Text Multiline",
         "cnr_id": "was-ns",
         "ver": "3.0.1",
+        "Node name for S&R": "Text Multiline",
         "ue_properties": {
           "widget_ue_connectable": {},
           "input_ue_unconnectable": {},
@@ -4081,7 +3943,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4089,7 +3951,6 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            91,
             135
           ]
         }
@@ -4109,56 +3970,6 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 117,
-      "type": "CreateVideo",
-      "pos": [
-        -362.2679567211557,
-        5558.866086032863
-      ],
-      "size": [
-        270,
-        78
-      ],
-      "flags": {},
-      "order": 53,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 135
-        },
-        {
-          "name": "audio",
-          "shape": 7,
-          "type": "AUDIO",
-          "link": 136
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VIDEO",
-          "type": "VIDEO",
-          "links": [
-            137
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.9.2",
-        "Node name for S&R": "CreateVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        24
-      ]
-    },
-    {
       "id": 63,
       "type": "Seed (rgthree)",
       "pos": [
@@ -4170,7 +3981,7 @@
         130
       ],
       "flags": {},
-      "order": 36,
+      "order": 35,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4186,10 +3997,10 @@
       ],
       "title": "3. Choose Seed (Random or new Fixed)",
       "properties": {
-        "randomMax": 1125899906842624,
-        "randomMin": 0,
         "cnr_id": "rgthree-comfy",
         "ver": "8ff50e4521881eca1fe26aec9615fc9362474931",
+        "randomMax": 1125899906842624,
+        "randomMin": 0,
         "ue_properties": {
           "widget_ue_connectable": {},
           "input_ue_unconnectable": {},
@@ -4217,7 +4028,7 @@
         58
       ],
       "flags": {},
-      "order": 37,
+      "order": 36,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4233,6 +4044,8 @@
         }
       ],
       "properties": {
+        "cnr_id": "cg-use-everywhere",
+        "ver": "f72d23a7060db657a2775c4dd1f1a85a3efcf5a8",
         "Node name for S&R": "Combo Clone",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -4269,7 +4082,7 @@
         98
       ],
       "flags": {},
-      "order": 55,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -4328,7 +4141,7 @@
         58
       ],
       "flags": {},
-      "order": 56,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -4375,7 +4188,7 @@
         106
       ],
       "flags": {},
-      "order": 57,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -4426,7 +4239,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 71,
+      "order": 70,
       "mode": 0,
       "inputs": [
         {
@@ -4471,7 +4284,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 70,
+      "order": 69,
       "mode": 0,
       "inputs": [
         {
@@ -4516,7 +4329,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 69,
+      "order": 68,
       "mode": 0,
       "inputs": [
         {
@@ -4561,7 +4374,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 68,
+      "order": 67,
       "mode": 0,
       "inputs": [
         {
@@ -4665,7 +4478,7 @@
         415.4285220558063
       ],
       "flags": {},
-      "order": 38,
+      "order": 37,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4713,7 +4526,7 @@
         85.717304870931
       ],
       "flags": {},
-      "order": 39,
+      "order": 38,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -4753,7 +4566,7 @@
         137.3606265153826
       ],
       "flags": {},
-      "order": 40,
+      "order": 39,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4786,44 +4599,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 118,
-      "type": "SaveVideo",
-      "pos": [
-        -1.6832344880817924,
-        5477.902911411572
-      ],
-      "size": [
-        642.5793174607472,
-        740.5793174607472
-      ],
-      "flags": {},
-      "order": 67,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "link": 137
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.9.2",
-        "Node name for S&R": "SaveVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        "video/ComfyUI",
-        "mp4",
-        "h264"
-      ]
-    },
-    {
       "id": 90,
       "type": "MathExpression|pysssss",
       "pos": [
@@ -4835,7 +4610,7 @@
         128
       ],
       "flags": {},
-      "order": 79,
+      "order": 78,
       "mode": 0,
       "inputs": [
         {
@@ -4873,9 +4648,9 @@
       ],
       "title": "Calculate frames from audio length",
       "properties": {
-        "Node name for S&R": "MathExpression|pysssss",
         "cnr_id": "comfyui-custom-scripts",
         "ver": "1.2.5",
+        "Node name for S&R": "MathExpression|pysssss",
         "ue_properties": {
           "widget_ue_connectable": {},
           "input_ue_unconnectable": {},
@@ -4884,6 +4659,123 @@
       },
       "widgets_values": [
         "ceil(a)*24 + 1"
+      ]
+    },
+    {
+      "id": 120,
+      "type": "Note",
+      "pos": [
+        -1140.901662820744,
+        3352.4512761498186
+      ],
+      "size": [
+        645.8394165039062,
+        88
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Run the command 'bash /download_LTX2.sh' in the terminal to download the models used in this workflow."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 117,
+      "type": "CreateVideo",
+      "pos": [
+        -73.40694750540827,
+        4424.375697506757
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 135
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 136
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            137
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.9.2",
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 118,
+      "type": "SaveVideo",
+      "pos": [
+        4.303522179602098,
+        4573.902654591303
+      ],
+      "size": [
+        642.5793174607472,
+        740.5793174607472
+      ],
+      "flags": {},
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 137
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.9.2",
+        "Node name for S&R": "SaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "mp4",
+        "h264"
       ]
     }
   ],
@@ -5417,28 +5309,12 @@
       "INT"
     ],
     [
-      87,
-      54,
-      0,
-      66,
-      1,
-      "AUDIO"
-    ],
-    [
       90,
       83,
       0,
       4,
       0,
       "INT"
-    ],
-    [
-      91,
-      84,
-      0,
-      66,
-      0,
-      "IMAGE"
     ],
     [
       92,
@@ -5764,15 +5640,15 @@
   "extra": {
     "workflowRendererVersion": "LG",
     "ds": {
-      "scale": 0.6074012755508306,
+      "scale": 0.37714840364284075,
       "offset": [
-        3530.1193715698237,
-        -4097.878608139451
+        3001.867533630654,
+        -3078.307835869736
       ]
     },
     "ue_links": [],
     "links_added_by_ue": [],
-    "frontendVersion": "1.36.14",
+    "frontendVersion": "1.37.11",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,

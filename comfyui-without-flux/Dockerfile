@@ -99,7 +99,11 @@ RUN set -eux; cd /ComfyUI/custom_nodes; \
     mkdir -p /ComfyUI/models/vibevoice/vvembed; \
     git clone https://github.com/kijai/ComfyUI-segment-anything-2.git; \
     git clone https://github.com/GACLove/ComfyUI-VFI.git; \
-    pip install --no-cache-dir -r ComfyUI-VFI/requirements.txt
+    pip install --no-cache-dir -r ComfyUI-VFI/requirements.txt; \
+    git clone https://github.com/Lightricks/ComfyUI-LTXVideo.git; \
+    pip install --no-cache-dir -r ComfyUI-LTXVideo/requirements.txt; \
+    git clone https://github.com/Fictiverse/ComfyUI_Fictiverse.git; \
+    pip install --no-cache-dir -r ComfyUI_Fictiverse/requirements.txt
 
 # Clone and install AI-Toolkit
 RUN git clone https://github.com/ostris/ai-toolkit.git /ai-toolkit && \
@@ -111,10 +115,6 @@ RUN set -eux; cd /ai-toolkit/ui; \
     npm ci || npm install; \
     npm run update_db; \
     npm run build
-
-# Prune git histories to reduce copy size
-RUN find /ComfyUI -name .git -type d -prune -exec rm -rf {} + && \
-    find /ai-toolkit -name .git -type d -prune -exec rm -rf {} +
 
 ###############################
 # Runtime stage
@@ -212,6 +212,7 @@ COPY --chmod=755 download_Qwen_fp8.sh /download_Qwen_fp8.sh
 COPY --chmod=755 download_VibeVoice.sh /download_VibeVoice.sh
 COPY --chmod=755 download_z-image.sh /download_z-image.sh
 COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
+COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 
 # Runtime model downloads (keep large assets out of builder to avoid duplication)
 RUN mkdir -p /ComfyUI/models/ultralytics/bbox && \
