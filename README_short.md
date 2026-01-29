@@ -2,6 +2,10 @@
 
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
+## Update 2026-01-25
+- Updated ComfyUI and AI-Toolkit to latest version
+- Supports LTX2, Z-Image, Flux2
+
 ## Update 2025-11-26
 - Updated ComfyUI and AI-Toolkit to latest version to support Flux.2 (You will need a GPU with at least 96GB of VRAM like the RTX PRO 6000 to run this)
 
