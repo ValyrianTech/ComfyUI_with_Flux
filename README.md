@@ -1,5 +1,9 @@
 # ComfyUI with Flux.1-dev
 
+## Update 2026-04-05
+- Added LTX2.3 workflows: I2V and FL2V
+- Updated ComfyUI to latest version
+
 ## Update 2026-01-25
 - Updated ComfyUI and AI-Toolkit to latest version
 - Supports LTX2, Z-Image, Flux2
