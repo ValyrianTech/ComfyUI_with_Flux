@@ -11,7 +11,7 @@ bash /update_Workflows.sh
 bash /disable_mixlab.sh
 
 # Launch the UI
-python3 /workspace/ComfyUI/main.py --listen
+python3 /workspace/ComfyUI/main.py --listen --enable-cors-header
 
 # Keep the container running indefinitely
 sleep infinity
