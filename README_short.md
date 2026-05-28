@@ -1,5 +1,9 @@
 # ComfyUI with Flux.1-dev
 
+## Tutorial
+[![tutorial video](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/LTX2.3_tutorial_screenshot.png?raw=true)](https://youtu.be/REBjE4dF6LQ)
+
+
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 ## Update 2026-04-05
