@@ -110,6 +110,10 @@ RUN git clone https://github.com/ostris/ai-toolkit.git /ai-toolkit && \
     cd /ai-toolkit && git submodule update --init --recursive && \
     pip install --no-cache-dir -r requirements.txt
 
+# Pin mediapipe/controlnet-aux to tested stable combo (fixes AI-Toolkit issues)
+RUN pip uninstall -y mediapipe controlnet_aux && \
+    pip install --no-cache-dir mediapipe==0.10.14 controlnet-aux==0.0.10
+
 # Prebuild AI-Toolkit UI (install deps, init DB, and build)
 RUN set -eux; cd /ai-toolkit/ui; \
     npm ci || npm install; \
@@ -125,7 +129,8 @@ FROM ${DOCKER_FROM} AS runtime
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv python-is-python3 \
         openssh-server openssh-client git git-lfs wget zip unzip curl vim \
-        nginx libgl1-mesa-glx libglib2.0-0 libsqlite3-0 && \
+        nginx libgl1-mesa-glx libglib2.0-0 libsqlite3-0 \
+        ffmpeg libavcodec-dev libavformat-dev libavutil-dev libswresample-dev && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
