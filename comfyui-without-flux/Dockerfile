@@ -152,6 +152,10 @@ COPY default /etc/nginx/sites-available/default
 # CUDA path and ensure venv binaries are preferred
 ENV PATH="/opt/venv/bin:/usr/local/cuda/bin:${PATH}"
 
+# Make JupyterLab terminals use bash (tab completion, arrow keys, history).
+# Without SHELL set, jupyter_server_terminals falls back to /bin/sh, which is dash on Ubuntu.
+ENV SHELL=/bin/bash
+
 # Copy application tree and Python environment from builder
 COPY --from=builder /ComfyUI /ComfyUI
 COPY --from=builder /ai-toolkit /ai-toolkit
