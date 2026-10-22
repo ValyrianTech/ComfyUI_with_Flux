@@ -133,8 +133,7 @@ The token can be seen in the logs of the runpod template:
 
 Alternatively, you can start the web terminal and connect to it and enter the command "jupyter server list" to get the token.
 
-Note: Due to a technical peculiarity in JupyterLab, the folder /ComfyUI/models/checkpoints will not open, because 'checkpoints' is a special word in JupyterLab.
-If you need to copy a file in this folder, you can still connect via the web terminal and use the 'wget' command to download your file.
+Note: JupyterLab normally cannot open folders named 'checkpoints' (such as /ComfyUI/models/checkpoints), because that word is reserved by its notebook-checkpoint API. This image includes a small server extension that works around it, so the folder opens like any other.
 
 ## Note
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 

@@ -164,6 +164,16 @@ COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
 COPY --chmod=755 ai-toolkit-on-workspace.sh /ai-toolkit-on-workspace.sh
 COPY --chmod=755 check_files.sh /check_files.sh
 
+# JupyterLab: make folders named "checkpoints" (e.g. /ComfyUI/models/checkpoints) browsable.
+# Jupyter Server routes ".../checkpoints" URLs to its notebook-checkpoint API, which hides such
+# folders from the file browser. This small server extension routes existing folders normally.
+COPY --chmod=644 jupyter_checkpoints_dir_fix.py /tmp/jupyter_checkpoints_dir_fix.py
+RUN cp /tmp/jupyter_checkpoints_dir_fix.py "$(python -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')/" && \
+    rm /tmp/jupyter_checkpoints_dir_fix.py && \
+    mkdir -p /etc/jupyter/jupyter_server_config.d && \
+    echo '{"ServerApp": {"jpserver_extensions": {"jupyter_checkpoints_dir_fix": true}}}' \
+        > /etc/jupyter/jupyter_server_config.d/jupyter_checkpoints_dir_fix.json
+
 # App configuration and assets
 COPY --chmod=644 workflows/ /ComfyUI/user/default/workflows/
 COPY --chmod=644 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
