@@ -11,7 +11,7 @@ server {
     }
 
     location /output {
-        alias /workspace/ComfyUI/output;  # Serve files from this directory
+        alias /workspace/comfyui-data/output;  # Serve files from this directory
         autoindex off;                    # Disable directory listing
 
         # Allow access to common image and video files

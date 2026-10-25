@@ -1,15 +1,9 @@
 #!/bin/bash
 
-echo "Donwloading Upscale models"
+source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/download_lib.sh"
 
-echo "Downloading 4x-UltraSharp.pth"
-cd /ComfyUI/models/upscale_models
-file="4x-UltraSharp.pth"
-url="https://civitai.com/api/download/models/125843?type=Model&format=PickleTensor"
+echo "Downloading Upscale models"
 
-if [ -f "$file" ]; then
-    echo "$file already exists."
-else
-    echo "Downloading $file"
-    wget -O $file $url --progress=bar:force:noscroll
-fi
+download_file "/ComfyUI/models/upscale_models" "4x-UltraSharp.pth" "https://civitai.com/api/download/models/125843?type=Model&format=PickleTensor"
+
+download_wait

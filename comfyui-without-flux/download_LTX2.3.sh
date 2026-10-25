@@ -1,18 +1,6 @@
 #!/bin/bash
 
-# Define the download function
-download_file() {
-    local dir=$1
-    local file=$2
-    local url=$3
-
-    mkdir -p $dir
-    if [ -f "$dir/$file" ]; then
-        echo "File $dir/$file already exists, skipping download."
-    else
-        wget -O "$dir/$file" "$url" --progress=bar:force:noscroll
-    fi
-}
+source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/download_lib.sh"
 
 # 40GB model
 #download_file "/ComfyUI/models/checkpoints" "ltx-2.3-22b-dev.safetensors" "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-22b-dev.safetensors?download=true"
@@ -39,3 +27,5 @@ download_file "/ComfyUI/models/loras" "ltx-2.3-22b-distilled-lora-384.safetensor
 #download_file "/ComfyUI/models/loras" "ltx-2-19b-lora-camera-control-dolly-out.safetensors" "https://huggingface.co/Lightricks/LTX-2-19b-LoRA-Camera-Control-Dolly-Out/resolve/main/ltx-2-19b-lora-camera-control-dolly-out.safetensors?download=true"
 #download_file "/ComfyUI/models/loras" "ltx-2-19b-lora-camera-control-jib-down.safetensors" "https://huggingface.co/Lightricks/LTX-2-19b-LoRA-Camera-Control-Jib-Down/resolve/main/ltx-2-19b-lora-camera-control-jib-down.safetensors?download=true"
 #download_file "/ComfyUI/models/loras" "ltx-2-19b-lora-camera-control-jib-up.safetensors" "https://huggingface.co/Lightricks/LTX-2-19b-LoRA-Camera-Control-Jib-Up/resolve/main/ltx-2-19b-lora-camera-control-jib-up.safetensors?download=true"
+
+download_wait

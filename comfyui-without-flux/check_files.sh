@@ -2,7 +2,9 @@
 
 FILE="/workspace/ComfyUI/models/diffusion_models/flux1-dev.sft"
 
-if [ ! -f "$FILE" ]; then
+if [ ! -f "$FILE" ] && [[ "${DOWNLOAD_FLUX,,}" != "false" ]] && [[ -n "${HF_TOKEN}" ]] && [[ "${HF_TOKEN}" != "enter_your_huggingface_token_here" ]]; then
+    echo "Flux is being downloaded, ComfyUI starts once it is done (log: /workspace/model_downloads.log)"
+elif [ ! -f "$FILE" ]; then
     echo "#################################################################"
     echo "WARNING!"
     echo "#################################################################"

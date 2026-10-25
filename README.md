@@ -1,5 +1,73 @@
 # ComfyUI with Flux.1-dev
 
+## Update 2026-10-22
+- **Faster deployment on RunPod**: the Docker images are a lot smaller (about 35% for the 'without Flux' image and about 30% for the 'with Flux' image), so pods pull and start faster.
+    - Public models (SD1.5, inswapper, face detection, Flux text encoders, example LoRAs, openpose annotators) are no longer baked into the image. They are downloaded straight to the network volume in the background on first start (log: `/workspace/model_downloads.log`), so they also no longer need to be copied to the volume.
+    - **You choose which models are downloaded** with environment variables, see [Choosing which models to download](#choosing-which-models-to-download). By default only Flux and the models its workflows need are downloaded.
+    - Models download in the background, several files at a time and over multiple connections each. JupyterLab is the first thing to start and the AI-Toolkit UI comes up right away too. ComfyUI waits only for Flux and its text encoders, so the Flux workflows work as soon as it opens, while the other model sets keep downloading.
+    - Dropped the unused CUDA runtime libraries from the image (PyTorch ships its own) and the git history of all custom nodes.
+    - AI-Toolkit's code now stays inside the image; only your configs, datasets, outputs and the UI database are persisted on the volume in `/workspace/ai-toolkit-data`. `/workspace/ai-toolkit` still works as before.
+    - Removed the Mixlab nodes from the image (they were disabled at startup anyway).
+    - **ComfyUI is no longer copied to the network volume.** Its code, the bundled custom nodes and the Python environment stay in the image, so the first start doesn't wait for a 1.5 GB copy and image updates actually take effect. Only your data lives on the volume, see [What is stored on the network volume](#what-is-stored-on-the-network-volume).
+- **New environment variable `JUPYTER_PASSWORD`**: the login for JupyterLab. If it's left empty, JupyterLab opens without a login.
+- **CivitAI downloader included**: `civitai-download` ([civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader)) is installed, with an example notebook in `/workspace/civitai`. Set your CivitAI API key in the new `CAI_API_KEY` environment variable, see [Downloading models from CivitAI](#downloading-models-from-civitai).
+- **Relaxed file permissions**: files and folders in the image and on `/workspace` can be written by every user and tool, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors.
+
+## Choosing which models to download
+
+On every pod start, the model sets you select are downloaded straight to the network volume in the background, all at the same time (log: `/workspace/model_downloads.log`). Files that are already on the volume are skipped, so after the first start only new selections are downloaded. ComfyUI starts as soon as the Flux set (Flux, its VAE and the clip_l and t5xxl text encoders) is on the volume, so on the first start it waits for that download; set `COMFYUI_WAIT_FOR_FLUX=false` to start it right away instead. The other sets keep downloading after ComfyUI is up, and their models show up as each file finishes (refresh the model list in the UI to see them).
+
+Set these as environment variables in the RunPod template, or when deploying a pod:
+
+| Environment variable | Default | Downloads |
+|---|---|---|
+| `DOWNLOAD_FLUX` | `true` | Flux.1-dev and Flux.1-Kontext-dev (needs `HF_TOKEN`, gated repo) plus the clip_l and t5xxl fp8 text encoders and the example LoRAs |
+| `DOWNLOAD_FLUX_EXTRAS` | `true` | Openpose annotators and the other Flux companion models, once the Flux model is on the volume |
+| `DOWNLOAD_BASE_MODELS` | `false` | SD 1.5, inswapper (FaceSwap) and the face detection model (Facedetailer) |
+| `DOWNLOAD_FLUX2` | `false` | Flux.2-dev fp8, its VAE and text encoder |
+| `DOWNLOAD_WAN` | `false` | Wan 2.1 text2video and image2video |
+| `DOWNLOAD_WAN22` | `false` | Wan 2.2 text2video and image2video |
+| `DOWNLOAD_INFINITETALK` | `false` | Wan 2.1 InfiniteTalk |
+| `DOWNLOAD_LTX2` | `false` | LTX2 |
+| `DOWNLOAD_LTX23` | `false` | LTX2.3 |
+| `DOWNLOAD_QWEN_FP8` | `false` | Qwen Image Edit (fp8) |
+| `DOWNLOAD_QWEN_BF16` | `false` | Qwen Image Edit (bf16) |
+| `DOWNLOAD_Z_IMAGE` | `false` | Z-Image Turbo |
+| `DOWNLOAD_CONTROLNET` | `false` | Flux and SDXL ControlNets, 4x-UltraSharp |
+| `DOWNLOAD_OUTPAINTING` | `false` | Outpainting models |
+| `DOWNLOAD_SUPIR` | `false` | SUPIR upscaler |
+| `DOWNLOAD_LDSR` | `false` | LDSR upscaler |
+| `DOWNLOAD_UPSCALERS` | `false` | 4x-UltraSharp |
+| `DOWNLOAD_FLORENCE2` | `false` | Florence-2 |
+| `DOWNLOAD_T5_FP16` | `false` | t5xxl fp16 text encoder |
+| `DOWNLOAD_VIBEVOICE` | `false` | VibeVoice Large and its tokenizer |
+
+Instead of one variable per set you can also list them in `DOWNLOAD_MODELS`, for example `DOWNLOAD_MODELS=wan2.2,ltx2.3`. The names are `flux`, `base`, `flux2`, `wan2.1`, `wan2.2`, `infinitetalk`, `ltx2`, `ltx2.3`, `qwen_fp8`, `qwen_bf16`, `z-image`, `controlnet`, `outpainting`, `supir`, `ldsr`, `upscalers`, `florence2`, `t5_fp16` and `vibevoice`; `all` selects every set.
+
+You can also download a set later from the terminal, e.g. `bash /download_LTX2.3.sh`, or run `DOWNLOAD_MODELS=ltx2.3 /download_selected.sh`. `DOWNLOAD_JOBS` (default 4) sets how many files download at once and `DOWNLOAD_CONNECTIONS` (default 8) how many connections each file uses.
+
+## What is stored on the network volume
+
+Only your own data is kept on the network volume. Everything else (ComfyUI's code, the custom nodes that come with the image, the Python environment, AI-Toolkit's code and UI, and caches like Hugging Face, torch hub and `__pycache__`) stays inside the image on the pod's local disk. It is faster there than on a network volume, and it is updated whenever you deploy a newer image.
+
+| On the volume | What it holds |
+|---|---|
+| `/workspace/comfyui-data/models` | All models. The download scripts and ComfyUI-Manager save here. |
+| `/workspace/comfyui-data/input` | ComfyUI's input folder (uploaded images, audio, video) |
+| `/workspace/comfyui-data/output` | ComfyUI's output folder |
+| `/workspace/comfyui-data/user` | Your workflows, ComfyUI settings and the ComfyUI-Manager config |
+| `/workspace/comfyui-data/custom_nodes` | Custom nodes you install yourself, e.g. with ComfyUI-Manager |
+| `/workspace/ai-toolkit-data` | AI-Toolkit configs, datasets, outputs and the UI database |
+| `/workspace/start_user.sh`, `/workspace/model_downloads.log` | Your startup script and the model download log |
+
+The old paths still work: `/ComfyUI/models`, `/ComfyUI/input`, `/ComfyUI/output` and `/ComfyUI/user` are links to the folders above, and `/workspace/ComfyUI` is a link to `/ComfyUI`. So `/workspace/ComfyUI/models/loras` is still where your LoRAs go.
+
+Custom nodes you install with ComfyUI-Manager are put in `/workspace/comfyui-data/custom_nodes`, and ComfyUI loads them next to the bundled ones (configured in `/ComfyUI/extra_model_paths.yaml`). Because the Python environment comes fresh with each pod, their `requirements.txt` is installed again on every start, before ComfyUI starts. If you update one of the bundled custom nodes, that update lasts until the pod is replaced; the next image brings its own version.
+
+The default workflows and example inputs that come with the image are added to the volume when they are missing. Files that are already there are never overwritten, so your edits are kept.
+
+**Volumes from older versions** that hold a full copy of ComfyUI in `/workspace/ComfyUI` are moved over automatically on the first start: `models`, `input`, `output` and `user` are moved into `/workspace/comfyui-data` (a quick rename, nothing is copied), and custom nodes you installed yourself go to `/workspace/comfyui-data/custom_nodes`. The rest of the old copy, the ComfyUI code and the bundled custom nodes, is moved to `/workspace/ComfyUI.old` and not deleted. Check it for anything you still need, then delete it to free up space. Once a volume has been moved over, don't use it with an older version of this image.
+
 ## Update 2026-04-05
 - Added LTX2.3 workflows: I2V and FL2V
 - Updated ComfyUI to latest version
@@ -65,7 +133,7 @@
     - websocket_image_save, ComfyUI-Florence2, ComfyUI-Logic, cg-use-everywhere, comfy-plasma, cg-image-picker, ComfyUI_JPS-Nodes,
     ComfyUI_essentials, ComfyUI-Flowty-LDSR, ComfyUI-VideoHelperSuite, ComfyUI-KJNodes, ComfyUI-Custom-Scripts, ComfyUI-Manager, 
     ComfyUI_UltimateSDUpscale, ComfyUI-AdvancedLivePortrait, x-flux-comfyui, rgthree-comfy, ComfyUI-Impact-Pack, ComfyUI_ComfyRoll_CustomNodes,
-    ComfyUI-SUPIR, was-node-suite-comfyui, comfyui_controlnet_aux, ComfyUI-Easy-Use, comfyui-reactor-node, ComfyUI_LayerStyle, comfyui-mixlab-nodes
+    ComfyUI-SUPIR, was-node-suite-comfyui, comfyui_controlnet_aux, ComfyUI-Easy-Use, comfyui-reactor-node, ComfyUI_LayerStyle
 
     - This should make the problems with 'IMPORT FAILED' less frequent. If you still encounter this problem when restarting a pod, you can go to the manager and click on 'Custom Nodes Manager', find the one that is causing the problem and click on the 'Try fix' button. 
     - If you have a lot of custom nodes that are causing problems, there is another possible solution, but should only be use as a 'last resort', you can make a persistent venv by running the command `bash /make_venv.sh` in the terminal.
@@ -125,13 +193,19 @@ If you want to use a different workflow, keep in mind you must use the API forma
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
 
 Click on the "Connect to HTTP Service [Port 8888]" button to open JupyterLab.
-You will be asked for a token, this will be different each time you deploy a new pod.
+Set the `JUPYTER_PASSWORD` environment variable in the template to protect JupyterLab: you will be asked for a token, enter that password.
+If `JUPYTER_PASSWORD` is left empty, JupyterLab opens without any login. The pod's proxy URL is public, so anyone who has that URL then gets full access to the pod, including your HF_TOKEN and your files.
 
-The token can be seen in the logs of the runpod template:
+JupyterLab is started first, before the volume setup and the model downloads, so you can use it while the models are still downloading.
 
-![JupyterLab token](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/JupyterLab_token.png?raw=true)
+### Downloading models from CivitAI
+[civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader) is installed in the image, both as the `civitai-download` command and as the `civitai_downloader` Python package. Set the `CAI_API_KEY` environment variable in the template to your CivitAI API key (create one at https://civitai.com/user/account), then open `/workspace/civitai/civitai_downloader.ipynb` in JupyterLab, or run it from a terminal:
 
-Alternatively, you can start the web terminal and connect to it and enter the command "jupyter server list" to get the token.
+```bash
+civitai-download --sd /ComfyUI --ui comfyui --url "https://civitai.com/models/4201?modelVersionId=130072"
+```
+
+Each model is saved into the matching ComfyUI folder (LoRAs in `models/loras`, checkpoints in `models/checkpoints`, ...) on the network volume.
 
 Note: JupyterLab normally cannot open folders named 'checkpoints' (such as /ComfyUI/models/checkpoints), because that word is reserved by its notebook-checkpoint API. This image includes a small server extension that works around it, so the folder opens like any other.
 
