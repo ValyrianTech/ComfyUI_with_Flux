@@ -31,10 +31,12 @@ _download_one() {
     lock=/tmp/download-locks/$(readlink -f "$dir/$file" | md5sum | cut -d' ' -f1)
     exec {lock_fd}>"$lock"
     flock "$lock_fd"
-    if [ -e "$dir/$file" ]; then
+    if [ -s "$dir/$file" ]; then
         echo "$dir/$file already exists, skipping."
         return 0
     fi
+    # An empty file (e.g. from a failed manual download) doesn't count as present
+    rm -f "$dir/$file"
     [ -n "$header" ] && args+=(--header="$header")
     echo "Downloading $file..."
     if command -v aria2c >/dev/null 2>&1; then
