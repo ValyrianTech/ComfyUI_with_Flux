@@ -21,7 +21,7 @@ Set these as environment variables in the RunPod template, or when deploying a p
 
 | Environment variable | Default | Downloads |
 |---|---|---|
-| `DOWNLOAD_FLUX` | `true` | Flux.1-dev and Flux.1-Kontext-dev (needs `HF_TOKEN`, gated repo) plus the clip_l and t5xxl fp8 text encoders and the example LoRAs |
+| `DOWNLOAD_FLUX` | `true` | Flux.1-dev and Flux.1-Kontext-dev (needs `HF_TOKEN`, gated repo) plus the clip_l and t5xxl fp8 text encoders and the example LoRAs. Set it to `false` to skip all Flux models, e.g. when you want to use a checkpoint from CivitAI instead; in the 'with Flux' image the baked-in Flux files are then not copied to the volume and the companion models are not downloaded |
 | `DOWNLOAD_FLUX_EXTRAS` | `true` | Openpose annotators and the other Flux companion models, once the Flux model is on the volume |
 | `DOWNLOAD_BASE_MODELS` | `false` | SD 1.5, inswapper (FaceSwap) and the face detection model (Facedetailer) |
 | `DOWNLOAD_FLUX2` | `false` | Flux.2-dev fp8, its VAE and text encoder |

@@ -14,7 +14,7 @@ This is a shortened version of the README, read the full version here: [ComfyUI 
 - Relaxed file permissions, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors.
 
 ## Choosing which models to download
-Models download to the network volume in the background on pod start, so ComfyUI starts right away. By default only Flux (`DOWNLOAD_FLUX=true`, needs `HF_TOKEN`) and the models its workflows need are downloaded. Enable other sets with environment variables such as `DOWNLOAD_WAN22=true`, `DOWNLOAD_LTX23=true` or `DOWNLOAD_QWEN_FP8=true`, or list them in `DOWNLOAD_MODELS=wan2.2,ltx2.3`. See the full README for every option.
+Models download to the network volume in the background on pod start, so ComfyUI starts right away. By default only Flux (`DOWNLOAD_FLUX=true`, needs `HF_TOKEN`) and the models its workflows need are downloaded; `DOWNLOAD_FLUX=false` skips all of them, also in the 'with Flux' image, e.g. to use a CivitAI checkpoint instead. Enable other sets with environment variables such as `DOWNLOAD_WAN22=true`, `DOWNLOAD_LTX23=true` or `DOWNLOAD_QWEN_FP8=true`, or list them in `DOWNLOAD_MODELS=wan2.2,ltx2.3`. See the full README for every option.
 
 ## What is stored on the network volume
 Only your data: models, ComfyUI's input, output and user folders (workflows, settings) and the custom nodes you install yourself, all in `/workspace/comfyui-data`, plus `/workspace/ai-toolkit-data`. ComfyUI's code, the bundled custom nodes and the Python environment stay in the image, so nothing is copied on the first start. `/workspace/ComfyUI` still works as before. Older volumes are moved over automatically and the leftover code is kept in `/workspace/ComfyUI.old`. See the full README for details.

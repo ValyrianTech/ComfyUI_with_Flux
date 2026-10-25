@@ -55,6 +55,10 @@ link_to_volume() {
 	local src=/ComfyUI/$1
 	local dst=$DATA/$1
 	local path
+	local skip_flux=false
+	# DOWNLOAD_FLUX=false: don't put the Flux files baked into the with-flux image on the volume,
+	# e.g. when you use a checkpoint from CivitAI instead
+	[[ "${DOWNLOAD_FLUX,,}" =~ ^(false|0|no|off)$ ]] && skip_flux=true
 
 	mkdir -p "$dst"
 	if [[ -d "$src" && ! -L "$src" ]]; then
@@ -62,6 +66,9 @@ link_to_volume() {
 			mkdir -p "$dst/$path"
 		done
 		(cd "$src" && find . \( -type f -o -type l \)) | while IFS= read -r path; do
+			if [[ "$skip_flux" == true && "$1/${path#./}" =~ ^models/(diffusion_models/flux1-dev\.sft|vae/ae\.sft)$ ]]; then
+				continue
+			fi
 			if [[ ! -e "$dst/$path" && ! -L "$dst/$path" ]]; then
 				echo "Copying $1/${path#./} to the volume"
 				cp -P --no-preserve=ownership "$src/$path" "$dst/$path.part" && mv "$dst/$path.part" "$dst/$path"

@@ -6,9 +6,10 @@
 #
 # Pick sets either one by one, e.g. DOWNLOAD_LTX23=true, or as a list:
 #   DOWNLOAD_MODELS="wan2.2,ltx2.3"      (DOWNLOAD_MODELS=all selects every set)
-# By default only Flux is downloaded (DOWNLOAD_FLUX=false turns it off), together with the models
-# the Flux workflows need (text encoders, LoRAs, openpose annotators) once the Flux model is present
-# (DOWNLOAD_FLUX_EXTRAS=false turns those off). Every other set is off unless selected.
+# By default only Flux is downloaded, together with the models the Flux workflows need (text
+# encoders, LoRAs, openpose annotators) once the Flux model is present (DOWNLOAD_FLUX_EXTRAS=false
+# turns those off). DOWNLOAD_FLUX=false turns off all of it, including the Flux files baked into the
+# with-flux image, e.g. to use a CivitAI checkpoint instead. Every other set is off unless selected.
 
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" || exit 1
 
@@ -82,7 +83,7 @@ done
 wait
 
 # The Flux companion models need the Flux model, which one of the sets above may just have fetched
-if [ -f /ComfyUI/models/diffusion_models/flux1-dev.sft ] && ! is_false "${DOWNLOAD_FLUX_EXTRAS}"; then
+if [ -f /ComfyUI/models/diffusion_models/flux1-dev.sft ] && ! is_false "${DOWNLOAD_FLUX}" && ! is_false "${DOWNLOAD_FLUX_EXTRAS}"; then
     ./download_flux_extras.sh
 fi
 echo "All selected model downloads done."
