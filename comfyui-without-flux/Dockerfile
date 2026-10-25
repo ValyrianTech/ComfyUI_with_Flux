@@ -167,6 +167,13 @@ RUN uv pip install "$(grep -iE '^av([<>=~ ]|$)' /ComfyUI/requirements.txt)"
 # API key from the CAI_API_KEY environment variable.
 RUN uv pip install "civitai-bulk-downloader @ git+https://github.com/deepratna-awale/civitai-bulk-downloader.git"
 
+# AI-Toolkit pins scipy==1.12.0, which only works with NumPy 1.x, but the venv ends up with NumPy 2, so
+# ComfyUI crashed on start (scipy.ndimage: "_ARRAY_API not found"). Install a SciPy (and CuPy, if a node
+# pulled it in) built for NumPy 2, and fail the build if these imports break again.
+RUN uv pip install "scipy>=1.15.3" && \
+    { ! uv pip show cupy-cuda12x >/dev/null 2>&1 || uv pip install "cupy-cuda12x>=13.4"; } && \
+    python -c "import numpy, scipy, scipy.ndimage, torch; print('numpy', numpy.__version__, 'scipy', scipy.__version__)"
+
 # Same world-writable modes for the ComfyUI tree and the venv (see the aitk-ui stage)
 RUN chmod -R a+rwX /ComfyUI /opt/venv
 
