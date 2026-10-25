@@ -7,7 +7,7 @@
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 ## Update 2026-10-22
-- New environment variable `JUPYTER_PASSWORD`: the login for JupyterLab. If it's left empty, JupyterLab opens without a login.
+- JupyterLab always needs a login, set with the new `JUPYTER_PASSWORD` environment variable (if it's empty, a random token and a login link are printed to the pod's logs). A browser stays logged in across pod restarts.
 - `civitai-download` is installed for downloading models from CivitAI (example notebook in `/workspace/civitai`). Set your CivitAI API key in the new `CAI_API_KEY` environment variable.
 - ComfyUI waits for Flux and its text encoders to download before it starts (`COMFYUI_WAIT_FOR_FLUX=false` turns this off); JupyterLab starts first.
 - The Mixlab nodes are no longer in the image; set `ENABLE_MIXLAB=true` to download and load them on pod start.

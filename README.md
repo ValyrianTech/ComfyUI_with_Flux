@@ -9,7 +9,7 @@
     - AI-Toolkit's code now stays inside the image; only your configs, datasets, outputs and the UI database are persisted on the volume in `/workspace/ai-toolkit-data`. `/workspace/ai-toolkit` still works as before.
     - Removed the Mixlab nodes from the image (they were disabled at startup anyway). Set `ENABLE_MIXLAB=true` to have them downloaded to the network volume and loaded on pod start; with it off they are not downloaded.
     - **ComfyUI is no longer copied to the network volume.** Its code, the bundled custom nodes and the Python environment stay in the image, so the first start doesn't wait for a 1.5 GB copy and image updates actually take effect. Only your data lives on the volume, see [What is stored on the network volume](#what-is-stored-on-the-network-volume).
-- **New environment variable `JUPYTER_PASSWORD`**: the login for JupyterLab. If it's left empty, JupyterLab opens without a login.
+- **JupyterLab always needs a login**: set it with the new `JUPYTER_PASSWORD` environment variable. If it's left empty, a random token is created and a login link is printed to the pod's logs. Once a browser has logged in it stays logged in, also after the pod restarts.
 - **CivitAI downloader included**: `civitai-download` ([civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader)) is installed, with an example notebook in `/workspace/civitai`. Set your CivitAI API key in the new `CAI_API_KEY` environment variable, see [Downloading models from CivitAI](#downloading-models-from-civitai).
 - **Relaxed file permissions**: files and folders in the image and on `/workspace` can be written by every user and tool, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors.
 
@@ -193,8 +193,9 @@ If you want to use a different workflow, keep in mind you must use the API forma
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
 
 Click on the "Connect to HTTP Service [Port 8888]" button to open JupyterLab.
-Set the `JUPYTER_PASSWORD` environment variable in the template to protect JupyterLab: you will be asked for a token, enter that password.
-If `JUPYTER_PASSWORD` is left empty, JupyterLab opens without any login. The pod's proxy URL is public, so anyone who has that URL then gets full access to the pod, including your HF_TOKEN and your files.
+JupyterLab always asks for a login, because the pod's proxy URL is public and JupyterLab gives full access to the pod, including your HF_TOKEN and your files.
+Set the `JUPYTER_PASSWORD` environment variable in the template and enter it when you are asked for a token, or open `https://<pod id>-8888.proxy.runpod.net/lab?token=<your password>` to skip the login page. If `JUPYTER_PASSWORD` is left empty, a random token is created on every start and a ready-to-click login link is printed to the pod's logs.
+You only log in once per browser: the login cookie is kept valid across pod restarts and redeploys on the same network volume (the key is stored in `/workspace/.jupyter`).
 
 JupyterLab is started first, before the volume setup and the model downloads, so you can use it while the models are still downloading.
 

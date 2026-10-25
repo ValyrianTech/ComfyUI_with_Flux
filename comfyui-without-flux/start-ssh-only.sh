@@ -8,14 +8,20 @@ umask 000
 
 # Start JupyterLab first: it doesn't depend on the volume layout or the models, so it is usable
 # right away, e.g. to download LoRAs with civitai-download while the models are still downloading.
-# Its URL on the RunPod proxy is public, so set JUPYTER_PASSWORD to protect it; it is used as the
-# login token. Left empty, JupyterLab opens without any login.
+# Its URL on the RunPod proxy is public, so it always needs a login: JUPYTER_PASSWORD, or a random
+# token when that is not set. The login link (with the token in it) is printed to the pod's logs.
+# The cookie secret is kept on the volume, so a browser that logged in once stays logged in after
+# the pod restarts or is redeployed on the same volume.
+JUPYTER_LOGIN="${JUPYTER_PASSWORD:-$(head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \n')}"
+mkdir -p /workspace/.jupyter
+JUPYTER_TOKEN="${JUPYTER_LOGIN}" jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' \
+    --ServerApp.cookie_secret_file=/workspace/.jupyter/cookie_secret &
+JUPYTER_URL="http://localhost:8888"
+[[ -n "${RUNPOD_POD_ID}" ]] && JUPYTER_URL="https://${RUNPOD_POD_ID}-8888.proxy.runpod.net"
 if [[ -n "${JUPYTER_PASSWORD}" ]]; then
-    JUPYTER_TOKEN="${JUPYTER_PASSWORD}" jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' &
-    echo "JupyterLab started (login with JUPYTER_PASSWORD)"
+    echo "JupyterLab started, log in with JUPYTER_PASSWORD or open ${JUPYTER_URL}/lab?token=<JUPYTER_PASSWORD>"
 else
-    jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' --ServerApp.token='' --ServerApp.password='' &
-    echo "JupyterLab started without a login (JUPYTER_PASSWORD is not set)"
+    echo "JupyterLab started, open ${JUPYTER_URL}/lab?token=${JUPYTER_LOGIN} (set JUPYTER_PASSWORD for a login of your own)"
 fi
 
 if [[ $PUBLIC_KEY ]]
