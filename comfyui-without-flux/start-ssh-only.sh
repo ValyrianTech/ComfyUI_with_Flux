@@ -91,6 +91,9 @@ if [ -d "/workspace/venv" ]; then
     source /workspace/venv/bin/activate
 fi
 
+# Download the Mixlab nodes to the volume if ENABLE_MIXLAB=true (they are not in the image)
+bash /install_mixlab.sh
+
 # Install the requirements of custom nodes you installed yourself (they live on the volume)
 bash /install_user_custom_nodes.sh
 

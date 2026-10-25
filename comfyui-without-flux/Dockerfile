@@ -226,6 +226,7 @@ COPY --chmod=755 start-ssh-only.sh /start.sh
 COPY --chmod=755 start-original.sh /start-original.sh
 COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
 COPY --chmod=755 install_user_custom_nodes.sh /install_user_custom_nodes.sh
+COPY --chmod=755 install_mixlab.sh /install_mixlab.sh
 COPY --chmod=755 ai-toolkit-on-workspace.sh /ai-toolkit-on-workspace.sh
 COPY --chmod=755 check_files.sh /check_files.sh
 COPY --chmod=755 download_lib.sh /download_lib.sh
