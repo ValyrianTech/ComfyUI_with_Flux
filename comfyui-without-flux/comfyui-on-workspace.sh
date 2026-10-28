@@ -48,17 +48,13 @@ if [[ -d "$OLD" && ! -L "$OLD" ]]; then
 fi
 
 # Link a folder of the image into the volume. Files the image ships (default workflows, example
-# inputs, the Flux model in the with-flux image) are copied to the volume when they are missing
+# inputs) are copied to the volume when they are missing
 # there; files already on the volume are never overwritten. Each file is copied to a temporary
 # name first, so an interrupted copy is redone on the next start.
 link_to_volume() {
 	local src=/ComfyUI/$1
 	local dst=$DATA/$1
 	local path
-	local skip_flux=false
-	# DOWNLOAD_FLUX=false: don't put the Flux files baked into the with-flux image on the volume,
-	# e.g. when you use a checkpoint from CivitAI instead
-	[[ "${DOWNLOAD_FLUX,,}" =~ ^(false|0|no|off)$ ]] && skip_flux=true
 
 	mkdir -p "$dst"
 	if [[ -d "$src" && ! -L "$src" ]]; then
@@ -66,9 +62,6 @@ link_to_volume() {
 			mkdir -p "$dst/$path"
 		done
 		(cd "$src" && find . \( -type f -o -type l \)) | while IFS= read -r path; do
-			if [[ "$skip_flux" == true && "$1/${path#./}" =~ ^models/(diffusion_models/flux1-dev\.sft|vae/ae\.sft)$ ]]; then
-				continue
-			fi
 			if [[ ! -e "$dst/$path" && ! -L "$dst/$path" ]]; then
 				echo "Copying $1/${path#./} to the volume"
 				cp -P --no-preserve=ownership "$src/$path" "$dst/$path.part" && mv "$dst/$path.part" "$dst/$path"
@@ -82,6 +75,34 @@ link_to_volume() {
 for item in models input output user; do
 	link_to_volume "$item"
 done
+
+# The models baked into the image (/opt/comfyui-models, e.g. Flux in the with-flux image) are linked
+# onto the volume rather than copied: nothing to copy on the first start, no volume space used, and
+# ComfyUI and every custom node find them in the usual folders. A file of the same name already on
+# the volume wins. Links left by an image that had other models are removed, so no broken entries
+# show up in ComfyUI.
+# COPY_BAKED_MODELS=true copies them onto the volume instead (replacing the links), e.g. to set up a
+# volume with the with-flux image that later pods use with the smaller without-flux image.
+BAKED=/opt/comfyui-models
+find "$DATA/models" -type l -lname "$BAKED/*" ! -exec test -e {} \; -delete 2>/dev/null
+if [[ -d "$BAKED" ]]; then
+	copy_baked=false
+	[[ "${COPY_BAKED_MODELS,,}" =~ ^(true|1|yes|on)$ ]] && copy_baked=true
+	(cd "$BAKED" && find . -type f) | while IFS= read -r path; do
+		path=${path#./}
+		dst=$DATA/models/$path
+		if [[ -e "$dst" && ! -L "$dst" ]] || [[ -L "$dst" && "$(readlink "$dst")" != "$BAKED/$path" ]]; then
+			continue
+		fi
+		mkdir -p "$(dirname "$dst")"
+		if [[ "$copy_baked" == true ]]; then
+			echo "Copying models/$path to the volume"
+			cp --no-preserve=ownership "$BAKED/$path" "$dst.part" && mv -f "$dst.part" "$dst"
+		elif [[ ! -L "$dst" ]]; then
+			ln -s "$BAKED/$path" "$dst" && echo "Linked models/$path from the image"
+		fi
+	done
+fi
 
 # NFS network volumes enforce a directory's execute bit even for root, and older images left some
 # directories without one (e.g. user/). Fix them now, before ComfyUI starts, rather than relying on

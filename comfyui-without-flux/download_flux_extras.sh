@@ -1,8 +1,7 @@
 #!/bin/bash
-# Downloads the public companion models for Flux that used to be baked into the with-flux image:
-# text encoders, example LoRAs and the openpose annotators.
-# Runs in the background on pod start once the Flux model is present on the volume
-# (see download_selected.sh); files that already exist are skipped. Downloads are atomic and parallel
+# Downloads the public companion models for Flux (text encoders, example LoRAs and the openpose
+# annotators), which the with-flux image has baked in. Runs in the background on pod start when
+# DOWNLOAD_FLUX=true, once the Flux model is present (see download_selected.sh); files that already exist are skipped. Downloads are atomic and parallel
 # (see download_lib.sh).
 
 source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/download_lib.sh"

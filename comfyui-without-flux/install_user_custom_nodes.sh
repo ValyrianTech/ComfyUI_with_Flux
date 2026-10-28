@@ -15,3 +15,14 @@ for req in "$NODES"/*/requirements.txt; do
     uv pip install --python "$PYTHON" -r "$req" || pip install -r "$req" || \
         echo "WARNING: could not install the requirements of $node"
 done
+
+# A node's requirements can downgrade packages the bundled nodes need (e.g. numpy<2 or an old
+# scipy/av), which made ComfyUI crash on import before. Check the core imports after installing.
+if compgen -G "$NODES/*/requirements.txt" >/dev/null; then
+    if ! "$PYTHON" -c "import numpy, scipy, scipy.ndimage, torch, av" 2>/tmp/user_nodes_import_check.log; then
+        echo "WARNING: after installing the requirements of your custom nodes, numpy/scipy/torch/av no longer import"
+        echo "WARNING: ComfyUI will probably fail to start. Error (also in /tmp/user_nodes_import_check.log):"
+        tail -5 /tmp/user_nodes_import_check.log
+        echo "WARNING: disable the node that caused it by renaming its folder in $NODES to NAME.disabled"
+    fi
+fi

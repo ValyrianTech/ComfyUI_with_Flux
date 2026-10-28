@@ -1,4 +1,4 @@
-// Preloaded into every process (see /etc/ld.so.preload in the Dockerfile).
+// Preloaded into every process when ENABLE_VOLUME_PERMS_SHIM=true (see start.sh).
 //
 // RunPod network volumes (NFS / FUSE) refuse chmod and chown with "Operation not permitted",
 // even for root. Many tools treat that as fatal although the file itself was written fine:
@@ -66,13 +66,6 @@ static int ignore_fd(int err, int fd)
 int chmod(const char *path, mode_t mode)
 {
 	REAL(chmod);
-	int ret = real(path, mode);
-	RETURN(ret, ignore_path(errno, AT_FDCWD, path));
-}
-
-int lchmod(const char *path, mode_t mode)
-{
-	REAL(lchmod);
 	int ret = real(path, mode);
 	RETURN(ret, ignore_path(errno, AT_FDCWD, path));
 }

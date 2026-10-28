@@ -2,6 +2,16 @@
 
 echo "pod started"
 
+# Opt-in fix for network volumes that refuse chmod/chown (see volume_perms_shim.c). It is only
+# preloaded if a test process starts with it, so a broken shim can't take the container down.
+SHIM=/usr/local/lib/volume_perms_shim.so
+if [[ "${ENABLE_VOLUME_PERMS_SHIM,,}" =~ ^(true|1|yes|on)$ ]] && [ -f "$SHIM" ] && LD_PRELOAD="$SHIM" /bin/true; then
+    echo "$SHIM" > /etc/ld.so.preload
+    echo "chmod/chown shim for network volumes enabled"
+else
+    rm -f /etc/ld.so.preload
+fi
+
 # Everything started from here (ComfyUI, JupyterLab, AI-Toolkit, model downloads) creates
 # world-writable files and folders, so nothing ends up locked to one user
 umask 000

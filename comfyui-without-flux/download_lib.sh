@@ -4,8 +4,9 @@
 #   download_file DIR FILE URL [HEADER]   queue a download (runs in the background)
 #   download_wait                         wait for all queued downloads, fail if any failed
 #
-# Up to DOWNLOAD_JOBS files are downloaded at the same time, each over DOWNLOAD_CONNECTIONS
-# connections when aria2c is available (plain wget otherwise). Every file is written to FILE.part
+# Up to DOWNLOAD_JOBS files are downloaded at the same time in total, across all download scripts
+# running in parallel, each over DOWNLOAD_CONNECTIONS connections when aria2c is available (plain
+# wget otherwise). Every file is written to FILE.part
 # and renamed when complete, so ComfyUI never sees a half-written model and an interrupted
 # download resumes on the next run. Files that already exist are skipped.
 
@@ -35,8 +36,21 @@ _download_one() {
         echo "$dir/$file already exists, skipping."
         return 0
     fi
-    # An empty file (e.g. from a failed manual download) doesn't count as present
+    # An empty file (e.g. from a failed manual download) or a link to a model the image no longer
+    # has doesn't count as present
     rm -f "$dir/$file"
+    # Take one of the DOWNLOAD_JOBS download slots shared by all scripts; it is released when this
+    # background job exits
+    mkdir -p /tmp/download-slots
+    local slot slot_fd
+    while :; do
+        for ((slot = 1; slot <= DOWNLOAD_JOBS; slot++)); do
+            exec {slot_fd}>"/tmp/download-slots/$slot"
+            flock -n "$slot_fd" && break 2
+            exec {slot_fd}>&-
+        done
+        sleep 1
+    done
     [ -n "$header" ] && args+=(--header="$header")
     echo "Downloading $file..."
     if command -v aria2c >/dev/null 2>&1; then

@@ -165,7 +165,9 @@ RUN uv pip install "$(grep -iE '^av([<>=~ ]|$)' /ComfyUI/requirements.txt)"
 # CivitAI downloader: the civitai-download command and the civitai_downloader Python package, for
 # downloading LoRAs and checkpoints from JupyterLab (see civitai_downloader.ipynb). It reads the
 # API key from the CAI_API_KEY environment variable.
-RUN uv pip install "civitai-bulk-downloader @ git+https://github.com/deepratna-awale/civitai-bulk-downloader.git"
+# Installed from the vendored copy in vendor/ (pinned to one commit, see VENDORED.md there).
+COPY vendor/civitai-bulk-downloader /tmp/civitai-bulk-downloader
+RUN uv pip install /tmp/civitai-bulk-downloader && rm -rf /tmp/civitai-bulk-downloader
 
 # AI-Toolkit pins scipy==1.12.0, which only works with NumPy 1.x, but the venv ends up with NumPy 2, so
 # ComfyUI crashed on start (scipy.ndimage: "_ARRAY_API not found"). Install a SciPy (and CuPy, if a node
@@ -238,7 +240,6 @@ COPY --chmod=755 ai-toolkit-on-workspace.sh /ai-toolkit-on-workspace.sh
 COPY --chmod=755 check_files.sh /check_files.sh
 COPY --chmod=755 download_lib.sh /download_lib.sh
 COPY --chmod=755 download_selected.sh /download_selected.sh
-COPY --chmod=755 download_base_models.sh /download_base_models.sh
 COPY --chmod=755 download_flux_extras.sh /download_flux_extras.sh
 COPY --chmod=644 civitai_downloader.ipynb /civitai_downloader.ipynb
 
@@ -305,6 +306,7 @@ COPY --chmod=755 update_Workflows.sh /update_Workflows.sh
 COPY --chmod=755 download_ALL.sh /download_ALL.sh
 COPY --chmod=755 make_venv.sh /make_venv.sh
 COPY --chmod=755 download_Files.sh /download_Files.sh
+COPY --chmod=755 download_Kontext.sh /download_Kontext.sh
 COPY --chmod=755 download_Flux2.sh /download_Flux2.sh
 COPY --chmod=755 download_wan2.1.sh /download_wan2.1.sh
 COPY --chmod=755 download_wan2.2.sh /download_wan2.2.sh
@@ -316,11 +318,15 @@ COPY --chmod=755 download_z-image.sh /download_z-image.sh
 COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 COPY --chmod=755 download_LTX2.3.sh /download_LTX2.3.sh
 
-# Model files are no longer baked into the image. Every model file in the image is pulled and
-# unpacked by RunPod and then copied to the network volume on first boot, so a 2.5 GB set of public
-# models costs twice. /download_base_models.sh fetches them straight to the volume in the background on
-# first boot instead (see start.sh). Only the gated Flux files are still baked into the with-flux image.
-RUN mkdir -p /ComfyUI/models/ultralytics/bbox /ComfyUI/models/insightface /ComfyUI/models/checkpoints
+# Models the included workflows need are baked into the image, so it also works offline. They live in
+# /opt/comfyui-models (same layout as ComfyUI's models folder) and are linked onto the volume by
+# comfyui-on-workspace.sh instead of copied, so they cost no time or volume space on the first start.
+RUN mkdir -p /ComfyUI/models/ultralytics/bbox /ComfyUI/models/insightface /ComfyUI/models/checkpoints && \
+    mkdir -p /opt/comfyui-models/ultralytics/bbox /opt/comfyui-models/insightface /opt/comfyui-models/checkpoints && \
+    wget -q "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /opt/comfyui-models/ultralytics/bbox/face_yolov8m.pt && \
+    wget -q "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /opt/comfyui-models/insightface/inswapper_128.onnx && \
+    wget -q "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -O /opt/comfyui-models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors && \
+    chmod -R a+rX /opt/comfyui-models
 
 # VibeVoice note: to pin transformers if needed, uncomment below line
 # RUN pip install transformers==4.49.0
@@ -341,11 +347,11 @@ RUN mkdir -p /opt/venv/lib/python3.10/site-packages/comfyui_workflow_templates/t
 # New files from interactive shells (JupyterLab terminals, SSH) are world-writable too
 RUN echo "umask 000" >> /etc/bash.bashrc && echo "umask 000" >> /etc/profile
 
-# The /workspace volume (NFS or MooseFS) refuses chmod and chown even for root, which makes
-# `git clone`/`git config` abort and cp -a, tar and rsync print errors there. The shim, preloaded
-# into every process, reports success for those calls on network filesystems only.
+# Some /workspace volumes (NFS or FUSE) refuse chmod and chown even for root, which makes
+# `git clone`/`git config` abort and cp -a, tar and rsync print errors there. The shim reports
+# success for those calls on network filesystems only. It is off by default; start.sh preloads it
+# into every process when ENABLE_VOLUME_PERMS_SHIM=true and it loads cleanly.
 COPY --from=perms-shim /volume_perms_shim.so /usr/local/lib/volume_perms_shim.so
-RUN echo /usr/local/lib/volume_perms_shim.so > /etc/ld.so.preload
 
 # Files on the volume can belong to another user (root squashed to nobody on NFS), which git
 # refuses with "detected dubious ownership". Trust every repository.

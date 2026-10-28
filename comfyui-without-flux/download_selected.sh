@@ -6,17 +6,18 @@
 #
 # Pick sets either one by one, e.g. DOWNLOAD_LTX23=true, or as a list:
 #   DOWNLOAD_MODELS="wan2.2,ltx2.3"      (DOWNLOAD_MODELS=all selects every set)
-# By default only Flux is downloaded, together with the models the Flux workflows need (text
-# encoders, LoRAs, openpose annotators) once the Flux model is present (DOWNLOAD_FLUX_EXTRAS=false
-# turns those off). DOWNLOAD_FLUX=false turns off all of it, including the Flux files baked into the
-# with-flux image, e.g. to use a CivitAI checkpoint instead. Every other set is off unless selected.
+# Every set is off by default, so a pod never touches the network for models unless asked to: the
+# images bake in the models their workflows need (see the Dockerfiles), and those are linked onto the
+# volume by comfyui-on-workspace.sh. DOWNLOAD_FLUX=true fetches Flux.1-dev, its VAE and text
+# encoders (e.g. for the without-flux image), together with the openpose annotators once the Flux
+# model is present (DOWNLOAD_FLUX_EXTRAS=false skips those).
 
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" || exit 1
 
 # name           environment variable     script
 SETS=(
-    "base         DOWNLOAD_BASE_MODELS     download_base_models.sh"
     "flux         DOWNLOAD_FLUX            download_Files.sh"
+    "kontext      DOWNLOAD_FLUX_KONTEXT    download_Kontext.sh"
     "flux2        DOWNLOAD_FLUX2           download_Flux2.sh"
     "wan2.1       DOWNLOAD_WAN             download_wan2.1.sh"
     "wan2.2       DOWNLOAD_WAN22           download_wan2.2.sh"
@@ -54,11 +55,7 @@ selected() {
     local name=$1
     local var=$2
     local value=${!var}
-    if [[ "$name" == "flux" ]]; then
-        ! is_false "$value"
-    else
-        is_true "$value" || in_list "$name"
-    fi
+    is_true "$value" || in_list "$name"
 }
 
 # start.sh passes FLUX_READY_FILE and starts ComfyUI once that file exists: right after the Flux set
@@ -83,7 +80,7 @@ done
 wait
 
 # The Flux companion models need the Flux model, which one of the sets above may just have fetched
-if [ -f /ComfyUI/models/diffusion_models/flux1-dev.sft ] && ! is_false "${DOWNLOAD_FLUX}" && ! is_false "${DOWNLOAD_FLUX_EXTRAS}"; then
+if [ -f /ComfyUI/models/diffusion_models/flux1-dev.sft ] && selected flux DOWNLOAD_FLUX && ! is_false "${DOWNLOAD_FLUX_EXTRAS}"; then
     ./download_flux_extras.sh
 fi
 echo "All selected model downloads done."
