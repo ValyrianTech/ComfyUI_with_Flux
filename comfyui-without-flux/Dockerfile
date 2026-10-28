@@ -162,13 +162,6 @@ RUN uv pip install "onnx==1.17.0" && \
 # ComfyUI's requirement after the AI-Toolkit install.
 RUN uv pip install "$(grep -iE '^av([<>=~ ]|$)' /ComfyUI/requirements.txt)"
 
-# CivitAI downloader: the civitai-download command and the civitai_downloader Python package, for
-# downloading LoRAs and checkpoints from JupyterLab (see civitai_downloader.ipynb). It reads the
-# API key from the CAI_API_KEY environment variable.
-# Installed from the vendored copy in vendor/ (pinned to one commit, see VENDORED.md there).
-COPY vendor/civitai-bulk-downloader /tmp/civitai-bulk-downloader
-RUN uv pip install /tmp/civitai-bulk-downloader && rm -rf /tmp/civitai-bulk-downloader
-
 # AI-Toolkit pins scipy==1.12.0, which only works with NumPy 1.x, but the venv ends up with NumPy 2, so
 # ComfyUI crashed on start (scipy.ndimage: "_ARRAY_API not found"). Install a SciPy (and CuPy, if a node
 # pulled it in) built for NumPy 2, and fail the build if these imports break again.

@@ -1,3 +1,0 @@
-[console_scripts]
-civitai-download = civitai_downloader.cli:run
-civitai-preprocess = civitai_downloader.preprocess_cli:run

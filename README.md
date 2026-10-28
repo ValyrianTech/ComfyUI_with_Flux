@@ -10,7 +10,7 @@
     - Removed the Mixlab nodes from the image (they were disabled at startup anyway). Set `ENABLE_MIXLAB=true` to have them downloaded to the network volume and loaded on pod start; with it off they are not downloaded.
 - **Optional model downloads**: more models can be downloaded on pod start with environment variables, in the background, several files at a time and resumable, see [Downloading more models on pod start](#downloading-more-models-on-pod-start). Everything is off by default, so a pod doesn't touch the network for models unless you ask for it.
 - **JupyterLab always needs a login**: set it with the new `JUPYTER_PASSWORD` environment variable. If it's left empty, a random token is created and a login link is printed to the pod's logs. Once a browser has logged in it stays logged in, also after the pod restarts.
-- **CivitAI downloader included**: `civitai-download` ([civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader), a copy pinned to one version is in `comfyui-without-flux/vendor`) is installed, with an example notebook in `/workspace/civitai`. Set your CivitAI API key in the new `CAI_API_KEY` environment variable, see [Downloading models from CivitAI](#downloading-models-from-civitai).
+- **CivitAI downloads from JupyterLab**: a notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable, see [Downloading models from CivitAI](#downloading-models-from-civitai).
 - **Relaxed file permissions**: files and folders in the image and on `/workspace` can be written by every user and tool, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. If your network volume refuses `chmod`/`chown` (e.g. `git clone` into `/workspace` fails with "chmod on .git/config.lock failed"), set `ENABLE_VOLUME_PERMS_SHIM=true`.
 
 ## Downloading more models on pod start
@@ -205,13 +205,9 @@ You only log in once per browser: the login cookie is kept valid across pod rest
 JupyterLab is started first, before the volume setup and the model downloads, so you can use it while the models are still downloading.
 
 ### Downloading models from CivitAI
-[civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader) is installed in the image, both as the `civitai-download` command and as the `civitai_downloader` Python package. Set the `CAI_API_KEY` environment variable in the template to your CivitAI API key (create one at https://civitai.com/user/account), then open `/workspace/civitai/civitai_downloader.ipynb` in JupyterLab, or run it from a terminal:
+Set the `CAI_API_KEY` environment variable in the template to your CivitAI API key (create one at https://civitai.com/user/account), then open `/workspace/civitai/civitai_downloader.ipynb` in JupyterLab and put the model links in `URLS`. Model pages, version links (`?modelVersionId=`), download links and model IDs all work.
 
-```bash
-civitai-download --sd /ComfyUI --ui comfyui --url "https://civitai.com/models/4201?modelVersionId=130072"
-```
-
-Each model is saved into the matching ComfyUI folder (LoRAs in `models/loras`, checkpoints in `models/checkpoints`, ...) on the network volume.
+Each model is saved into the matching ComfyUI folder (LoRAs in `models/loras`, checkpoints in `models/checkpoints`, ...) on the network volume. Downloads use aria2c with 16 connections and resume if interrupted, and files that are already there are skipped. For CSV batch lists and more options, install the full [civitai-bulk-downloader](https://github.com/deepratna-awale/civitai-bulk-downloader) in your pod with `pip install git+https://github.com/deepratna-awale/civitai-bulk-downloader.git`.
 
 Note: JupyterLab normally cannot open folders named 'checkpoints' (such as /ComfyUI/models/checkpoints), because that word is reserved by its notebook-checkpoint API. This image includes a small server extension that works around it, so the folder opens like any other.
 

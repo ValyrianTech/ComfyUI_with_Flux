@@ -17,7 +17,7 @@ fi
 umask 000
 
 # Start JupyterLab first: it doesn't depend on the volume layout or the models, so it is usable
-# right away, e.g. to download LoRAs with civitai-download while the models are still downloading.
+# right away, e.g. to download LoRAs from CivitAI while the models are still downloading.
 # Its URL on the RunPod proxy is public, so it always needs a login: JUPYTER_PASSWORD, or a random
 # token when that is not set. The login link (with the token in it) is printed to the pod's logs.
 # The cookie secret is kept on the volume, so a browser that logged in once stays logged in after
@@ -48,7 +48,7 @@ fi
 # Start nginx as reverse proxy to enable api access
 service nginx start
 
-# Example notebook for downloading models from CivitAI (civitai-download is installed in the image)
+# Notebook for downloading models from CivitAI
 mkdir -p /workspace/civitai
 [ -f /workspace/civitai/civitai_downloader.ipynb ] || cp /civitai_downloader.ipynb /workspace/civitai/
 
