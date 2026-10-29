@@ -6,6 +6,19 @@
 
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
+## Update 2026-10-22
+- JupyterLab always needs a login, set with the new `JUPYTER_PASSWORD` environment variable (if it's empty, a random token and a login link are printed to the pod's logs). A browser stays logged in across pod restarts.
+- A notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable.
+- Model downloads are opt-in (all `DOWNLOAD_*` variables are off by default) and run in the background; when `DOWNLOAD_FLUX=true`, ComfyUI waits for Flux and its text encoders before it starts (`COMFYUI_WAIT_FOR_FLUX=false` turns this off). JupyterLab starts first.
+- The Mixlab nodes are no longer in the image; set `ENABLE_MIXLAB=true` to download and load them on pod start.
+- Relaxed file permissions, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. On network volumes where tools still fail to set permissions, `ENABLE_VOLUME_PERMS_SHIM=true` makes those calls succeed.
+
+## Downloading more models on pod start
+The 'with Flux' image has Flux and the models its workflows need built in; they are linked onto the network volume, so nothing is copied or downloaded on the first start. Nothing else is downloaded unless you ask for it: every download is off by default. Enable sets with environment variables such as `DOWNLOAD_FLUX=true` (for the 'without Flux' image, needs `HF_TOKEN`), `DOWNLOAD_FLUX_KONTEXT=true`, `DOWNLOAD_WAN22=true`, `DOWNLOAD_LTX23=true` or `DOWNLOAD_QWEN_FP8=true`, or list them in `DOWNLOAD_MODELS=wan2.2,ltx2.3`. Models already on the volume are skipped. To set up a volume with the 'with Flux' image and later use the 'without Flux' image on it, deploy it the first time with `COPY_BAKED_MODELS=true` so the built-in models are copied onto the volume instead of linked. See the full README for every option.
+
+## What is stored on the network volume
+Only your data: models, ComfyUI's input, output and user folders (workflows, settings) and the custom nodes you install yourself, all in `/workspace/comfyui-data`, plus `/workspace/ai-toolkit-data`. ComfyUI's code, the bundled custom nodes and the Python environment stay in the image, so nothing is copied on the first start. `/workspace/ComfyUI` still works as before. Older volumes are moved over automatically and the leftover code is kept in `/workspace/ComfyUI.old`. See the full README for details.
+
 ## Update 2026-04-05
 - Added LTX2.3 workflows: I2V and FL2V
 - Updated ComfyUI to latest version
@@ -67,7 +80,7 @@ See full README for more info on how to use JupyterLab: [ComfyUI with Flux.1-dev
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 
 
 ## Deploy faster
-There is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, this will copy all the files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
+There is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, set `COPY_BAKED_MODELS=true`, this will copy all the model files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
 Link: [ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
 
 Happy creating!

@@ -1,0 +1,7 @@
+# Custom nodes you install yourself (e.g. with ComfyUI-Manager) go to the network volume, so they
+# persist across pods. The custom nodes that ship with the image stay in /ComfyUI/custom_nodes.
+# models, input, output and user are symlinked to the volume by /comfyui-on-workspace.sh.
+user_data:
+    base_path: /workspace/comfyui-data
+    is_default: true
+    custom_nodes: custom_nodes

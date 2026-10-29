@@ -1,14 +1,9 @@
 #!/bin/bash
 
-echo "Installing t5xxl_fp16.safetensors text encoders"
-cd /ComfyUI/models/clip/
+source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/download_lib.sh"
 
-file="t5xxl_fp16.safetensors"
-url="https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true"
+echo "Downloading t5xxl_fp16 text encoder"
 
-if [ -f "$file" ]; then
-    echo "$file already exists."
-else
-    echo "Downloading $file"
-    wget -O $file $url --progress=bar:force:noscroll
-fi
+download_file "/ComfyUI/models/clip" "t5xxl_fp16.safetensors" "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true"
+
+download_wait
