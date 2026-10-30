@@ -44,7 +44,7 @@ file_list=(
   "wan2.1_infinite-talk.json"
   "wan2.2_Text2Video.json"
   "Xlabs-AI_RealismLoRa.json"
-  "z-image_turbo_Text2Image.json"
+  "z-image-turbo_Text2Image.json"
   )
 
 # Change to the local directory
@@ -57,7 +57,7 @@ do
     if [ ! -f $file ]; then
         # Download the file
         echo "Downloading $file..."
-        curl -O $repo_url/$file
+        curl -f -O $repo_url/$file
     else
         echo "$file already exists."
     fi
