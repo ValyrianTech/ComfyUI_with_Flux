@@ -313,11 +313,10 @@ COPY --chmod=755 download_LTX2.3.sh /download_LTX2.3.sh
 # Models the included workflows need are baked into the image, so it also works offline. They live in
 # /opt/comfyui-models (same layout as ComfyUI's models folder) and are linked onto the volume by
 # comfyui-on-workspace.sh instead of copied, so they cost no time or volume space on the first start.
-RUN mkdir -p /ComfyUI/models/ultralytics/bbox /ComfyUI/models/insightface /ComfyUI/models/checkpoints && \
-    mkdir -p /opt/comfyui-models/ultralytics/bbox /opt/comfyui-models/insightface /opt/comfyui-models/checkpoints && \
+RUN mkdir -p /ComfyUI/models/ultralytics/bbox /ComfyUI/models/insightface && \
+    mkdir -p /opt/comfyui-models/ultralytics/bbox /opt/comfyui-models/insightface && \
     wget -q "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /opt/comfyui-models/ultralytics/bbox/face_yolov8m.pt && \
     wget -q "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /opt/comfyui-models/insightface/inswapper_128.onnx && \
-    wget -q "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -O /opt/comfyui-models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors && \
     chmod -R a+rX /opt/comfyui-models
 
 # VibeVoice note: to pin transformers if needed, uncomment below line
