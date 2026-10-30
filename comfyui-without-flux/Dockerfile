@@ -274,11 +274,6 @@ EXPOSE 8888
 EXPOSE 7860
 EXPOSE 8675
 
-# Downloads and runtime-only adjustments
-RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
-
- 
-
 # Default graph handling
 COPY --chmod=644 defaultGraph.json /defaultGraph.json
 COPY --chmod=755 replaceDefaultGraph.py /replaceDefaultGraph.py
