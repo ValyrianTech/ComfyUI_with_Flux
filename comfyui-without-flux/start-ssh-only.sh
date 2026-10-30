@@ -24,7 +24,10 @@ umask 000
 # the pod restarts or is redeployed on the same volume.
 JUPYTER_LOGIN="${JUPYTER_PASSWORD:-$(head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \n')}"
 mkdir -p /workspace/.jupyter
+# The file browser is rooted at / rather than the working directory (/workspace), so the helper
+# scripts in the image root are reachable from JupyterLab. /workspace is still one level down.
 JUPYTER_TOKEN="${JUPYTER_LOGIN}" jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.allow_origin='*' \
+    --ServerApp.root_dir=/ \
     --ServerApp.cookie_secret_file=/workspace/.jupyter/cookie_secret &
 JUPYTER_URL="http://localhost:8888"
 [[ -n "${RUNPOD_POD_ID}" ]] && JUPYTER_URL="https://${RUNPOD_POD_ID}-8888.proxy.runpod.net"
@@ -107,9 +110,6 @@ if [ -d "/workspace/venv" ]; then
     source /workspace/venv/bin/activate
 fi
 
-# Download the Mixlab nodes to the volume if ENABLE_MIXLAB=true (they are not in the image)
-bash /install_mixlab.sh
-
 # Install the requirements of custom nodes you installed yourself (they live on the volume)
 bash /install_user_custom_nodes.sh
 
@@ -119,7 +119,13 @@ if [ ! -f /workspace/start_user.sh ]; then
     cp /start-original.sh /workspace/start_user.sh
 else
     # Volumes from older images still call the removed Mixlab script
-    sed -i '/disable_mixlab.sh/d' /workspace/start_user.sh
+    sed -i '/disable_mixlab\.sh/d' /workspace/start_user.sh
+    # Volumes from older images start ComfyUI without --enable-cors-header. ComfyUI then rejects
+    # requests that carry "Sec-Fetch-Site: cross-site", which is what the RunPod console link
+    # sends, so opening ComfyUI from RunPod returns 403 while pasting the URL works.
+    if ! grep -q -- '--enable-cors-header' /workspace/start_user.sh; then
+        sed -i '/main\.py/ s/--listen/--listen --enable-cors-header/' /workspace/start_user.sh
+    fi
 fi
 
 # Flux workflows can't run without the Flux model and its text encoders, so ComfyUI waits for them

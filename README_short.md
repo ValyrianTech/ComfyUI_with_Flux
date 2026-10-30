@@ -10,7 +10,6 @@ This is a shortened version of the README, read the full version here: [ComfyUI 
 - JupyterLab always needs a login, set with the new `JUPYTER_PASSWORD` environment variable (if it's empty, a random token and a login link are printed to the pod's logs). A browser stays logged in across pod restarts.
 - A notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable.
 - Model downloads are opt-in (all `DOWNLOAD_*` variables are off by default) and run in the background; when `DOWNLOAD_FLUX=true`, ComfyUI waits for Flux and its text encoders before it starts (`COMFYUI_WAIT_FOR_FLUX=false` turns this off). JupyterLab starts first.
-- The Mixlab nodes are no longer in the image; set `ENABLE_MIXLAB=true` to download and load them on pod start.
 - Relaxed file permissions, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. On network volumes where tools still fail to set permissions, `ENABLE_VOLUME_PERMS_SHIM=true` makes those calls succeed.
 
 ## Downloading more models on pod start
