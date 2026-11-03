@@ -347,7 +347,7 @@
       "outputs": [],
       "properties": {},
       "widgets_values": [
-        "I think there is some bug in VibeVoice, sometimes it generates random noice, especially if you have been running other workflows. Restart ComfyUI to fix it."
+        "I think there is some bug in VibeVoice, sometimes it generates random noise, especially if you have been running other workflows. Restart ComfyUI to fix it. Note: this workflow is broken, to fix it you need to downgrade transformers with the command: 'uv pip install \"transformers==4.57.3\"'"
       ],
       "color": "#432",
       "bgcolor": "#653"

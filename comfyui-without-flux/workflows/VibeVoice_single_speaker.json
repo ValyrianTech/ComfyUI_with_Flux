@@ -105,7 +105,7 @@
         }
       },
       "widgets_values": [
-        "Run the command 'bash /download_VibeVoice.sh' in the terminal to download the models used in this workflow."
+        "Run the command 'bash /download_VibeVoice.sh' in the terminal to download the models used in this workflow. Note: this workflow is broken, to fix it you need to downgrade transformers with the command: 'uv pip install \"transformers==4.57.3\"'"
       ],
       "color": "#432",
       "bgcolor": "#653"
