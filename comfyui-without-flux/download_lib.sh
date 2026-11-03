@@ -52,6 +52,7 @@ _download_one() {
         sleep 1
     done
     [ -n "$header" ] && args+=(--header="$header")
+    url=$(resolve_redirect "$url")
     echo "Downloading $file..."
     if command -v aria2c >/dev/null 2>&1; then
         aria2c "${args[@]}" --continue=true --allow-overwrite=true --auto-file-renaming=false \
@@ -91,6 +92,19 @@ download_wait() {
     done
     _download_pids=()
     return $failed
+}
+
+# Civitai answers /api/download/models/... with a 307 to a signed b2.civitai.com URL. aria2c gets a
+# 403 when it follows that redirect itself, while the very same URL downloads fine when aria2c is
+# handed it directly, so resolve the redirect here and download from the signed URL.
+resolve_redirect() {
+    local url=$1
+    local resolved
+    if [[ "$url" == *civitai.com/api/download/* ]] && command -v curl >/dev/null 2>&1; then
+        resolved=$(curl -s -o /dev/null -w '%{redirect_url}' --max-time 30 "$url")
+        [ -n "$resolved" ] && url=$resolved
+    fi
+    echo "$url"
 }
 
 hf_auth_header() {
