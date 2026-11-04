@@ -8,6 +8,7 @@ local_dir="/workspace/ComfyUI/user/default/workflows"
 
 # List of file names
 file_list=(
+  "audio_yue2_text2music.json"
   "AdvancedLivePortrait.json"
   "AdvancedLivePortrait_with_ExpressionEditor.json"
   "CogVideoX_img2vid.json"

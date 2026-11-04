@@ -304,6 +304,7 @@ COPY --chmod=755 download_VibeVoice.sh /download_VibeVoice.sh
 COPY --chmod=755 download_z-image.sh /download_z-image.sh
 COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 COPY --chmod=755 download_LTX2.3.sh /download_LTX2.3.sh
+COPY --chmod=755 download_YuE2.sh /download_YuE2.sh
 
 # Models the included workflows need are baked into the image, so it also works offline. They live in
 # /opt/comfyui-models (same layout as ComfyUI's models folder) and are copied onto the volume by
