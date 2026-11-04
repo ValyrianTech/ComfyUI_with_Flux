@@ -36,6 +36,7 @@ SETS=(
     "t5_fp16      DOWNLOAD_T5_FP16         download_fp16.sh"
     "vibevoice    DOWNLOAD_VIBEVOICE       download_VibeVoice.sh"
     "yue2         DOWNLOAD_YUE2            download_YuE2.sh"
+    "moss         DOWNLOAD_MOSS            download_MOSS.sh"
 )
 
 is_true() {

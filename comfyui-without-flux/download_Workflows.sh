@@ -29,6 +29,7 @@ file_list=(
   "LTX2-AudioSync-i2v.json"
   "LTX2.3_FL2V_with_audiosync.json"
   "LTX2.3_I2V_with_audiosync.json"
+  "MOSS_base_Text2Image.json"
   "Outpainting.json"
   "pose2img.json"
   "qwen_image_edit_bf16.json"
