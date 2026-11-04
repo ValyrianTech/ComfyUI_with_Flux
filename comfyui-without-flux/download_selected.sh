@@ -66,6 +66,7 @@ flux_ready() {
 
 selected flux DOWNLOAD_FLUX || flux_ready
 
+pids=()
 for entry in "${SETS[@]}"; do
     read -r name var script <<< "$entry"
     if selected "$name" "$var"; then
@@ -75,12 +76,23 @@ for entry in "${SETS[@]}"; do
         else
             ./"$script" &
         fi
+        pids+=($!)
     fi
 done
-wait
+
+# A bare `wait` always returns 0, so collect the status of every set to report failures
+failed=0
+for pid in "${pids[@]}"; do
+    wait "$pid" || failed=1
+done
 
 # The Flux companion models need the Flux model, which one of the sets above may just have fetched
 if [ -f /ComfyUI/models/diffusion_models/flux1-dev.sft ] && selected flux DOWNLOAD_FLUX && ! is_false "${DOWNLOAD_FLUX_EXTRAS}"; then
-    ./download_flux_extras.sh
+    ./download_flux_extras.sh || failed=1
 fi
-echo "All selected model downloads done."
+if [ "$failed" -eq 0 ]; then
+    echo "All selected model downloads done."
+else
+    echo "Some model downloads failed, they will resume on the next run."
+fi
+exit "$failed"

@@ -96,9 +96,9 @@ fi
 # /download_selected.sh creates $FLUX_READY_FILE once the Flux set (Flux, its VAE and the clip_l and
 # t5xxl text encoders) is done, so ComfyUI can wait for it below.
 export FLUX_READY_FILE=/tmp/flux-models-ready
-rm -f "$FLUX_READY_FILE"
+rm -f "$FLUX_READY_FILE" /tmp/model_downloads.status
 echo "Starting background model downloads (log: /workspace/model_downloads.log)"
-/download_selected.sh > /workspace/model_downloads.log 2>&1 &
+{ /download_selected.sh > /workspace/model_downloads.log 2>&1; echo $? > /tmp/model_downloads.status; } &
 DOWNLOAD_PID=$!
 
 # Check if the flux model is present
@@ -138,6 +138,19 @@ if [[ ! "${COMFYUI_WAIT_FOR_FLUX,,}" =~ ^(false|0|no|off)$ ]] && [ ! -e "$FLUX_R
     done
     echo "Flux models are ready"
 fi
+
+# Report in the pod log when the downloads are done, so the log file doesn't have to be opened. A
+# subshell can't wait for a process it didn't start, so poll until the download script is gone.
+(
+    while kill -0 "$DOWNLOAD_PID" 2>/dev/null; do
+        sleep 5
+    done
+    if [ "$(cat /tmp/model_downloads.status 2>/dev/null)" = "0" ]; then
+        echo "All selected model downloads finished (log: /workspace/model_downloads.log)"
+    else
+        echo "Some model downloads failed, they will resume on the next pod start (log: /workspace/model_downloads.log)"
+    fi
+) &
 
 # Execute the user's script
 bash /workspace/start_user.sh
