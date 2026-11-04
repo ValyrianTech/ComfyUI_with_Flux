@@ -7,7 +7,7 @@
 # Pick sets either one by one, e.g. DOWNLOAD_LTX23=true, or as a list:
 #   DOWNLOAD_MODELS="wan2.2,ltx2.3"      (DOWNLOAD_MODELS=all selects every set)
 # Every set is off by default, so a pod never touches the network for models unless asked to: the
-# images bake in the models their workflows need (see the Dockerfiles), and those are linked onto the
+# images bake in the models their workflows need (see the Dockerfiles), and those are copied onto the
 # volume by comfyui-on-workspace.sh. DOWNLOAD_FLUX=true fetches Flux.1-dev, its VAE and text
 # encoders (e.g. for the without-flux image), together with the openpose annotators once the Flux
 # model is present (DOWNLOAD_FLUX_EXTRAS=false skips those).

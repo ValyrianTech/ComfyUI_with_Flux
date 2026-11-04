@@ -3,7 +3,7 @@
 ## Update 2026-10-22
 - **Faster deployment on RunPod**: ComfyUI is ready about 1 minute after the container starts on a fresh volume instead of about 4.5 minutes, and restarts take about half as long.
     - **ComfyUI is no longer copied to the network volume.** Its code, the bundled custom nodes and the Python environment stay in the image, on the pod's fast local disk, so nothing is copied on the first start, Python doesn't import thousands of files over the network volume, and image updates actually take effect. Only your data lives on the volume, see [What is stored on the network volume](#what-is-stored-on-the-network-volume).
-    - **The models baked into the image are linked onto the volume instead of copied**, so the 'with Flux' image no longer spends the first start copying ~30 GB, and the volume only holds your own models. Both images still work offline. Set `COPY_BAKED_MODELS=true` to copy them instead, see [Using the 'without Flux' image on a volume set up with the 'with Flux' image](#using-the-without-flux-image-on-a-volume-set-up-with-the-with-flux-image).
+    - **The models baked into the image are copied onto the volume on the first start**, so a volume set up with the 'with Flux' image keeps them when you later deploy the 'without Flux' image on it. Both images still work offline. Set `LINK_BAKED_MODELS=true` to link them from the image instead (no ~30 GB copy, no volume space used), see [Using the 'without Flux' image on a volume set up with the 'with Flux' image](#using-the-without-flux-image-on-a-volume-set-up-with-the-with-flux-image).
     - JupyterLab is the first thing to start and the AI-Toolkit UI comes up right away too.
     - Smaller and faster image builds: the unused CUDA runtime libraries are gone (PyTorch ships its own), custom nodes are cloned without their git history, the AI-Toolkit UI builds in its own stage and Python packages are installed with `uv`.
     - AI-Toolkit's code now stays inside the image; only your configs, datasets, outputs and the UI database are persisted on the volume in `/workspace/ai-toolkit-data`. `/workspace/ai-toolkit` still works as before.
@@ -50,7 +50,7 @@ Only your own data is kept on the network volume. Everything else (ComfyUI's cod
 
 | On the volume | What it holds |
 |---|---|
-| `/workspace/comfyui-data/models` | Your models. The download scripts and ComfyUI-Manager save here. The models built into the image show up here as links (see below). |
+| `/workspace/comfyui-data/models` | Your models. The download scripts and ComfyUI-Manager save here. The models built into the image are copied here on the first start (see below). |
 | `/workspace/comfyui-data/input` | ComfyUI's input folder (uploaded images, audio, video) |
 | `/workspace/comfyui-data/output` | ComfyUI's output folder |
 | `/workspace/comfyui-data/user` | Your workflows, ComfyUI settings and the ComfyUI-Manager config |
@@ -64,11 +64,11 @@ Custom nodes you install with ComfyUI-Manager are put in `/workspace/comfyui-dat
 
 The default workflows and example inputs that come with the image are added to the volume when they are missing. Files that are already there are never overwritten, so your edits are kept.
 
-The models built into the image (in `/opt/comfyui-models`, for example Flux and its text encoders in the 'with Flux' image) are linked into `/workspace/comfyui-data/models`, so ComfyUI and every custom node find them in the usual folders without them being copied. A file of the same name that is already on the volume is used instead. Links to models that the current image doesn't have (e.g. after switching from the 'with Flux' to the 'without Flux' image) are removed on start.
+The models built into the image (in `/opt/comfyui-models`, for example Flux and its text encoders in the 'with Flux' image) are copied into `/workspace/comfyui-data/models` on the first start, so ComfyUI and every custom node find them in the usual folders and they stay on the volume when you deploy another image. A file of the same name that is already on the volume is used instead. Links to models that the current image doesn't have (e.g. after switching from the 'with Flux' to the 'without Flux' image) are removed on start. With `LINK_BAKED_MODELS=true` they are linked from the image instead of copied: nothing is copied on the first start and the volume only holds your own models, but the models are gone as soon as a pod runs an image that doesn't have them.
 
 ### Using the 'without Flux' image on a volume set up with the 'with Flux' image
 
-To set up a volume once with the 'with Flux' image and then deploy the smaller 'without Flux' image on it, deploy the 'with Flux' image the first time with `COPY_BAKED_MODELS=true`. The built-in models are then copied onto the volume (once, about 30 GB) instead of linked, so they are still there with the 'without Flux' image. Alternatively, use the 'without Flux' image with `DOWNLOAD_FLUX=true` and `HF_TOKEN` set to download them.
+To set up a volume once with the 'with Flux' image and then deploy the smaller 'without Flux' image on it, deploy the 'with Flux' image the first time on the new and empty volume. The built-in models are copied onto the volume (once, about 30 GB), so they are still there with the 'without Flux' image. Alternatively, use the 'without Flux' image with `DOWNLOAD_FLUX=true` and `HF_TOKEN` set to download them.
 
 **Volumes from older versions** that hold a full copy of ComfyUI in `/workspace/ComfyUI` are moved over automatically on the first start: `models`, `input`, `output` and `user` are moved into `/workspace/comfyui-data` (a quick rename, nothing is copied), and custom nodes you installed yourself go to `/workspace/comfyui-data/custom_nodes`. The rest of the old copy, the ComfyUI code and the bundled custom nodes, is moved to `/workspace/ComfyUI.old` and not deleted. Check it for anything you still need, then delete it to free up space. Once a volume has been moved over, don't use it with an older version of this image.
 

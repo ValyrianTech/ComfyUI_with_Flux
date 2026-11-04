@@ -306,8 +306,8 @@ COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 COPY --chmod=755 download_LTX2.3.sh /download_LTX2.3.sh
 
 # Models the included workflows need are baked into the image, so it also works offline. They live in
-# /opt/comfyui-models (same layout as ComfyUI's models folder) and are linked onto the volume by
-# comfyui-on-workspace.sh instead of copied, so they cost no time or volume space on the first start.
+# /opt/comfyui-models (same layout as ComfyUI's models folder) and are copied onto the volume by
+# comfyui-on-workspace.sh, so they cost no download time on the first start.
 RUN mkdir -p /ComfyUI/models/ultralytics/bbox /ComfyUI/models/insightface && \
     mkdir -p /opt/comfyui-models/ultralytics/bbox /opt/comfyui-models/insightface && \
     wget -q "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /opt/comfyui-models/ultralytics/bbox/face_yolov8m.pt && \

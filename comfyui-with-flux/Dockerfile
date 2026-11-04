@@ -1,8 +1,10 @@
 FROM valyriantech/comfyui-without-flux:latest
 
 # Models are baked into /opt/comfyui-models (same layout as ComfyUI's models folder), so this image
-# works offline. comfyui-on-workspace.sh links them onto the network volume instead of copying them,
-# so the first start doesn't spend time copying ~30 GB and the volume holds only your own models.
+# works offline. comfyui-on-workspace.sh copies them onto the network volume on the first start, so a
+# volume set up with this image keeps them when a later pod runs the smaller without-flux image.
+# LINK_BAKED_MODELS=true links them from the image instead, so nothing is copied and the volume holds
+# only your own models.
 
 # Due to the fact that the models are in a gated repository, we need to download them separately BEFORE building this image and store them locally in a folder called flux
 # https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/ae.sft

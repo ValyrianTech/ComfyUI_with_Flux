@@ -76,18 +76,20 @@ for item in models input output user; do
 	link_to_volume "$item"
 done
 
-# The models baked into the image (/opt/comfyui-models, e.g. Flux in the with-flux image) are linked
-# onto the volume rather than copied: nothing to copy on the first start, no volume space used, and
-# ComfyUI and every custom node find them in the usual folders. A file of the same name already on
-# the volume wins. Links left by an image that had other models are removed, so no broken entries
-# show up in ComfyUI.
-# COPY_BAKED_MODELS=true copies them onto the volume instead (replacing the links), e.g. to set up a
-# volume with the with-flux image that later pods use with the smaller without-flux image.
+# The models baked into the image (/opt/comfyui-models, e.g. Flux in the with-flux image) are copied
+# onto the volume, so a volume set up with the with-flux image keeps them when a later pod runs the
+# smaller without-flux image. ComfyUI and every custom node find them in the usual folders. A file of
+# the same name already on the volume wins. Links left by an image that had other models are removed,
+# so no broken entries show up in ComfyUI.
+# LINK_BAKED_MODELS=true links them from the image instead: nothing to copy on the first start and no
+# volume space used, but the models are gone when a pod runs an image without them.
+# COPY_BAKED_MODELS=true is the default and still accepted, it forces the copy.
 BAKED=/opt/comfyui-models
 find "$DATA/models" -type l -lname "$BAKED/*" ! -exec test -e {} \; -delete 2>/dev/null
 if [[ -d "$BAKED" ]]; then
-	copy_baked=false
-	[[ "${COPY_BAKED_MODELS,,}" =~ ^(true|1|yes|on)$ ]] && copy_baked=true
+	link_baked=false
+	[[ "${LINK_BAKED_MODELS,,}" =~ ^(true|1|yes|on)$ ]] && link_baked=true
+	[[ "${COPY_BAKED_MODELS,,}" =~ ^(true|1|yes|on)$ ]] && link_baked=false
 	(cd "$BAKED" && find . -type f) | while IFS= read -r path; do
 		path=${path#./}
 		dst=$DATA/models/$path
@@ -95,11 +97,13 @@ if [[ -d "$BAKED" ]]; then
 			continue
 		fi
 		mkdir -p "$(dirname "$dst")"
-		if [[ "$copy_baked" == true ]]; then
+		if [[ "$link_baked" == true ]]; then
+			if [[ ! -L "$dst" ]]; then
+				ln -s "$BAKED/$path" "$dst" && echo "Linked models/$path from the image"
+			fi
+		else
 			echo "Copying models/$path to the volume"
 			cp --no-preserve=ownership "$BAKED/$path" "$dst.part" && mv -f "$dst.part" "$dst"
-		elif [[ ! -L "$dst" ]]; then
-			ln -s "$BAKED/$path" "$dst" && echo "Linked models/$path from the image"
 		fi
 	done
 fi
