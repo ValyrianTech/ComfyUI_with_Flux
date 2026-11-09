@@ -306,6 +306,7 @@ COPY --chmod=755 download_LTX2.sh /download_LTX2.sh
 COPY --chmod=755 download_LTX2.3.sh /download_LTX2.3.sh
 COPY --chmod=755 download_YuE2.sh /download_YuE2.sh
 COPY --chmod=755 download_MOSS.sh /download_MOSS.sh
+COPY --chmod=755 download_MiniMaxH3.sh /download_MiniMaxH3.sh
 
 # Models the included workflows need are baked into the image, so it also works offline. They live in
 # /opt/comfyui-models (same layout as ComfyUI's models folder) and are copied onto the volume by

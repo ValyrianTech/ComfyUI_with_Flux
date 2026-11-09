@@ -41,6 +41,8 @@ file_list=(
   "Upscale_SUPIR.json"
   "VibeVoice_multiple_speaker.json"
   "VibeVoice_single_speaker.json"
+  "video_minimax_h3_i2v.json"
+  "video_minimax_h3_r2v.json"
   "wan2.1_Image2Video.json"
   "wan2.1_Text2Video.json"
   "wan2.2_Image2Video.json"

@@ -37,6 +37,7 @@ SETS=(
     "vibevoice    DOWNLOAD_VIBEVOICE       download_VibeVoice.sh"
     "yue2         DOWNLOAD_YUE2            download_YuE2.sh"
     "moss         DOWNLOAD_MOSS            download_MOSS.sh"
+    "minimax_h3   DOWNLOAD_MINIMAX_H3      download_MiniMaxH3.sh"
 )
 
 is_true() {
