@@ -22,6 +22,7 @@ file_list=(
   "Flux2_ImageEdit.json"
   "Flux2_Text2Image.json"
   "Flux2_ImageEdit_8_inputs.json"
+  "image_moss_image_edit.json"
   "img2img.json"
   "img2pose.json"
   "Inpainting.json"
