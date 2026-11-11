@@ -7,7 +7,7 @@
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 ## Update 2026-10-22
-- JupyterLab always needs a login, set with the new `JUPYTER_PASSWORD` environment variable (if it's empty, a random token and a login link are printed to the pod's logs). A browser stays logged in across pod restarts.
+- JupyterLab opens straight from the RunPod link, there is no password to enter and nothing to look up in the pod's logs. Set the `JUPYTER_PASSWORD` environment variable if you want a login of your own; a browser then stays logged in across pod restarts.
 - A notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable.
 - Model downloads are opt-in (all `DOWNLOAD_*` variables are off by default) and run in the background; when `DOWNLOAD_FLUX=true`, ComfyUI waits for Flux and its text encoders before it starts (`COMFYUI_WAIT_FOR_FLUX=false` turns this off). JupyterLab starts first.
 - Relaxed file permissions, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. On network volumes where tools still fail to set permissions, `ENABLE_VOLUME_PERMS_SHIM=true` makes those calls succeed.
@@ -33,7 +33,7 @@ Only your data: models, ComfyUI's input, output and user folders (workflows, set
 - Updated ComfyUI to latest version and CUDA to 12.8, so now it supports the latest GPUs like the RTX 5090 and RTX PRO 6000
 - Added new workflows for Wan2.2 + InfiniteTalk and Qwen-image-edit-2509
 - Added workflow for VibeVoice to generate AI voices from text
-- Updated AI Toolkit to the latest version, check out the new UI! It will be started automatically on port 8675, in the environment variables you can set the password for the UI with the variable AI_TOOLKIT_AUTH (default is 'changeme')_
+- Updated AI Toolkit to the latest version, check out the new UI! It will be started automatically on port 8675, in the environment variables you can set the password for the UI with the variable AI_TOOLKIT_AUTH (default is 'changeme')
 
 ## Update 2025-03-02
 - **Added new workflows for Wan2.1 Text2Video and Image2Video**

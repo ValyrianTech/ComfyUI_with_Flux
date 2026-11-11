@@ -8,7 +8,7 @@
     - Smaller and faster image builds: the unused CUDA runtime libraries are gone (PyTorch ships its own), custom nodes are cloned without their git history, the AI-Toolkit UI builds in its own stage and Python packages are installed with `uv`.
     - AI-Toolkit's code now stays inside the image; only your configs, datasets, outputs and the UI database are persisted on the volume in `/workspace/ai-toolkit-data`. `/workspace/ai-toolkit` still works as before.
 - **Optional model downloads**: more models can be downloaded on pod start with environment variables, in the background, several files at a time and resumable, see [Downloading more models on pod start](#downloading-more-models-on-pod-start). Everything is off by default, so a pod doesn't touch the network for models unless you ask for it.
-- **JupyterLab always needs a login**: set it with the new `JUPYTER_PASSWORD` environment variable. If it's left empty, a random token is created and a login link is printed to the pod's logs. Once a browser has logged in it stays logged in, also after the pod restarts.
+- **JupyterLab opens straight from the RunPod link**: click "Connect to HTTP Service [Port 8888]" and JupyterLab opens, there is no password to enter and nothing to look up in the pod's logs. Set the `JUPYTER_PASSWORD` environment variable if you want a login of your own; once a browser has logged in it stays logged in, also after the pod restarts.
 - **CivitAI downloads from JupyterLab**: a notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable, see [Downloading models from CivitAI](#downloading-models-from-civitai).
 - **Relaxed file permissions**: files and folders in the image and on `/workspace` can be written by every user and tool, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. If your network volume refuses `chmod`/`chown` (e.g. `git clone` into `/workspace` fails with "chmod on .git/config.lock failed"), set `ENABLE_VOLUME_PERMS_SHIM=true`.
 
@@ -196,10 +196,9 @@ If you want to use a different workflow, keep in mind you must use the API forma
 ## JupyterLab
 You can use JupyterLab to upload files to your pod, like custom LoRa models or other files.
 
-Click on the "Connect to HTTP Service [Port 8888]" button to open JupyterLab.
-JupyterLab always asks for a login, because the pod's proxy URL is public and JupyterLab gives full access to the pod, including your HF_TOKEN and your files.
-Set the `JUPYTER_PASSWORD` environment variable in the template and enter it when you are asked for a token, or open `https://<pod id>-8888.proxy.runpod.net/lab?token=<your password>` to skip the login page. If `JUPYTER_PASSWORD` is left empty, a random token is created on every start and a ready-to-click login link is printed to the pod's logs.
-You only log in once per browser: the login cookie is kept valid across pod restarts and redeploys on the same network volume (the key is stored in `/workspace/.jupyter`).
+Click on the "Connect to HTTP Service [Port 8888]" button to open JupyterLab. The link opens JupyterLab directly: there is no password to enter and no token to look up in the pod's logs.
+If you want a login of your own, set the `JUPYTER_PASSWORD` environment variable in the template and enter it when you are asked for a token, or open `https://<pod id>-8888.proxy.runpod.net/lab?token=<your password>` to skip the login page.
+With `JUPYTER_PASSWORD` set you only log in once per browser: the login cookie is kept valid across pod restarts and redeploys on the same network volume (the key is stored in `/workspace/.jupyter`).
 
 JupyterLab is started first, before the volume setup and the model downloads, so you can use it while the models are still downloading.
 
@@ -214,7 +213,7 @@ Note: JupyterLab normally cannot open folders named 'checkpoints' (such as /Comf
 Patience is a virtue! This template includes all the files needed to run ComfyUI with Flux.1-dev, so it is a big file. The deployment process should take about 15 minutes to complete. 
 
 
-Update: there is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, set `COPY_BAKED_MODELS=true`, this will copy all the model files to the network volume and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
+Update: there is also a new template now for faster deploy, the idea is to use a new and empty network volume once with the 'ComfyUI with Flux' template, which copies all the model files to the network volume on the first start, and then the next time you want to deploy a new pod, you can use the same network volume but change the template to the 'ComfyUI without Flux' template. That one is much smaller as it doesn't contain the more than 20+ GB of model files so it starts up a lot faster. 
 [ComfyUI without Flux.1 dev one-click](https://www.runpod.io/console/explore/aomdggbx0y)
 
 Happy creating!
