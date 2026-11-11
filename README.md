@@ -39,8 +39,11 @@ Set these as environment variables in the RunPod template, or when deploying a p
 | `DOWNLOAD_FLORENCE2` | `false` | Florence-2 |
 | `DOWNLOAD_T5_FP16` | `false` | t5xxl fp16 text encoder |
 | `DOWNLOAD_VIBEVOICE` | `false` | VibeVoice Large and its tokenizer |
+| `DOWNLOAD_YUE2` | `false` | YuE2 text-to-music |
+| `DOWNLOAD_MOSS` | `false` | MOSS-Image text2image and image edit |
+| `DOWNLOAD_MINIMAX_H3` | `false` | MiniMax H3 image2video and reference2video |
 
-Instead of one variable per set you can also list them in `DOWNLOAD_MODELS`, for example `DOWNLOAD_MODELS=wan2.2,ltx2.3`. The names are `flux`, `kontext`, `flux2`, `wan2.1`, `wan2.2`, `infinitetalk`, `ltx2`, `ltx2.3`, `qwen_fp8`, `qwen_bf16`, `z-image`, `controlnet`, `outpainting`, `supir`, `ldsr`, `upscalers`, `florence2`, `t5_fp16` and `vibevoice`; `all` selects every set.
+Instead of one variable per set you can also list them in `DOWNLOAD_MODELS`, for example `DOWNLOAD_MODELS=wan2.2,ltx2.3`. The names are `flux`, `kontext`, `flux2`, `wan2.1`, `wan2.2`, `infinitetalk`, `ltx2`, `ltx2.3`, `qwen_fp8`, `qwen_bf16`, `z-image`, `controlnet`, `outpainting`, `supir`, `ldsr`, `upscalers`, `florence2`, `t5_fp16`, `vibevoice`, `yue2`, `moss` and `minimax_h3`; `all` selects every set.
 
 You can also download a set later from the terminal, e.g. `bash /download_LTX2.3.sh`, or run `DOWNLOAD_MODELS=ltx2.3 /download_selected.sh`. `DOWNLOAD_JOBS` (default 4) sets how many files download at once in total, across all selected sets, and `DOWNLOAD_CONNECTIONS` (default 8) how many connections each file uses.
 
