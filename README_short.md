@@ -7,16 +7,15 @@
 This is a shortened version of the README, read the full version here: [ComfyUI with Flux.1-dev README](https://github.com/ValyrianTech/ComfyUI_with_Flux/blob/main/README.md)
 
 ## Update 2026-10-22
-- JupyterLab opens straight from the RunPod link, there is no password to enter and nothing to look up in the pod's logs. Set the `JUPYTER_PASSWORD` environment variable if you want a login of your own; a browser then stays logged in across pod restarts.
-- A notebook in `/workspace/civitai` downloads models from CivitAI into the right ComfyUI folder, using aria2c with 16 connections. Set your CivitAI API key in the new `CAI_API_KEY` environment variable.
-- Model downloads are opt-in (all `DOWNLOAD_*` variables are off by default) and run in the background; when `DOWNLOAD_FLUX=true`, ComfyUI waits for Flux and its text encoders before it starts (`COMFYUI_WAIT_FOR_FLUX=false` turns this off). JupyterLab starts first.
-- Relaxed file permissions, so JupyterLab, ComfyUI-Manager and AI-Toolkit no longer hit permission errors. On network volumes where tools still fail to set permissions, `ENABLE_VOLUME_PERMS_SHIM=true` makes those calls succeed.
+- JupyterLab opens straight from the RunPod link, no password needed. Set `JUPYTER_PASSWORD` for a login of your own; browsers stay logged in across restarts.
+- A notebook in `/workspace/civitai` downloads CivitAI models into the right ComfyUI folder; set `CAI_API_KEY` first.
+- Model downloads are opt-in and run in the background; with `DOWNLOAD_FLUX=true` ComfyUI waits for Flux first (`COMFYUI_WAIT_FOR_FLUX=false` skips that). JupyterLab starts first.
 
 ## Downloading more models on pod start
-The 'with Flux' image has Flux and the models its workflows need built in; they are copied onto the network volume on the first start, so a volume set up with it keeps them when you later deploy the 'without Flux' image. Set `LINK_BAKED_MODELS=true` to link them from the image instead (nothing copied, no volume space used). Nothing else is downloaded unless you ask for it: every download is off by default. Enable sets with environment variables such as `DOWNLOAD_FLUX=true` (for the 'without Flux' image, needs `HF_TOKEN`), `DOWNLOAD_FLUX_KONTEXT=true`, `DOWNLOAD_WAN22=true`, `DOWNLOAD_LTX23=true`, `DOWNLOAD_QWEN_FP8=true`, `DOWNLOAD_MOSS=true`, `DOWNLOAD_MINIMAX_H3=true` or `DOWNLOAD_YUE2=true`, or list them in `DOWNLOAD_MODELS=wan2.2,ltx2.3`. Models already on the volume are skipped. See the full README for every option.
+The 'with Flux' image has Flux and its workflow models built in; they are copied onto the volume on the first start, so a volume set up with it keeps them with the 'without Flux' image. `LINK_BAKED_MODELS=true` links them from the image instead (no copy, no volume space). Everything else is off by default: enable sets with e.g. `DOWNLOAD_FLUX=true` (needs `HF_TOKEN`), `DOWNLOAD_WAN22=true`, `DOWNLOAD_LTX23=true`, `DOWNLOAD_MOSS=true` or `DOWNLOAD_MINIMAX_H3=true`, or list them in `DOWNLOAD_MODELS=wan2.2,ltx2.3`. Files already on the volume are skipped. See the full README for every option.
 
 ## What is stored on the network volume
-Only your data: models, ComfyUI's input, output and user folders (workflows, settings) and the custom nodes you install yourself, all in `/workspace/comfyui-data`, plus `/workspace/ai-toolkit-data`. ComfyUI's code, the bundled custom nodes and the Python environment stay in the image, so nothing is copied on the first start. `/workspace/ComfyUI` still works as before. Older volumes are moved over automatically and the leftover code is kept in `/workspace/ComfyUI.old`. See the full README for details.
+Only your data: models, input, output and user folders (workflows, settings) and your own custom nodes in `/workspace/comfyui-data`, plus `/workspace/ai-toolkit-data`. ComfyUI's code, bundled custom nodes and the Python environment stay in the image. `/workspace/ComfyUI` still works. Older volumes are moved over automatically, the leftover code is kept in `/workspace/ComfyUI.old`. See the full README for details.
 
 ## Update 2026-04-05
 - Added LTX2.3 workflows: I2V and FL2V
